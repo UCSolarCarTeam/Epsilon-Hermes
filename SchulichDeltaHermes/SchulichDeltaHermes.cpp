@@ -2,6 +2,7 @@
 #include "DataLayer/DataContainer.h"
 #include "CommunicationLayer/CommunicationContainer.h"
 #include "BusinessLayer/BusinessContainer.h"
+#include "ViewLayer/ViewContainer.h"
 
 #include "SchulichDeltaHermes.h"
 
@@ -14,6 +15,7 @@ SchulichDeltaHermes::SchulichDeltaHermes(int& argc, char** argv)
     , businessContainer_(new BusinessContainer(*infrastructureContainer_,
                          *communicationContainer_/*,
                          *dataContainer_*/))
+    , viewContainer_(new ViewContainer())
 {
 }
 
