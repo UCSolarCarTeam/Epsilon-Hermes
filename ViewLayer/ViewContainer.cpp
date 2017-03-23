@@ -7,7 +7,7 @@ ViewContainer::ViewContainer(Mode mode)
     if(mode == Mode::TELEMETRY)
     {
         telemetryDisplayUi_ = new TelemetryDisplayUi();
-        overlordWidget_.reset(*telemetryDisplayUi_);
+        overlordWidget_.reset(new OverlordWidget(*telemetryDisplayUi_));
     }
 }
 
