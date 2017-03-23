@@ -4,7 +4,7 @@
 class TelemetryDisplayUi;
 class OverlordWidget;
 
-enum class Mode { HERMES, TELEMETRY };
+enum class Mode { HEADLESS, GUI };
 
 class ViewContainer
 {

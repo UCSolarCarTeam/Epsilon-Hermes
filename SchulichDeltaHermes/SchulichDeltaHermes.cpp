@@ -1,4 +1,5 @@
-
+#include <QCommandLineOption>
+#include <QCommandLineParser>
 #include "InfrastructureLayer/InfrastructureContainer.h"
 #include "DataLayer/DataContainer.h"
 #include "CommunicationLayer/CommunicationContainer.h"
@@ -18,17 +19,16 @@ SchulichDeltaHermes::SchulichDeltaHermes(int& argc, char** argv)
                          *dataContainer_*/))
 {
     QCommandLineParser parser;
-    QCommandLineOption telemetryModeOption("t");
+    QCommandLineOption telemetryModeOption("g");
     parser.addOption(telemetryModeOption);
     parser.process(*this);
-    Mode mode = Mode::HERMES;
-
+    Mode mode = Mode::HEADLESS;
     if (parser.isSet(telemetryModeOption))
     {
-        mode = Mode::TELMETRY;
+        mode = Mode::GUI;
     }
 
-    viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
+    viewContainer_.reset(new ViewContainer(mode));
 }
 
 SchulichDeltaHermes::~SchulichDeltaHermes()
