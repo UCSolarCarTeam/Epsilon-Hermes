@@ -4,10 +4,12 @@
 class TelemetryDisplayUi;
 class OverlordWidget;
 
+enum class Mode { HERMES, TELEMETRY };
+
 class ViewContainer
 {
 public:
-    explicit ViewContainer();
+    explicit ViewContainer(Mode mode);
     ~ViewContainer();
 private:
     TelemetryDisplayUi* telemetryDisplayUi_;

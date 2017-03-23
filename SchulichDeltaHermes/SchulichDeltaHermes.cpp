@@ -1,3 +1,4 @@
+
 #include "InfrastructureLayer/InfrastructureContainer.h"
 #include "DataLayer/DataContainer.h"
 #include "CommunicationLayer/CommunicationContainer.h"
@@ -15,8 +16,19 @@ SchulichDeltaHermes::SchulichDeltaHermes(int& argc, char** argv)
     , businessContainer_(new BusinessContainer(*infrastructureContainer_,
                          *communicationContainer_/*,
                          *dataContainer_*/))
-    , viewContainer_(new ViewContainer())
 {
+    QCommandLineParser parser;
+    QCommandLineOption telemetryModeOption("t");
+    parser.addOption(telemetryModeOption);
+    parser.process(*this);
+    Mode mode = Mode::HERMES;
+
+    if (parser.isSet(telemetryModeOption))
+    {
+        mode = Mode::TELMETRY;
+    }
+
+    viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
 }
 
 SchulichDeltaHermes::~SchulichDeltaHermes()

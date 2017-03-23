@@ -2,11 +2,13 @@
 #include "TelemetryDisplayUi/TelemetryDisplayUi.h"
 #include "OverlordWidget/OverlordWidget.h"
 
-ViewContainer::ViewContainer()
-    : telemetryDisplayUi_(new TelemetryDisplayUi())
-    , overlordWidget_(new OverlordWidget(*telemetryDisplayUi_))
+ViewContainer::ViewContainer(Mode mode)
 {
-
+    if(mode == Mode::TELEMETRY)
+    {
+        telemetryDisplayUi_ = new TelemetryDisplayUi();
+        overlordWidget_.reset(*telemetryDisplayUi_);
+    }
 }
 
 ViewContainer::~ViewContainer()
