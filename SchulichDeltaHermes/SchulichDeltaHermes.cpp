@@ -23,6 +23,7 @@ SchulichDeltaHermes::SchulichDeltaHermes(int& argc, char** argv)
     parser.addOption(telemetryModeOption);
     parser.process(*this);
     Mode mode = Mode::HEADLESS;
+
     if (parser.isSet(telemetryModeOption))
     {
         mode = Mode::GUI;
