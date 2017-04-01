@@ -19,7 +19,8 @@ UdpMessageForwarder::UdpMessageForwarder(I_Settings& settings, Mode::Mode mode)
     exchangeName_ = settings.exchangeName();
     ipAddress_ = settings.ipAddress();
     udpPort_ = settings.udpPort();
-    if(mode == Mode::Mode::HEADLESS)
+
+    if (mode == Mode::Mode::HEADLESS)
     {
         setupChannel();
     }

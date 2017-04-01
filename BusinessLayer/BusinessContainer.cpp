@@ -10,7 +10,8 @@
 #include <QDebug>
 
 BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureContainer,
-                                     CommunicationContainer& communicationContainer, Mode::Mode mode/*,
+                                     CommunicationContainer& communicationContainer,
+                                     Mode::Mode mode/*,
                                      DataContainer& dataContainer*/)
     : loggerService_(new LoggerService(communicationContainer.packetSynchronizer(),
                                        communicationContainer.packetDecoder()))
@@ -29,7 +30,7 @@ BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureCont
                          communicationContainer.udpMessageForwarder(),
                          infrastructureContainer.settings(), mode))
 {
-        jsonForwarder_->startForwardingData();
+    jsonForwarder_->startForwardingData();
 }
 
 BusinessContainer::~BusinessContainer()

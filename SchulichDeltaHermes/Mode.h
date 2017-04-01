@@ -1,4 +1,5 @@
 #pragma once
-namespace Mode {
+namespace Mode
+{
     enum class Mode { HEADLESS, GUI };
 }

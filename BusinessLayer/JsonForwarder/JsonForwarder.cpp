@@ -39,7 +39,7 @@ JsonForwarder::JsonForwarder(/*I_BatteryData& batteryData,
     , forwardPeriod_(settings.forwardPeriod())
     , PACKET_TITLE_(settings.packetTitle())
 {
-    if(mode == Mode::Mode::HEADLESS)
+    if (mode == Mode::Mode::HEADLESS)
     {
         connect(readTimer_.data(), SIGNAL(timeout()), this, SLOT(forwardData()));
     }
