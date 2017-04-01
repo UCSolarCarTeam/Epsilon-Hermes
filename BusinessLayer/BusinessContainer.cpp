@@ -7,8 +7,10 @@
 #include "JsonForwarder/JsonForwarder.h"
 #include "LoggerService/LoggerService.h"
 
+#include <QDebug>
+
 BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureContainer,
-                                     CommunicationContainer& communicationContainer/*,
+                                     CommunicationContainer& communicationContainer, Mode::Mode mode/*,
                                      DataContainer& dataContainer*/)
     : loggerService_(new LoggerService(communicationContainer.packetSynchronizer(),
                                        communicationContainer.packetDecoder()))
@@ -25,9 +27,9 @@ BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureCont
                                        dataContainer.mpptData(),
                                        dataContainer.otherData(),*/
                          communicationContainer.udpMessageForwarder(),
-                         infrastructureContainer.settings()))
+                         infrastructureContainer.settings(), mode))
 {
-    jsonForwarder_->startForwardingData();
+        jsonForwarder_->startForwardingData();
 }
 
 BusinessContainer::~BusinessContainer()

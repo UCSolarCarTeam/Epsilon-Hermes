@@ -28,7 +28,8 @@ JsonForwarder::JsonForwarder(/*I_BatteryData& batteryData,
                   I_MpptData& mpptData,
                   I_OtherData& otherData,*/
     I_MessageForwarder& messageForwarder,
-    I_Settings& settings)
+    I_Settings& settings,
+    Mode::Mode mode)
     : batteryJsonForwarder_(new BatteryJsonForwarder(/*batteryData, */messageForwarder))
     , faultsJsonForwarder_(new FaultsJsonForwarder(/*faultsData, */messageForwarder))
     , powerJsonForwarder_(new PowerJsonForwarder(/*powerData, */messageForwarder))
@@ -38,7 +39,10 @@ JsonForwarder::JsonForwarder(/*I_BatteryData& batteryData,
     , forwardPeriod_(settings.forwardPeriod())
     , PACKET_TITLE_(settings.packetTitle())
 {
-    connect(readTimer_.data(), SIGNAL(timeout()), this, SLOT(forwardData()));
+    if(mode == Mode::Mode::HEADLESS)
+    {
+        connect(readTimer_.data(), SIGNAL(timeout()), this, SLOT(forwardData()));
+    }
 }
 
 JsonForwarder::~JsonForwarder()
