@@ -7,8 +7,6 @@
 #include "JsonForwarder/JsonForwarder.h"
 #include "LoggerService/LoggerService.h"
 
-#include <QDebug>
-
 BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureContainer,
                                      CommunicationContainer& communicationContainer,
                                      Mode::Mode mode/*,
