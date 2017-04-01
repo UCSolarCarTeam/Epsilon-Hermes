@@ -15,7 +15,7 @@ class BusinessContainer
 public:
     explicit BusinessContainer(InfrastructureContainer& infrastructureContainer,
                                CommunicationContainer& communicationContainer,
-                               Mode::Mode mode = Mode::Mode::HEADLESS/*,
+                               Mode::Mode mode/*,
                                DataContainer& dataContainer*/);
     ~BusinessContainer();
 
