@@ -9,13 +9,13 @@ LIBS += -L../../build/.lib -lBusinessLayer -lCommunicationLayer -lDataLayer -lIn
 PRE_TARGETDEPS += \
    ../../build/.lib/*
 
-TARGET = SchulichDeltaHermes
+TARGET = SchulichEpsilonHermes
 DESTDIR = ../../build
 
 HEADERS += \
-   SchulichDeltaHermes.h \
    Mode.h
+   SchulichEpsilonHermes.h
 
 SOURCES += \
    main.cpp \
-   SchulichDeltaHermes.cpp
+   SchulichEpsilonHermes.cpp

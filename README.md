@@ -1,6 +1,6 @@
 # README.md
 
-Hermes is a background process on the Schulich Delta's onboard computer.
+Hermes is a background process on the Schulich Elysia's onboard computer.
 It rebroadcasts a data feed from the Central Communication System and also logs the data.
 
 The name is inspired by the Olympian god Hermes who is portrayed as a messenger and scribe of the gods.
@@ -39,14 +39,14 @@ This can be installed [here](https://www.rabbitmq.com/) or via the package manag
 First, boost and cmake is required to generate the libraries below, you may install these using your appropriate package manager (such as apt-get on debian).
 The following are the commands that could be used on a debian based distro to install these dependencies if you do not already have them.
 
-`sudo apt-get install cmake libboost-dev`
+`sudo apt-get install cmake libboost-dev openssl libssl-dev libblkid-dev e2fslibs-dev libboost-all-dev libaudit-dev`
 
 SimpleAmqpClient requires rabbitmq-c, which can be downloaded and compiled from the repository [alanxz/rabbitmq-c](https://github.com/alanxz/rabbitmq-c).
-From the src directory of Hermes, start by cloning the repository from github:
+Start by cloning the repository from github, this is recommended to be done in the `/tmp/` directory:
 
 `git clone https://github.com/alanxz/rabbitmq-c`
 
-Navigate into this new folder and create a build directory with the following command:
+Create a build directory and enter it with the following command:
 
 `mkdir rabbitmq-c/build && cd rabbitmq-c/build`
 
@@ -62,14 +62,10 @@ There should now be a `.a` file in your current directory, as well as multiple `
 
 `sudo cp librabbitmq/*.so* /usr/local/lib/`
 
-Finally navigate back to the src folder:
-
-`cd ../..`
-
 3) Generating SimpleAmqpClient library
 
 SimpleAmqpClient can be downloaded and compiled from [alanxz/SimpleAmqpClient](https://github.com/alanxz/SimpleAmqpClient).
-Once again from the src directory, run the following command:
+Run the following command, recommended in the `/tmp/` directory:
 
 `git clone https://github.com/alanxz/SimpleAmqpClient`
 
@@ -83,6 +79,17 @@ Run the following commands to generate the libraries needed by Hermes:
 
 `make`
 
+4) Including the generated SimpleAmqpClient library
+
+The generated library needs to be included in the list of local libraries. To do this, first generate a directory for it:
+
+`sudo mkdir /usr/local/include/SimpleAmqpClient`
+
+Then, run the following commands to copy the library over:
+
+`sudo cp *.so* /usr/local/lib/`
+
+`sudo cp ../src/SimpleAmqpClient/*.h /usr/local/include/SimpleAmqpClient`
 
 ### Start Server
 
@@ -100,7 +107,7 @@ On linux to refresh the contents of the server perform the following commands:
 
 ## Testing
 
-Testing the Schulich Delta Desktop Hermes is done with googletest and googlemock, the gmock and gtest header files need to be in your include path /usr/local/include or /usr/include.
+Testing Hermes is done with googletest and googlemock, the gmock and gtest header files need to be in your include path `/usr/local/include` or `/usr/include`.
 
 You must compile the library that has the definitions yourself.
 Meaning you need a `libgmock.a` archive file in the test directory in order to compile the tests.
