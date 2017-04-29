@@ -19,16 +19,18 @@ SchulichEpsilonHermes::SchulichEpsilonHermes(int& argc, char** argv)
     parser.process(*this);
     Mode mode = Mode::HEADLESS;
     bool isGui = false;
+
     if (parser.isSet(telemetryModeOption))
     {
         mode = Mode::GUI;
     }
 
-    if(mode == Mode::GUI)
-    {   
+    if (mode == Mode::GUI)
+    {
         isGui = true;
-        viewContainer_.reset(new ViewContainer());   
+        viewContainer_.reset(new ViewContainer());
     }
+
     communicationContainer_.reset(new CommunicationContainer(*dataContainer_, *infrastructureContainer_, isGui));
     businessContainer_.reset(new BusinessContainer(*infrastructureContainer_, *communicationContainer_, isGui));
 }
