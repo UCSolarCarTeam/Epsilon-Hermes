@@ -1,13 +1,14 @@
 #pragma once
 #include <QScopedPointer>
-#include "../SchulichDeltaHermes/Mode.h"
 class TelemetryDisplayUi;
 class OverlordWidget;
+
+enum class Mode { HEADLESS, GUI };
 
 class ViewContainer
 {
 public:
-    explicit ViewContainer(Mode::Mode mode);
+    explicit ViewContainer();
     ~ViewContainer();
 private:
     TelemetryDisplayUi* telemetryDisplayUi_;

@@ -4,7 +4,6 @@
 #include <QUdpSocket>
 #include <QThread>
 #include "CommunicationLayer/CommDeviceControl/I_MessageForwarder.h"
-#include "../../SchulichDeltaHermes/Mode.h"
 
 class I_Settings;
 
@@ -12,7 +11,7 @@ class UdpMessageForwarder : public I_MessageForwarder
 {
     Q_OBJECT
 public:
-    UdpMessageForwarder(I_Settings& settings, Mode::Mode mode = Mode::Mode::HEADLESS);
+    UdpMessageForwarder(I_Settings& settings, bool isGui = false);
     virtual ~UdpMessageForwarder();
 
 public slots:

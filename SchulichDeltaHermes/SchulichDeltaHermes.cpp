@@ -5,7 +5,6 @@
 #include "CommunicationLayer/CommunicationContainer.h"
 #include "BusinessLayer/BusinessContainer.h"
 #include "ViewLayer/ViewContainer.h"
-#include "Mode.h"
 
 #include "SchulichDeltaHermes.h"
 
@@ -18,16 +17,20 @@ SchulichDeltaHermes::SchulichDeltaHermes(int& argc, char** argv)
     QCommandLineOption telemetryModeOption("g");
     parser.addOption(telemetryModeOption);
     parser.process(*this);
-    Mode::Mode mode = Mode::Mode::HEADLESS;
-
+    Mode mode = Mode::HEADLESS;
+    bool isGui = false;
     if (parser.isSet(telemetryModeOption))
     {
-        mode = Mode::Mode::GUI;
+        mode = Mode::GUI;
     }
 
-    viewContainer_.reset(new ViewContainer(mode));
-    communicationContainer_.reset(new CommunicationContainer(*dataContainer_, *infrastructureContainer_, mode));
-    businessContainer_.reset(new BusinessContainer(*infrastructureContainer_, *communicationContainer_, mode));
+    if(mode == Mode::GUI)
+    {   
+        isGui = true;
+        viewContainer_.reset(new ViewContainer());   
+    }
+    communicationContainer_.reset(new CommunicationContainer(*dataContainer_, *infrastructureContainer_, isGui));
+    businessContainer_.reset(new BusinessContainer(*infrastructureContainer_, *communicationContainer_, isGui));
 }
 
 SchulichDeltaHermes::~SchulichDeltaHermes()

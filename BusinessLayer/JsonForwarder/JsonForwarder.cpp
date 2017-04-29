@@ -29,7 +29,7 @@ JsonForwarder::JsonForwarder(/*I_BatteryData& batteryData,
                   I_OtherData& otherData,*/
     I_MessageForwarder& messageForwarder,
     I_Settings& settings,
-    Mode::Mode mode)
+    bool isGui)
     : batteryJsonForwarder_(new BatteryJsonForwarder(/*batteryData, */messageForwarder))
     , faultsJsonForwarder_(new FaultsJsonForwarder(/*faultsData, */messageForwarder))
     , powerJsonForwarder_(new PowerJsonForwarder(/*powerData, */messageForwarder))
@@ -39,7 +39,7 @@ JsonForwarder::JsonForwarder(/*I_BatteryData& batteryData,
     , forwardPeriod_(settings.forwardPeriod())
     , PACKET_TITLE_(settings.packetTitle())
 {
-    if (mode == Mode::Mode::HEADLESS)
+    if (!isGui)
     {
         connect(readTimer_.data(), SIGNAL(timeout()), this, SLOT(forwardData()));
     }

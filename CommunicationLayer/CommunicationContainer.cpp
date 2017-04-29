@@ -23,9 +23,9 @@
 class CommunicationContainerPrivate
 {
 public:
-    CommunicationContainerPrivate(DataContainer& dataContainer, InfrastructureContainer& infrastructureContainer, Mode::Mode mode)
+    CommunicationContainerPrivate(DataContainer& dataContainer, InfrastructureContainer& infrastructureContainer, bool isGui)
         : radioCommDevice(serialPort, infrastructureContainer.settings())
-        , messageForwarder(infrastructureContainer.settings(), mode)
+        , messageForwarder(infrastructureContainer.settings(), isGui)
         , packetSynchronizer(radioCommDevice)
         , packetUnstuffer(packetSynchronizer)
         , packetChecksumChecker(packetUnstuffer)
@@ -60,8 +60,8 @@ public:
     MpptPopulator mpptPopulator;
 };
 
-CommunicationContainer::CommunicationContainer(DataContainer& dataContainer, InfrastructureContainer& infrastructureContainer, Mode::Mode mode)
-    : impl_(new CommunicationContainerPrivate(dataContainer, infrastructureContainer, mode))
+CommunicationContainer::CommunicationContainer(DataContainer& dataContainer, InfrastructureContainer& infrastructureContainer, bool isGui)
+    : impl_(new CommunicationContainerPrivate(dataContainer, infrastructureContainer, isGui))
 {
 }
 

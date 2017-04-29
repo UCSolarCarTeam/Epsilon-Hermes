@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QScopedPointer>
-#include "../SchulichDeltaHermes/Mode.h"
 
 class CommunicationContainer;
 class DataContainer;
@@ -15,7 +14,7 @@ class BusinessContainer
 public:
     explicit BusinessContainer(InfrastructureContainer& infrastructureContainer,
                                CommunicationContainer& communicationContainer,
-                               Mode::Mode mode/*,
+                               bool isGuis/*,
                                DataContainer& dataContainer*/);
     ~BusinessContainer();
 

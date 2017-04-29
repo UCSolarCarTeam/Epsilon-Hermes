@@ -14,13 +14,13 @@ namespace
     quint32 SLEEP_TIME = 2;
 }
 
-UdpMessageForwarder::UdpMessageForwarder(I_Settings& settings, Mode::Mode mode)
+UdpMessageForwarder::UdpMessageForwarder(I_Settings& settings, bool isGui)
 {
     exchangeName_ = settings.exchangeName();
     ipAddress_ = settings.ipAddress();
     udpPort_ = settings.udpPort();
 
-    if (mode == Mode::Mode::HEADLESS)
+    if (!isGui)
     {
         setupChannel();
     }

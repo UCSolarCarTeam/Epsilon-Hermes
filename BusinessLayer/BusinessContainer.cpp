@@ -9,7 +9,7 @@
 
 BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureContainer,
                                      CommunicationContainer& communicationContainer,
-                                     Mode::Mode mode/*,
+                                     bool isGui/*,
                                      DataContainer& dataContainer*/)
     : loggerService_(new LoggerService(communicationContainer.packetSynchronizer(),
                                        communicationContainer.packetDecoder()))
@@ -26,7 +26,7 @@ BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureCont
                                        dataContainer.mpptData(),
                                        dataContainer.otherData(),*/
                          communicationContainer.udpMessageForwarder(),
-                         infrastructureContainer.settings(), mode))
+                         infrastructureContainer.settings(), isGui))
 {
     jsonForwarder_->startForwardingData();
 }

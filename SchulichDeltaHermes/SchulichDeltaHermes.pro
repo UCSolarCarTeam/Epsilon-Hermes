@@ -13,8 +13,7 @@ TARGET = SchulichDeltaHermes
 DESTDIR = ../../build
 
 HEADERS += \
-   SchulichDeltaHermes.h \
-   Mode.h
+   SchulichDeltaHermes.h
 
 SOURCES += \
    main.cpp \
