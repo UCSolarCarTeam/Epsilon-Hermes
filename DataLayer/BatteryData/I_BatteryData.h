@@ -11,96 +11,104 @@ public:
 
     enum PrechargeState
     {
-        ERROR = 0,
-        IDLE = 1,
+        IDLE = 0,
+        PRECHARGE = 1,
         MEASURE = 2,
-        PRECHARGE = 3,
-        RUN = 4,
-        ENABLE_PACK = 5,
-        DEFAULT = 6
+        ENABLE_PACK = 3,
+        RUN = 4
     };
 
     /*Data "Gets"*/
-    virtual unsigned char getAlive() const = 0;
-    virtual float getPackSocAmpHours() const = 0;
-    virtual float getPackSocPercentage() const = 0;
-    virtual float getPackBalanceSoc() const = 0;
-    virtual float getPackBalanceSocPercentage() const = 0;
-    virtual unsigned short getChargingCellVoltageError() const = 0;
-    virtual unsigned short getCellTemperatureMargin() const = 0;
-    virtual unsigned short getDischargingCellVoltageError() const = 0;
-    virtual unsigned short getTotalPackCapacity() const = 0;
-    virtual bool getContactor0ErrorStatus() const = 0;
-    virtual bool getContactor1ErrorStatus() const = 0;
-    virtual bool getContactor0Status() const = 0;
-    virtual bool getContactor1Status() const = 0;
-    virtual bool getContactorSupplyOk() const = 0;
-    virtual bool getContactor2ErrorStatus() const = 0;
-    virtual bool getContactor2Status() const = 0;
+    virtual bool getAlive() const = 0;
+    virtual unsigned char getBmsRelayStatus() const = 0;
+    virtual unsigned char getPopulatedCells() const = 0;
+    virtual float get12VInputVoltage() const = 0;
+    virtual float getFanVoltage() const = 0;
+    virtual float getPackCurrent() const = 0;
+    virtual float getPackVoltage() const = 0;
+    virtual float getPackStateOfCharge() const = 0;
+    virtual float getPackAmphours() const = 0;
+    virtual float getPackDepthOfDischarge() const = 0;
+    virtual unsigned char getHighTemperature() const = 0;
+    virtual unsigned char getHighThermistorId() const = 0;
+    virtual unsigned char getLowTemperature() const = 0;
+    virtual unsigned char getLowThermistorId() const = 0;
+    virtual unsigned char getAverageTemperature() const = 0;
+    virtual unsigned char getInternalTemperature() const = 0;
+    virtual unsigned char getFanSpeed() const = 0;
+    virtual unsigned char getRequestedFanSpeed() const = 0;
+    virtual unsigned short getLowCellVoltage() const = 0;
+    virtual unsigned char getLowCellVoltageId() const = 0;
+    virtual unsigned short getHighCellVoltage() const = 0;
+    virtual unsigned char getHighCellVoltageId() const = 0;
+    virtual unsigned short getAverageCellVoltage() const = 0;
     virtual PrechargeState getPrechargeState() const = 0;
-    virtual unsigned char getPrechargeTimerElapsed() const = 0;
-    virtual unsigned short getPrechargeTimerCount() const = 0;
-    virtual QPair<unsigned char, unsigned short>& getLowestCellVoltage() = 0;
-    virtual QPair<unsigned char, unsigned short>& getHighestCellVoltage() = 0;
-    virtual QPair<unsigned char, unsigned short>& getLowestCellTemperature() = 0;
-    virtual QPair<unsigned char, unsigned short>& getHighestCellTemperature() = 0;
-    virtual unsigned int getVoltage() const = 0;
-    virtual unsigned int getCurrent() const = 0;
-    virtual unsigned short getFan0Speed() const = 0;
-    virtual unsigned short getFan1Speed() const = 0;
-    virtual unsigned short getFanContactors12VCurrentConsumption() const = 0;
-    virtual unsigned short getCmu12VCurrentConsumption() const = 0;
-    virtual unsigned char getBmsCanLockedOut() const = 0;
+    virtual unsigned char getAuxVoltage() const = 0;
+    virtual bool getAuxBmsAlive() const = 0;
+
+    /* BMS relay status getter */
+    virtual bool bmsDischargeRelayEnabled() const = 0;
+    virtual bool bmsChargeRelayEnabaled() const = 0;
+    virtual bool bmsChargerSafetyEnabled() const = 0;
+    virtual bool bmsMalfunctionIndicatorActive() const = 0;
+    virtual bool bmsGetMultiPurposeInputSignalStatus() const = 0;
+    virtual bool bmsGetAlwaysOnSignalStatus() const = 0;
+    virtual bool bmsGetIsReadySignalStatus() const = 0;
+    virtual bool bmsGetIsChargingSignalStatus() const = 0;
 
     /*BatteryData "Sets"*/
-    virtual void setAlive(const unsigned char&) = 0;
-    virtual void setPackSocAmpHours(const float&) = 0;
-    virtual void setPackSocPercentage(const float&) = 0;
-    virtual void setPackBalanceSoc(const float&) = 0;
-    virtual void setPackBalanceSocPercentage(const float&) = 0;
-    virtual void setChargingCellVoltageError(const unsigned short&) = 0;
-    virtual void setCellTemperatureMargin(const unsigned short&) = 0;
-    virtual void setDischargingCellVoltageError(const unsigned short&) = 0;
-    virtual void setTotalPackCapacity(const unsigned short&) = 0;
-    virtual void setPrechargeContactorDriverStatus(const unsigned char&) = 0;
+    virtual void setAlive(const bool&) = 0;
+    virtual void setBmsRelayStatus(const unsigned char&) = 0;
+    virtual void setPopulatedCells(const unsigned char&) = 0;
+    virtual void set12VInputVoltage(const float&) = 0;
+    virtual void setFanVoltage(const float&) = 0;
+    virtual void setPackCurrent(const float&) = 0;
+    virtual void setPackVoltage(const float&) = 0;
+    virtual void setPackStateOfCharge(const float&) = 0;
+    virtual void setPackAmphours(const float&) = 0;
+    virtual void setPackDepthOfDischarge(const float&) = 0;
+    virtual void setHighTemperature(const unsigned char&) = 0;
+    virtual void setHighThermistorId(const unsigned char&) = 0;
+    virtual void setLowTemperature(const unsigned char&) = 0;
+    virtual void setLowThermistorId(const unsigned char&) = 0;
+    virtual void setAverageTemperature(const unsigned char&) = 0;
+    virtual void setInternalTemperature(const unsigned char&) = 0;
+    virtual void setFanSpeed(const unsigned char&) = 0;
+    virtual void setRequestedFanSpeed(const unsigned char&) = 0;
+    virtual void setLowCellVoltage(const unsigned short&) = 0;
+    virtual void setLowCellVoltageId(const unsigned char&) = 0;
+    virtual void setHighCellVoltage(const unsigned short&) = 0;
+    virtual void setHighCellVoltageId(const unsigned char&) = 0;
+    virtual void setAverageCellVoltage(const unsigned short&) = 0;
     virtual void setPrechargeState(const unsigned char&) = 0;
-    virtual void setPrechargeTimerElapsed(const unsigned char&) = 0;
-    virtual void setPrechargeTimerCount(const unsigned short&) = 0;
-    virtual void setLowestCellVoltage(const unsigned char&, const unsigned short&) = 0;
-    virtual void setHighestCellVoltage(const unsigned char&, const unsigned short&) = 0;
-    virtual void setLowestCellTemperature(const unsigned char&, const unsigned short&) = 0;
-    virtual void setHighestCellTemperature(const unsigned char&, const unsigned short&) = 0;
-    virtual void setVoltage(const unsigned int&) = 0;
-    virtual void setCurrent(const unsigned int&) = 0;
-    virtual void setFan0Speed(const unsigned short&) = 0;
-    virtual void setFan1Speed(const unsigned short&) = 0;
-    virtual void setFanContactors12VCurrentConsumption(const unsigned short&) = 0;
-    virtual void setCmu12VCurrentConsumption(const unsigned short&) = 0;
-    virtual void setBmsCanLockedOut(const unsigned char&) = 0;
+    virtual void setAuxVoltage(const unsigned char&) = 0;
+    virtual void setAuxBmsAlive(const bool&) = 0;
 
 signals:
-    void aliveReceived(const unsigned char& alive);
-    void packSocAmpHoursReceived(const float& packSocAmpHours);
-    void packSocPercentageReceived(const float& packSocPercentage);
-    void packBalanceSocReceived(const float& packBalanceSoc);
-    void packBalanceSocPercentageReceived(const float& packBalanceSocPercentage);
-    void chargingCellVoltageErrorReceived(const unsigned short& chargingCellVoltageError);
-    void cellTemperatureMarginReceived(const unsigned short& cellTemperatureMargin);
-    void dischargingCellVoltageErrorReceived(const unsigned short& dischargingCellVoltageError);
-    void totalPackCapacityReceived(const unsigned short& totalPackCapacity);
-    void prechargeContactorDriverStatusReceived(const unsigned char& prechargeContactorDriverStatus);
-    void prechargeStateReceived(const unsigned char& prechargeState);
-    void prechargeTimerElapsedReceived(const unsigned char& prechargeTimerElapsed);
-    void prechargeTimerCountReceived(const unsigned short& prechargeTimerCount);
-    void lowestCellVoltageReceived(const QPair<unsigned char, unsigned short>& lowestCellVoltage);
-    void highestCellVoltageReceived(const QPair<unsigned char, unsigned short>& highestCellVoltage);
-    void lowestCellTemperatureReceived(const QPair<unsigned char, unsigned short>& lowestCellTemperature);
-    void highestCellTemperatureReceived(const QPair<unsigned char, unsigned short>& highestCellTemperature);
-    void voltageReceived(const unsigned int& voltage);
-    void currentReceived(const unsigned int& current);
-    void fan0SpeedReceived(const unsigned short& fan0Speed);
-    void fan1SpeedReceived(const unsigned short& fan1Speed);
-    void fanContactors12VCurrentConsumptionReceived(const unsigned short& fanContactors12VCurrentConsumption);
-    void cmu12VCurrentConsumptionReceived(const unsigned short& cmu12VCurrentConsumption);
-    void bmsCanLockedOutReceived(const unsigned char& bmsCanLockedOut);
+    void aliveReceived(const bool& alive);
+    void bmsRelayStatusReceived(const unsigned char&);
+    void populatedCellsReceived(const unsigned char&);
+    void inputVoltage12VReceived(const float&);
+    void fanVoltageReceived(const float&);
+    void packCurrentReceived(const float&);
+    void packVoltageReceived(const float&);
+    void packStateOfChargeReceived(const float&);
+    void packAmphoursReceived(const float&);
+    void packDepthOfDischargeReceived(const float&);
+    void highTemperatureReceived(const unsigned char&);
+    void highThermistorIdReceived(const unsigned char&);
+    void lowTemperatureReceived(const unsigned char&);
+    void lowThermistorIdReceived(const unsigned char&);
+    void averageTemperatureReceived(const unsigned char&);
+    void internalTemperatureReceived(const unsigned char&);
+    void fanSpeedReceived(const unsigned char&);
+    void requestedFanSpeedReceived(const unsigned char&);
+    void lowCellVoltageReceived(const unsigned short&);
+    void lowCellVoltageIdReceived(const unsigned char&);
+    void highCellVoltageReceived(const unsigned short&);
+    void highCellVoltageIdReceived(const unsigned char&);
+    void averageCellVoltageReceived(const unsigned short&);
+    void prechargeStateReceived(const unsigned char&);
+    void auxVoltageReceived(const unsigned char&);
+    void auxBmsAliveReceived(const bool&);
 };

@@ -8,7 +8,8 @@ class BatteryFaultsMessage
 public:
     BatteryFaultsMessage(QByteArray& messageData);
 
-    unsigned char batteryFaultsFlags() const;
+    unsigned int errorFlags() const;
+    unsigned short limitFlags() const;
 
     QString toString() const;
 

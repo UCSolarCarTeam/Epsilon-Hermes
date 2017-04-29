@@ -9,5 +9,6 @@ BatteryFaultsPopulator::BatteryFaultsPopulator(I_PacketDecoder& packetDecoder, I
 
 void BatteryFaultsPopulator::populateData(const BatteryFaultsMessage message)
 {
-    batteryFaultsData_.setErrorFlag(message.batteryFaultsFlags());
+    batteryFaultsData_.setErrorFlags(message.errorFlags());
+    batteryFaultsData_.setLimitFlags(message.limitFlags());
 }

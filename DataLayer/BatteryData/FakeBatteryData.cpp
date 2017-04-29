@@ -7,182 +7,202 @@ FakeBatteryData::FakeBatteryData()
 FakeBatteryData::~FakeBatteryData()
 {
 }
-
 /*Data "Gets"*/
-unsigned char FakeBatteryData::getAlive() const
+bool FakeBatteryData::getAlive() const
 {
-    return 1;
+    return true;
 }
 
-float FakeBatteryData::getPackSocAmpHours() const
+unsigned char FakeBatteryData::getBmsRelayStatus() const
+{
+    return 255; // 255 to make it consistent to the flag getters
+}
+
+unsigned char FakeBatteryData::getPopulatedCells() const
 {
     return 2;
 }
 
-float FakeBatteryData::getPackSocPercentage() const
+float FakeBatteryData::get12VInputVoltage() const
 {
     return 3;
 }
 
-float FakeBatteryData::getPackBalanceSoc() const
+float FakeBatteryData::getFanVoltage() const
 {
     return 4;
 }
 
-float FakeBatteryData::getPackBalanceSocPercentage() const
+float FakeBatteryData::getPackCurrent() const
 {
     return 5;
 }
 
-unsigned short FakeBatteryData::getChargingCellVoltageError() const
+float FakeBatteryData::getPackVoltage() const
 {
     return 6;
 }
 
-unsigned short FakeBatteryData::getCellTemperatureMargin() const
+float FakeBatteryData::getPackStateOfCharge() const
 {
     return 7;
 }
 
-unsigned short FakeBatteryData::getDischargingCellVoltageError() const
+float FakeBatteryData::getPackAmphours() const
 {
     return 8;
 }
 
-unsigned short FakeBatteryData::getTotalPackCapacity() const
+float FakeBatteryData::getPackDepthOfDischarge() const
 {
     return 9;
 }
 
-bool FakeBatteryData::getContactor0ErrorStatus() const
+unsigned char FakeBatteryData::getHighTemperature() const
 {
-    return true;
+    return 10;
 }
 
-bool FakeBatteryData::getContactor1ErrorStatus() const
+unsigned char FakeBatteryData::getHighThermistorId() const
 {
-    return true;
+    return 11;
 }
 
-bool FakeBatteryData::getContactor0Status() const
-{
-    return true;
-}
-
-bool FakeBatteryData::getContactor1Status() const
-{
-    return true;
-}
-
-bool FakeBatteryData::getContactorSupplyOk() const
-{
-    return true;
-}
-
-bool FakeBatteryData::getContactor2ErrorStatus() const
-{
-    return true;
-}
-
-bool FakeBatteryData::getContactor2Status() const
-{
-    return true;
-}
-
-
-PrechargeState FakeBatteryData::getPrechargeState() const
-{
-    return PrechargeState::ERROR;
-}
-
-unsigned char FakeBatteryData::getPrechargeTimerElapsed() const
+unsigned char FakeBatteryData::getLowTemperature() const
 {
     return 12;
 }
 
-unsigned short FakeBatteryData::getPrechargeTimerCount() const
+unsigned char FakeBatteryData::getLowThermistorId() const
 {
     return 13;
 }
 
-QPair<unsigned char, unsigned short>& FakeBatteryData::getLowestCellVoltage() const
+unsigned char FakeBatteryData::getAverageTemperature() const
 {
-    return QPair<unsigned char, unsigned short>(0, 0);
+    return 14;
 }
 
-QPair<unsigned char, unsigned short>& FakeBatteryData::getHighestCellVoltage() const
+unsigned char FakeBatteryData::getInternalTemperature() const
 {
-    return QPair<unsigned char, unsigned short>(0, 0);
+    return 15;
 }
 
-QPair<unsigned char, unsigned short>& FakeBatteryData::getLowestCellTemperature() const
+unsigned char FakeBatteryData::getFanSpeed() const
 {
-    return QPair<unsigned char, unsigned short>(0, 0);
+    return 0; // has to be between 0 and 6
 }
 
-QPair<unsigned char, unsigned short>& FakeBatteryData::getHighestCellTemperature() const
+unsigned char FakeBatteryData::getRequestedFanSpeed() const
 {
-    return QPair<unsigned char, unsigned short>(0, 0);
+    return 1; // has to be between 0 and 6
 }
 
-
-unsigned int FakeBatteryData::getVoltage() const
+unsigned short FakeBatteryData::getLowCellVoltage() const
 {
-    return 22;
+    return 16;
 }
 
-unsigned int FakeBatteryData::getCurrent() const
+unsigned char FakeBatteryData::getLowCellVoltageId() const
 {
-    return 23;
+    return 17;
 }
 
-unsigned short FakeBatteryData::getFan0Speed() const
+unsigned short FakeBatteryData::getHighCellVoltage() const
 {
-    return 24;
+    return 18;
 }
 
-unsigned short FakeBatteryData::getFan1Speed() const
+unsigned char FakeBatteryData::getHighCellVoltageId() const
 {
-    return 25;
+    return 19;
 }
 
-unsigned short FakeBatteryData::getFanContactors12VCurrentConsumption() const
+unsigned short FakeBatteryData::getAverageCellVoltage() const
 {
-    return 26;
+    return 20;
 }
 
-unsigned short FakeBatteryData::getCmu12VCurrentConsumption() const
+FakeBatteryData::PrechargeState FakeBatteryData::getPrechargeState() const
 {
-    return 27;
+    return PrechargeState::IDLE;
 }
 
-unsigned char FakeBatteryData::getBmsCanLockedOut() const
+unsigned char FakeBatteryData::getAuxVoltage() const
 {
-    return 1;
+    return 21;
+}
+
+bool FakeBatteryData::getAuxBmsAlive() const
+{
+    return true;
+}
+
+/* BMS relay status getter */
+bool FakeBatteryData::bmsDischargeRelayEnabled() const
+{
+    return true;
+}
+
+bool FakeBatteryData::bmsChargeRelayEnabaled() const
+{
+    return true;
+}
+
+bool FakeBatteryData::bmsChargerSafetyEnabled() const
+{
+    return true;
+}
+
+bool FakeBatteryData::bmsMalfunctionIndicatorActive() const
+{
+    return true;
+}
+
+bool FakeBatteryData::bmsGetMultiPurposeInputSignalStatus() const
+{
+    return true;
+}
+
+bool FakeBatteryData::bmsGetAlwaysOnSignalStatus() const
+{
+    return true;
+}
+
+bool FakeBatteryData::bmsGetIsReadySignalStatus() const
+{
+    return true;
+}
+
+bool FakeBatteryData::bmsGetIsChargingSignalStatus() const
+{
+    return true;
 }
 
 /*BatteryData "Sets"*/
-void FakeBatteryData::setAlive(const unsigned char& alive) {}
-void FakeBatteryData::setPackSocAmpHours(const float& packSocAmpHours) {}
-void FakeBatteryData::setPackSocPercentage(const float& packSocPercentage) {}
-void FakeBatteryData::setPackBalanceSoc(const float& packBalanceSoc) {}
-void FakeBatteryData::setPackBalanceSocPercentage(const float& packBalanceSocPercentage) {}
-void FakeBatteryData::setChargingCellVoltageError(const unsigned short& chargingCellVoltageError) {}
-void FakeBatteryData::setCellTemperatureMargin(const unsigned short& cellTemperatureMargin) {}
-void FakeBatteryData::setDischargingCellVoltageError(const unsigned short& dischargingCellVoltageError) {}
-void FakeBatteryData::setTotalPackCapacity(const unsigned short& totalPackCapacity) {}
-void FakeBatteryData::setPrechargeContactorDriverStatus(const unsigned char& prechargeContactorDriverStatus) {}
-void FakeBatteryData::setPrechargeState(const unsigned char& prechargeState) {}
-void FakeBatteryData::setPrechargeTimerElapsed(const unsigned char& prechargeTimerElapsed) {}
-void FakeBatteryData::setPrechargeTimerCount(const unsigned short& prechargeTimerCount) {}
-void FakeBatteryData::setLowestCellVoltage(const unsigned short lowestCellVoltage&, const unsigned char& lowestCellVoltageNumber) {}
-void FakeBatteryData::setHighestCellVoltage(const unsigned short highestCellVoltage&, const unsigned char& highestCellVoltageNumber) {}
-void FakeBatteryData::setLowestCellTemperature(const unsigned short lowestCellTemperature&, const unsigned char& lowestCellTemperatureNumber) {}
-void FakeBatteryData::setHighestCellTemperature(const unsigned short highestCellTemperature&, const unsigned char& highestCellTemperatureNumber) {}
-void FakeBatteryData::setVoltage(const unsigned int& voltage) {}
-void FakeBatteryData::setCurrent(const unsigned int& current) {}
-void FakeBatteryData::setFan0Speed(const unsigned short& fan0Speed) {}
-void FakeBatteryData::setFan1Speed(const unsigned short& fan1Speed) {}
-void FakeBatteryData::setFanContactors12VCurrentConsumption(const unsigned short& fanContactors12VCurrentConsumption) {}
-void FakeBatteryData::setCmu12VCurrentConsumption(const unsigned short& cmu12VCurrentConsumption) {}
-void FakeBatteryData::setBmsCanLockedOut(const unsigned char& bmsCanLockedOut) {}
+void FakeBatteryData::setAlive(const unsigned char&) {}
+void FakeBatteryData::setBmsRelayStatus(const unsigned char&) {}
+void FakeBatteryData::setPopulatedCells(const unsigned char&) {}
+void FakeBatteryData::set12VInputVoltage(const float&) {}
+void FakeBatteryData::setFanVoltage(const float&) {}
+void FakeBatteryData::setPackCurrent(const float&) {}
+void FakeBatteryData::setPackVoltage(const float&) {}
+void FakeBatteryData::setPackStateOfCharge(const float&) {}
+void FakeBatteryData::setPackAmphours(const float&) {}
+void FakeBatteryData::setPackDepthOfDischarge(const float&) {}
+void FakeBatteryData::setHighTemperature(const unsigned char&) {}
+void FakeBatteryData::setHighThermistorId(const unsigned char&) {}
+void FakeBatteryData::setLowTemperature(const unsigned char&) {}
+void FakeBatteryData::setLowThermistorId(const unsigned char&) {}
+void FakeBatteryData::setAverageTemperature(const unsigned char&) {}
+void FakeBatteryData::setInternalTemperature(const unsigned char&) {}
+void FakeBatteryData::setFanSpeed(const unsigned char&) {}
+void FakeBatteryData::setRequestedFanSpeed(const unsigned char&) {}
+void FakeBatteryData::setLowCellVoltage(const unsigned short&) {}
+void FakeBatteryData::setLowCellVoltageId(const unsigned char&) {}
+void FakeBatteryData::setHighCellVoltage(const unsigned short&) {}
+void FakeBatteryData::setHighCellVoltageId(const unsigned char&) {}
+void FakeBatteryData::setAverageCellVoltage(const unsigned short&) {}
+void FakeBatteryData::setPrechargeState(const unsigned char&) {}
+void FakeBatteryData::setAuxVoltage(const unsigned char&) {}
+void FakeBatteryData::setAuxBmsAlive(const unsigned char&) {}

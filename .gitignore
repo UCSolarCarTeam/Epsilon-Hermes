@@ -1,4 +1,4 @@
-SchulichDeltaDesktopTelemetry.pro.*
+*.pro.*
 *.autosave
 Makefile*
 *.o

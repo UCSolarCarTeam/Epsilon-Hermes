@@ -162,13 +162,13 @@ void LoggerService::connectToPacketDecoder(const I_PacketDecoder& decoder)
 void LoggerService::markStartOfDebugLog() const
 {
     qDebug() << "===================================================";
-    qDebug() << "             Schulich Delta Hermes Started";
+    qDebug() << "             Schulich Epsilon Hermes Started";
     qDebug() << "===================================================";
 }
 
 void LoggerService::markEndOfDebugLog() const
 {
     qDebug() << "===================================================";
-    qDebug() << "             Schulich Delta Hermes Closed";
+    qDebug() << "             Schulich Epsilon Hermes Closed";
     qDebug() << "===================================================";
 }
