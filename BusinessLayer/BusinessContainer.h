@@ -13,7 +13,8 @@ class BusinessContainer
 {
 public:
     explicit BusinessContainer(InfrastructureContainer& infrastructureContainer,
-                               CommunicationContainer& communicationContainer/*,
+                               CommunicationContainer& communicationContainer,
+                               bool isGuis/*,
                                DataContainer& dataContainer*/);
     ~BusinessContainer();
 

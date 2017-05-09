@@ -11,7 +11,7 @@ class UdpMessageForwarder : public I_MessageForwarder
 {
     Q_OBJECT
 public:
-    UdpMessageForwarder(I_Settings& settings);
+    UdpMessageForwarder(I_Settings& settings, bool isGui = false);
     virtual ~UdpMessageForwarder();
 
 public slots:

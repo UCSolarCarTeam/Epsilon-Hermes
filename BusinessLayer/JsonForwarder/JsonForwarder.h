@@ -37,7 +37,8 @@ public:
                   I_MpptData& mpptData,
                   I_OtherData& otherData,*/
         I_MessageForwarder& messageForwarder,
-        I_Settings& settings);
+        I_Settings& settings,
+        bool isGui);
     virtual ~JsonForwarder();
     void startForwardingData();
 

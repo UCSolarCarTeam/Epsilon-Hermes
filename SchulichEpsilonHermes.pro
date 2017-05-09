@@ -8,5 +8,6 @@ SUBDIRS = \
    DataLayer \
    CommunicationLayer \
    BusinessLayer \
+   ViewLayer \
    Tests \
    SchulichEpsilonHermes

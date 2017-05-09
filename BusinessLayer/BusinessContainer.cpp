@@ -8,7 +8,8 @@
 #include "LoggerService/LoggerService.h"
 
 BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureContainer,
-                                     CommunicationContainer& communicationContainer/*,
+                                     CommunicationContainer& communicationContainer,
+                                     bool isGui/*,
                                      DataContainer& dataContainer*/)
     : loggerService_(new LoggerService(communicationContainer.packetSynchronizer(),
                                        communicationContainer.packetDecoder()))
@@ -25,7 +26,7 @@ BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureCont
                                        dataContainer.mpptData(),
                                        dataContainer.otherData(),*/
                          communicationContainer.udpMessageForwarder(),
-                         infrastructureContainer.settings()))
+                         infrastructureContainer.settings(), isGui))
 {
     jsonForwarder_->startForwardingData();
 }
