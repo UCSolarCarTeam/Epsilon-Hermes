@@ -1,6 +1,7 @@
 #include "InfrastructureContainer.h"
 #include "Settings/Settings.h"
 #include "Logging/Logging.h"
+#include <QCoreApplication>
 
 namespace
 {
@@ -8,9 +9,10 @@ namespace
 }
 
 InfrastructureContainer::InfrastructureContainer()
-    : settings_(new Settings(SETTINGS_FILE_NAME))
-    , logging_(Logging::instance())
+    : logging_(Logging::instance())
 {
+    //settings_(new Settings(SETTINGS_FILE_NAME))
+    settings_.reset(new Settings(QCoreApplication::applicationDirPath() + "/config.ini"));
     if (settings_->loggingEnabled())
     {
         logging_.init(settings_->logLevel());
