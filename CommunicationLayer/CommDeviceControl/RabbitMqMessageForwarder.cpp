@@ -10,8 +10,8 @@
 
 namespace
 {
-    quint32 TIMEOUT = 120;
-    quint32 SLEEP_TIME = 2;
+quint32 TIMEOUT = 120;
+quint32 SLEEP_TIME = 2;
 }
 
 RabbitMqMessageForwarder::RabbitMqMessageForwarder(I_Settings& settings)

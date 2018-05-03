@@ -4,46 +4,46 @@
 
 namespace
 {
-    // error flag masks
-    const unsigned int INTERNAL_COMMUNICATION_FAULT_MASK      = 0x00000001;
-    const unsigned int INTERNAL_CONVERSION_FAULT_MASK         = 0x00000002;
-    const unsigned int WEAK_CELL_FAULT_MASK                   = 0x00000004;
-    const unsigned int LOW_CELL_VOLTAGE_FAULT_MASK            = 0x00000008;
-    const unsigned int OPEN_WIRING_FAULT_MASK                 = 0x00000010;
-    const unsigned int CURRENT_SENSOR_FAULT_MASK              = 0x00000020;
-    const unsigned int PACK_VOLTAGE_SENSOR_FAULT_MASK         = 0x00000040;
-    const unsigned int WEAK_PACK_FAULT_MASK                   = 0x00000080;
-    const unsigned int VOLTAGE_REDUNDANCY_FAULT_MASK          = 0x00000100;
-    const unsigned int FAN_MONITOR_FAULT_MASK                 = 0x00000200;
-    const unsigned int THERMISTOR_FAULT_MASK                  = 0x00000400;
-    const unsigned int CANBUS_COMMUNICATIONS_FAULT_MASK       = 0x00000800;
-    const unsigned int ALWAYS_ON_SUPPLY_FAULT_MASK            = 0x00001000;
-    const unsigned int HIGH_VOLTAGE_ISOLATION_FAULT_MASK      = 0x00002000;
-    const unsigned int POWER_SUPPLY_12V_FAULT_MASK            = 0x00004000;
-    const unsigned int CHARGE_LIMIT_ENFORCEMENT_FAULT_MASK    = 0x00008000;
-    const unsigned int DISCHARGE_LIMIT_ENFORCEMENT_FAULT_MASK = 0x00010000;
-    const unsigned int CHARGER_SAFETY_RELAY_FAULT_MASK        = 0x00020000;
-    const unsigned int INTERNAL_MEMORY_FAULT_MASK             = 0x00040000;
-    const unsigned int INTERNAL_THERMISTOR_FAULT_MASK         = 0x00080000;
-    const unsigned int INTERNAL_LOGIC_FAULT_MASK              = 0x00100000;
+// error flag masks
+const unsigned int INTERNAL_COMMUNICATION_FAULT_MASK      = 0x00000001;
+const unsigned int INTERNAL_CONVERSION_FAULT_MASK         = 0x00000002;
+const unsigned int WEAK_CELL_FAULT_MASK                   = 0x00000004;
+const unsigned int LOW_CELL_VOLTAGE_FAULT_MASK            = 0x00000008;
+const unsigned int OPEN_WIRING_FAULT_MASK                 = 0x00000010;
+const unsigned int CURRENT_SENSOR_FAULT_MASK              = 0x00000020;
+const unsigned int PACK_VOLTAGE_SENSOR_FAULT_MASK         = 0x00000040;
+const unsigned int WEAK_PACK_FAULT_MASK                   = 0x00000080;
+const unsigned int VOLTAGE_REDUNDANCY_FAULT_MASK          = 0x00000100;
+const unsigned int FAN_MONITOR_FAULT_MASK                 = 0x00000200;
+const unsigned int THERMISTOR_FAULT_MASK                  = 0x00000400;
+const unsigned int CANBUS_COMMUNICATIONS_FAULT_MASK       = 0x00000800;
+const unsigned int ALWAYS_ON_SUPPLY_FAULT_MASK            = 0x00001000;
+const unsigned int HIGH_VOLTAGE_ISOLATION_FAULT_MASK      = 0x00002000;
+const unsigned int POWER_SUPPLY_12V_FAULT_MASK            = 0x00004000;
+const unsigned int CHARGE_LIMIT_ENFORCEMENT_FAULT_MASK    = 0x00008000;
+const unsigned int DISCHARGE_LIMIT_ENFORCEMENT_FAULT_MASK = 0x00010000;
+const unsigned int CHARGER_SAFETY_RELAY_FAULT_MASK        = 0x00020000;
+const unsigned int INTERNAL_MEMORY_FAULT_MASK             = 0x00040000;
+const unsigned int INTERNAL_THERMISTOR_FAULT_MASK         = 0x00080000;
+const unsigned int INTERNAL_LOGIC_FAULT_MASK              = 0x00100000;
 
-    // limit flag masks
-    const unsigned short DCL_REDUCED_DUE_TO_LOW_SOC_MASK              = 0x0001;
-    const unsigned short DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTENCE_MASK = 0x0002;
-    const unsigned short DCL_REDUCED_DUE_TO_TEMPERATURE_MASK          = 0x0004;
-    const unsigned short DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE_MASK     = 0x0008;
-    const unsigned short DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE_MASK     = 0x0010;
-    // 0x0020 N/A
-    const unsigned short DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE_MASK       = 0x0040;
-    const unsigned short DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE_MASK = 0x0080;
-    // 0x0100 N/A
-    const unsigned short CCL_REDUCED_DUE_TO_HIGH_SOC_MASK                = 0x0200;
-    const unsigned short CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTENCE_MASK    = 0x0400;
-    const unsigned short CCL_REDUCED_DUE_TO_TEMPERATURE_MASK             = 0x0800;
-    const unsigned short CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE_MASK       = 0x1000;
-    const unsigned short CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE_MASK       = 0x2000;
-    const unsigned short CCL_REDUCED_DUE_TO_CHARGER_LATCH_MASK           = 0x4000;
-    const unsigned short CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT_MASK = 0x8000;
+// limit flag masks
+const unsigned short DCL_REDUCED_DUE_TO_LOW_SOC_MASK              = 0x0001;
+const unsigned short DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTENCE_MASK = 0x0002;
+const unsigned short DCL_REDUCED_DUE_TO_TEMPERATURE_MASK          = 0x0004;
+const unsigned short DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE_MASK     = 0x0008;
+const unsigned short DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE_MASK     = 0x0010;
+// 0x0020 N/A
+const unsigned short DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE_MASK       = 0x0040;
+const unsigned short DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE_MASK = 0x0080;
+// 0x0100 N/A
+const unsigned short CCL_REDUCED_DUE_TO_HIGH_SOC_MASK                = 0x0200;
+const unsigned short CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTENCE_MASK    = 0x0400;
+const unsigned short CCL_REDUCED_DUE_TO_TEMPERATURE_MASK             = 0x0800;
+const unsigned short CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE_MASK       = 0x1000;
+const unsigned short CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE_MASK       = 0x2000;
+const unsigned short CCL_REDUCED_DUE_TO_CHARGER_LATCH_MASK           = 0x4000;
+const unsigned short CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT_MASK = 0x8000;
 }
 
 BatteryFaultsData::BatteryFaultsData()

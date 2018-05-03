@@ -2,26 +2,26 @@
 
 namespace
 {
-    const unsigned char HEADLIGHTS_OFF_OFFSET = 0x1;
-    const unsigned char HEADLIGHTS_LOW_OFFSET = 0x2;
-    const unsigned char HEADLIGHTS_HIGH_OFFSET = 0x4;
-    const unsigned char SIGNAL_RIGHT_OFFSET = 0x8;
-    const unsigned char SIGNAL_LEFT_OFFSET = 0x10;
-    const unsigned char HAZARD_OFFSET = 0x20;
-    const unsigned char INTERIOR_OFFSET = 0x40;
+const unsigned char HEADLIGHTS_OFF_OFFSET = 0x1;
+const unsigned char HEADLIGHTS_LOW_OFFSET = 0x2;
+const unsigned char HEADLIGHTS_HIGH_OFFSET = 0x4;
+const unsigned char SIGNAL_RIGHT_OFFSET = 0x8;
+const unsigned char SIGNAL_LEFT_OFFSET = 0x10;
+const unsigned char HAZARD_OFFSET = 0x20;
+const unsigned char INTERIOR_OFFSET = 0x40;
 
-    const unsigned char VOLUME_UP_OFFSET = 0x1;
-    const unsigned char VOLUME_DOWN_OFFSET = 0x2;
-    const unsigned char NEXT_SONG_OFFSET = 0x4;
-    const unsigned char PREVIOUS_SONG_OFFSET = 0x8;
+const unsigned char VOLUME_UP_OFFSET = 0x1;
+const unsigned char VOLUME_DOWN_OFFSET = 0x2;
+const unsigned char NEXT_SONG_OFFSET = 0x4;
+const unsigned char PREVIOUS_SONG_OFFSET = 0x8;
 
-    const unsigned char BRAKES_OFFSET = 0x1;
-    const unsigned char FORWARD_OFFSET = 0x2;
-    const unsigned char REVERSE_OFFSET = 0x4;
-    const unsigned char PUSH_TO_TALK_OFFSET = 0x8;
-    const unsigned char HORN_OFFSET = 0x10;
-    const unsigned char RESET_OFFSET = 0x20;
-    const unsigned char AUX_OFFSET = 0x40;
+const unsigned char BRAKES_OFFSET = 0x1;
+const unsigned char FORWARD_OFFSET = 0x2;
+const unsigned char REVERSE_OFFSET = 0x4;
+const unsigned char PUSH_TO_TALK_OFFSET = 0x8;
+const unsigned char HORN_OFFSET = 0x10;
+const unsigned char RESET_OFFSET = 0x20;
+const unsigned char AUX_OFFSET = 0x40;
 }
 
 DriverControlsData::DriverControlsData()

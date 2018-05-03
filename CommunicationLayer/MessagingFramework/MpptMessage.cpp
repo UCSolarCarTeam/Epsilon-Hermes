@@ -6,14 +6,14 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
-    const int MPPT_STATUS_OFFSET = 1;
-    const int ARRAY_VOLTAGE_OFFSET = 2;
-    const int ARRAY_CURRENT_OFFSET = 4;
-    const int BATTERY_VOLTAGE_OFFSET = 6;
-    const int TEMPERATURE_OFFSET = 8;
+const int MPPT_STATUS_OFFSET = 1;
+const int ARRAY_VOLTAGE_OFFSET = 2;
+const int ARRAY_CURRENT_OFFSET = 4;
+const int BATTERY_VOLTAGE_OFFSET = 6;
+const int TEMPERATURE_OFFSET = 8;
 
-    const unsigned char NUMBER_MASK = 0x3;
-    const unsigned char STATUS_MASK = 0x80;
+const unsigned char NUMBER_MASK = 0x3;
+const unsigned char STATUS_MASK = 0x80;
 }
 
 MpptMessage::MpptMessage(const QByteArray& messageData)

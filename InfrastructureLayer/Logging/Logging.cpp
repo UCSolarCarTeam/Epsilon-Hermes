@@ -9,14 +9,14 @@
 
 namespace
 {
-    QString LOG_DIR = "/log/";
-    QString LOG_NAME = "epsilon-hermes-";
-    QString LOG_DATE_FORMAT = "yyyy-MM-dd";
-    QString LOG_EXT = ".log";
+QString LOG_DIR = "/log/";
+QString LOG_NAME = "epsilon-hermes-";
+QString LOG_DATE_FORMAT = "yyyy-MM-dd";
+QString LOG_EXT = ".log";
 
-    QString LOG_DATETIME_FORMAT = "yyyy-MM-dd-hh-mm-ss-zzz-t";
-    QString DEBUG_MSG_FORMAT = "[%1] (%2, %3:%4) %5\n"; // datetime, file, function, line, msg
-    QString NON_DEBUG_MSG_FORMAT = "[%1] (%2) %3\n"; // datetime, file, msg
+QString LOG_DATETIME_FORMAT = "yyyy-MM-dd-hh-mm-ss-zzz-t";
+QString DEBUG_MSG_FORMAT = "[%1] (%2, %3:%4) %5\n"; // datetime, file, function, line, msg
+QString NON_DEBUG_MSG_FORMAT = "[%1] (%2) %3\n"; // datetime, file, msg
 }
 
 void Logging::init(int level)
@@ -25,32 +25,32 @@ void Logging::init(int level)
 
     switch (level)
     {
-        case 4:
-            logLevel_ = Logging::DEBUG;
-            break;
+    case 4:
+        logLevel_ = Logging::DEBUG;
+        break;
 
-        case 3:
-            logLevel_ = Logging::INFO;
-            break;
+    case 3:
+        logLevel_ = Logging::INFO;
+        break;
 
-        case 2:
-            logLevel_ = Logging::WARNING;
-            break;
+    case 2:
+        logLevel_ = Logging::WARNING;
+        break;
 
-        case 1:
-            logLevel_ = Logging::CRITICAL;
-            break;
+    case 1:
+        logLevel_ = Logging::CRITICAL;
+        break;
 
-        case 0:
-            logLevel_ = Logging::FATAL;
-            break;
+    case 0:
+        logLevel_ = Logging::FATAL;
+        break;
 
-        default:
-            logLevel_ = Logging::DEBUG;
-            qWarning() << "Configured log level unrecognized. "
-                       << "DEBUG=0,INFO=1,WARNING=2,CRITICAL=3,FATAL=4. "
-                       << "Defaulting to DEBUG.";
-            break;
+    default:
+        logLevel_ = Logging::DEBUG;
+        qWarning() << "Configured log level unrecognized. "
+                   << "DEBUG=0,INFO=1,WARNING=2,CRITICAL=3,FATAL=4. "
+                   << "Defaulting to DEBUG.";
+        break;
     }
 
     // Because Epsilon Hermes is meant for a solar car
@@ -134,45 +134,45 @@ void Logging::logMessageHandler(
     // Prepend log level
     switch (type)
     {
-        case QtDebugMsg:
-            if (instance().logLevel() > LogLevel::DEBUG)
-            {
-                return;
-            }
+    case QtDebugMsg:
+        if (instance().logLevel() > LogLevel::DEBUG)
+        {
+            return;
+        }
 
-            logMsg = "DEBUG: " + logMsg;
-            break;
+        logMsg = "DEBUG: " + logMsg;
+        break;
 
-        case QtInfoMsg:
-            if (instance().logLevel() > LogLevel::INFO)
-            {
-                return;
-            }
+    case QtInfoMsg:
+        if (instance().logLevel() > LogLevel::INFO)
+        {
+            return;
+        }
 
-            logMsg = "INFO: " + logMsg;
-            break;
+        logMsg = "INFO: " + logMsg;
+        break;
 
-        case QtWarningMsg:
-            if (instance().logLevel() > LogLevel::WARNING)
-            {
-                return;
-            }
+    case QtWarningMsg:
+        if (instance().logLevel() > LogLevel::WARNING)
+        {
+            return;
+        }
 
-            logMsg = "WARNING: " + logMsg;
-            break;
+        logMsg = "WARNING: " + logMsg;
+        break;
 
-        case QtCriticalMsg:
-            if (instance().logLevel() > LogLevel::CRITICAL)
-            {
-                return;
-            }
+    case QtCriticalMsg:
+        if (instance().logLevel() > LogLevel::CRITICAL)
+        {
+            return;
+        }
 
-            logMsg = "CRITICAL: " + logMsg;
-            break;
+        logMsg = "CRITICAL: " + logMsg;
+        break;
 
-        case QtFatalMsg:
-            logMsg = "FATAL: " + logMsg;
-            break;
+    case QtFatalMsg:
+        logMsg = "FATAL: " + logMsg;
+        break;
     }
 
     // Finally print to file and also to stderr

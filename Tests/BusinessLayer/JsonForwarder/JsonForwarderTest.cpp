@@ -31,10 +31,10 @@ using ::testing::NiceMock;
 
 namespace
 {
-    const int FORWARD_INTERVAL_MSEC = 50;
-    const int FORWARD_ITERATIONS = 10;
-    const QString PACKET_TITLE = "Gen5";
-    const QString MYSQL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+const int FORWARD_INTERVAL_MSEC = 50;
+const int FORWARD_ITERATIONS = 10;
+const QString PACKET_TITLE = "Gen5";
+const QString MYSQL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 }
 
 class JsonForwarderTest : public ::testing::Test

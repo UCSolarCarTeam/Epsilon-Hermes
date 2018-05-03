@@ -5,7 +5,7 @@
 
 namespace
 {
-    const QSettings::Format SETTINGS_FILE_FORMAT = QSettings::IniFormat;
+const QSettings::Format SETTINGS_FILE_FORMAT = QSettings::IniFormat;
 }
 
 Settings::Settings(QString filepath)

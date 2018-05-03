@@ -7,7 +7,7 @@
 
 namespace
 {
-    const QString TEST_FILE_PATH = "testconfig.ini";
+const QString TEST_FILE_PATH = "testconfig.ini";
 }
 
 class SettingsTest : public ::testing::Test

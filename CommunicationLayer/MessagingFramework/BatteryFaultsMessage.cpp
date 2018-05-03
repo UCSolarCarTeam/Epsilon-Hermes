@@ -6,8 +6,8 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
-    const int ERROR_FLAGS_OFFSET = 1;
-    const int LIMIT_FLAGS_OFFSET = 4;
+const int ERROR_FLAGS_OFFSET = 1;
+const int LIMIT_FLAGS_OFFSET = 4;
 }
 
 BatteryFaultsMessage::BatteryFaultsMessage(QByteArray& messageData)
