@@ -2,7 +2,6 @@
 
 namespace MessageDefines
 {
-    <<< <<< < HEAD
     enum Type
     {
         KEY_MOTOR = 1,
@@ -15,7 +14,6 @@ namespace MessageDefines
         MPPT = 9,
         LIGHTS = 10
     };
-    == == == =
         enum Type
     {
         KEY_MOTOR = 1,
@@ -29,7 +27,6 @@ namespace MessageDefines
         LIGHTS = 10,
         AUX_BMS = 11
     };
-    >>> >>> > 227d8702b3bff7120ac7c83dab80ab0c8e26281e
 
     int getLengthForMessage(Type type);
 }
