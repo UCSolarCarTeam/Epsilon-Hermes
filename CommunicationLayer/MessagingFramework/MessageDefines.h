@@ -14,7 +14,7 @@ namespace MessageDefines
         MPPT = 9,
         LIGHTS = 10
     };
-        enum Type
+    enum Type
     {
         KEY_MOTOR = 1,
         MOTOR_0_DETAILS = 2,
