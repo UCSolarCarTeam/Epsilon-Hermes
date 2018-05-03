@@ -6,12 +6,12 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
-const int DRIVER_CONTROLS_BOARD_ALIVE_OFFSET = 1;
-const int LIGHTS_INPUTS_OFFSET = 2;
-const int MUSIC_INPUTS_OFFSET = 3;
-const int ACCELERATION_OFFSET = 4;
-const int REGEN_BRAKING_OFFSET = 6;
-const int DRIVER_INPUTS_OFFSET = 8;
+    const int DRIVER_CONTROLS_BOARD_ALIVE_OFFSET = 1;
+    const int LIGHTS_INPUTS_OFFSET = 2;
+    const int MUSIC_INPUTS_OFFSET = 3;
+    const int ACCELERATION_OFFSET = 4;
+    const int REGEN_BRAKING_OFFSET = 6;
+    const int DRIVER_INPUTS_OFFSET = 8;
 }
 
 DriverControlsMessage::DriverControlsMessage(const QByteArray& messageData)

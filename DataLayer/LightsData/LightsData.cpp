@@ -2,12 +2,12 @@
 
 namespace
 {
-const unsigned char LOW_BEAMS_OFFSET = 0x1;
-const unsigned char HIGH_BEAMS_OFFSET = 0x2;
-const unsigned char BRAKES_OFFSET = 0x4;
-const unsigned char LEFT_SIGNAL_OFFSET = 0x8;
-const unsigned char RIGHT_SIGNAL_OFFSET = 0x10;
-const unsigned char BMS_STROBE_LIGHT_OFFSET = 0x20;
+    const unsigned char LOW_BEAMS_OFFSET = 0x1;
+    const unsigned char HIGH_BEAMS_OFFSET = 0x2;
+    const unsigned char BRAKES_OFFSET = 0x4;
+    const unsigned char LEFT_SIGNAL_OFFSET = 0x8;
+    const unsigned char RIGHT_SIGNAL_OFFSET = 0x10;
+    const unsigned char BMS_STROBE_LIGHT_OFFSET = 0x20;
 }
 
 LightsData::LightsData()

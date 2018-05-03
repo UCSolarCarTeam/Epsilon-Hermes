@@ -5,35 +5,35 @@
 
 namespace
 {
-const int UNION_SIZE = 4;
+    const int UNION_SIZE = 4;
 
-enum Type { FLOAT = 1, UNSIGNED_SHORT = 2, UNSIGNED_CHAR = 3, UNSIGNED_INT = 4 };
+    enum Type { FLOAT = 1, UNSIGNED_SHORT = 2, UNSIGNED_CHAR = 3, UNSIGNED_INT = 4 };
 
-int numberOfBytesInData(Type type)
-{
-    switch (type)
+    int numberOfBytesInData(Type type)
     {
-    case FLOAT:
-        return sizeof(float);
-        break;
+        switch (type)
+        {
+            case FLOAT:
+                return sizeof(float);
+                break;
 
-    case UNSIGNED_SHORT:
-        return sizeof(unsigned short);
-        break;
+            case UNSIGNED_SHORT:
+                return sizeof(unsigned short);
+                break;
 
-    case UNSIGNED_CHAR:
-        return sizeof(unsigned char);
-        break;
+            case UNSIGNED_CHAR:
+                return sizeof(unsigned char);
+                break;
 
-    case UNSIGNED_INT:
-        return sizeof(unsigned int);
-        break;
+            case UNSIGNED_INT:
+                return sizeof(unsigned int);
+                break;
 
-    default:
-        qCritical() << "MessageDecodingHelpers: Invalid type";
-        return -1;
+            default:
+                qCritical() << "MessageDecodingHelpers: Invalid type";
+                return -1;
+        }
     }
-}
 }
 
 template <class T>

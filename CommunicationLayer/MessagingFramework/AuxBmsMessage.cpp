@@ -6,12 +6,12 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
-const int PRECHARGE_STATE_OFFSET = 1;
-const int AUX_VOLTAGE_OFFSET = 2;
-const int AUX_BMS_ALIVE_OFFSET = 3;
-const int STROBE_BMS_LIGHT_OFFSET = 4;
-const int ALLOW_CHARGE_OFFSET = 5;
-const int CONTACTOR_ERROR_OFFSET = 6;
+    const int PRECHARGE_STATE_OFFSET = 1;
+    const int AUX_VOLTAGE_OFFSET = 2;
+    const int AUX_BMS_ALIVE_OFFSET = 3;
+    const int STROBE_BMS_LIGHT_OFFSET = 4;
+    const int ALLOW_CHARGE_OFFSET = 5;
+    const int CONTACTOR_ERROR_OFFSET = 6;
 }
 
 AuxBmsMessage::AuxBmsMessage(const QByteArray& messageData)

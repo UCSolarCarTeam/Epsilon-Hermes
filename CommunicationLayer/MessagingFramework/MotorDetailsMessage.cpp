@@ -8,23 +8,23 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
-const int PACKAGE_ID_OFFSET = 0;
-const int PHASE_CCURRENT_OFFSET = 1;
-const int PHASE_BCURRENT_OFFSET = 5;
-const int MOTOR_VOLTAGE_REAL_OFFSET = 9;
-const int MOTOR_VOLTAGE_IMAGINARY_OFFSET = 13;
-const int MOTOR_CURRENT_REAL_OFFSET = 17;
-const int MOTOR_CURRENT_IMAGINARY_OFFSET = 21;
-const int BACK_EMF_OFFSET = 25;
-const int VOLTAGE_RAIL_SUPPPLY_15_V_OFFSET = 29;
-const int VOLTAGE_RAIL_SUPPLY_33_V_OFFSET = 33;
-const int VOLTAGE_RAIL_SUPPLY_19_V_OFFSET = 37;
-const int HEAT_SINK_TEMPERATURE_OFFSET = 41;
-const int MOTOR_TEMPERATURE_OFFSET = 45;
-const int DSP_BOARD_TEMPERATURE_OFFSET = 49;
-const int DC_BUS_AMP_HOURS_OFFSET = 53;
-const int ODOMETER_OFFSET = 57;
-const int SLIP_SPEED_OFFSET = 61;
+    const int PACKAGE_ID_OFFSET = 0;
+    const int PHASE_CCURRENT_OFFSET = 1;
+    const int PHASE_BCURRENT_OFFSET = 5;
+    const int MOTOR_VOLTAGE_REAL_OFFSET = 9;
+    const int MOTOR_VOLTAGE_IMAGINARY_OFFSET = 13;
+    const int MOTOR_CURRENT_REAL_OFFSET = 17;
+    const int MOTOR_CURRENT_IMAGINARY_OFFSET = 21;
+    const int BACK_EMF_OFFSET = 25;
+    const int VOLTAGE_RAIL_SUPPPLY_15_V_OFFSET = 29;
+    const int VOLTAGE_RAIL_SUPPLY_33_V_OFFSET = 33;
+    const int VOLTAGE_RAIL_SUPPLY_19_V_OFFSET = 37;
+    const int HEAT_SINK_TEMPERATURE_OFFSET = 41;
+    const int MOTOR_TEMPERATURE_OFFSET = 45;
+    const int DSP_BOARD_TEMPERATURE_OFFSET = 49;
+    const int DC_BUS_AMP_HOURS_OFFSET = 53;
+    const int ODOMETER_OFFSET = 57;
+    const int SLIP_SPEED_OFFSET = 61;
 }
 
 MotorDetailsMessage::MotorDetailsMessage(const QByteArray& messageData)

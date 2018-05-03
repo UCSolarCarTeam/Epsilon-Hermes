@@ -5,7 +5,7 @@
 
 namespace
 {
-const int MINIMUM_LENGTH_OF_A_PACKET = 4;
+    const int MINIMUM_LENGTH_OF_A_PACKET = 4;
 }
 
 PacketUnstuffer::PacketUnstuffer(const I_PacketSynchronizer& packetSynchronizer)

@@ -6,14 +6,14 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
-const int M0_ERROR_FLAGS = 1;
-const int M1_ERROR_FLAGS = 2;
-const int M0_LIMIT_FLAGS = 3;
-const int M1_LIMIT_FLAGS = 4;
-const int M0_CAN_RX_ERROR_COUNT = 5;
-const int M0_CAN_TX_ERROR_COUNT = 6;
-const int M1_CAN_RX_ERROR_COUNT = 7;
-const int M1_CAN_TX_ERROR_COUNT = 8;
+    const int M0_ERROR_FLAGS = 1;
+    const int M1_ERROR_FLAGS = 2;
+    const int M0_LIMIT_FLAGS = 3;
+    const int M1_LIMIT_FLAGS = 4;
+    const int M0_CAN_RX_ERROR_COUNT = 5;
+    const int M0_CAN_TX_ERROR_COUNT = 6;
+    const int M1_CAN_RX_ERROR_COUNT = 7;
+    const int M1_CAN_TX_ERROR_COUNT = 8;
 }
 
 MotorFaultsMessage::MotorFaultsMessage(QByteArray& messageData)

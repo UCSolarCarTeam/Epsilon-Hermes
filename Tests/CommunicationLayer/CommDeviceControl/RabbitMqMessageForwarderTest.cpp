@@ -16,13 +16,13 @@ using ::testing::NiceMock;
 
 namespace
 {
-const QString MOCK_IP = QString("localhost");
-const quint16 MOCK_PORT = 5672;
-const QString MOCK_QUEUE = "test-queue";
-const QString MOCK_EXCHANGE = "testExchange";
-const QString EXPECTED_1 = "Message Test";
-const QString EXPECTED_2 = "Second Message Test";
-const QString EXPECTED_3 = "Sp3c1a1** Ch4r4c74r5__ 7357";
+    const QString MOCK_IP = QString("localhost");
+    const quint16 MOCK_PORT = 5672;
+    const QString MOCK_QUEUE = "test-queue";
+    const QString MOCK_EXCHANGE = "testExchange";
+    const QString EXPECTED_1 = "Message Test";
+    const QString EXPECTED_2 = "Second Message Test";
+    const QString EXPECTED_3 = "Sp3c1a1** Ch4r4c74r5__ 7357";
 }
 
 class RabbitMqMessageForwarderTest : public ::testing::Test

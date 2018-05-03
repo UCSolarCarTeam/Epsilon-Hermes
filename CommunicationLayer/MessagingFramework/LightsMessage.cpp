@@ -6,8 +6,8 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
-const int ALIVE_OFFSET = 1;
-const int LIGHT_STATUS_OFFSET = 2;
+    const int ALIVE_OFFSET = 1;
+    const int LIGHT_STATUS_OFFSET = 2;
 }
 
 LightsMessage::LightsMessage(const QByteArray& messageData)

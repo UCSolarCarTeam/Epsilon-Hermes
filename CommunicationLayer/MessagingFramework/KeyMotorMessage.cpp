@@ -4,18 +4,18 @@
 
 namespace
 {
-const int M_0_ALIVE_OFFSET = 1;
-const int M_0_SET_CURRENT_OFFSET = 2;
-const int M_0_SET_VELOCITY_OFFSET = 6;
-const int M_0_BUS_CURRENT_OFFSET = 10;
-const int M_0_BUS_VOLTAGE_OFFSET = 14;
-const int M_0_VEHICLE_VELOCITY_OFFSET = 18;
-const int M_1_ALIVE_OFFSET = 22;
-const int M_1_SET_CURRENT_OFFSET = 23;
-const int M_1_SET_VELOCITY_OFFSET = 27;
-const int M_1_BUS_CURRENT_OFFSET = 31;
-const int M_1_BUS_VOLTAGE_OFFSET = 35;
-const int M_1_VEHICLE_VELOCITY_OFFSET = 39;
+    const int M_0_ALIVE_OFFSET = 1;
+    const int M_0_SET_CURRENT_OFFSET = 2;
+    const int M_0_SET_VELOCITY_OFFSET = 6;
+    const int M_0_BUS_CURRENT_OFFSET = 10;
+    const int M_0_BUS_VOLTAGE_OFFSET = 14;
+    const int M_0_VEHICLE_VELOCITY_OFFSET = 18;
+    const int M_1_ALIVE_OFFSET = 22;
+    const int M_1_SET_CURRENT_OFFSET = 23;
+    const int M_1_SET_VELOCITY_OFFSET = 27;
+    const int M_1_BUS_CURRENT_OFFSET = 31;
+    const int M_1_BUS_VOLTAGE_OFFSET = 35;
+    const int M_1_VEHICLE_VELOCITY_OFFSET = 39;
 }
 
 KeyMotorMessage::KeyMotorMessage(const QByteArray& messageData)

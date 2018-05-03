@@ -2,14 +2,14 @@
 
 namespace
 {
-const unsigned char BMS_DISCHARGE_RELAY_OFFSET = 0x1;
-const unsigned char BMS_CHARGE_RELAY_OFFSET = 0x2;
-const unsigned char BMS_CHARGER_SAFETY_OFFSET = 0x4;
-const unsigned char BMS_MALFUNCTION_INDICATOR_OFFSET = 0x8;
-const unsigned char BMS_MULTI_PURPOSE_INPUT_OFFSET = 0x10;
-const unsigned char BMS_ALWAYS_ON_OFFSET = 0x20;
-const unsigned char BMS_IS_READY_OFFSET = 0x40;
-const unsigned char BMS_IS_CHARGING_OFFSET = 0x80;
+    const unsigned char BMS_DISCHARGE_RELAY_OFFSET = 0x1;
+    const unsigned char BMS_CHARGE_RELAY_OFFSET = 0x2;
+    const unsigned char BMS_CHARGER_SAFETY_OFFSET = 0x4;
+    const unsigned char BMS_MALFUNCTION_INDICATOR_OFFSET = 0x8;
+    const unsigned char BMS_MULTI_PURPOSE_INPUT_OFFSET = 0x10;
+    const unsigned char BMS_ALWAYS_ON_OFFSET = 0x20;
+    const unsigned char BMS_IS_READY_OFFSET = 0x40;
+    const unsigned char BMS_IS_CHARGING_OFFSET = 0x80;
 }
 
 BatteryData::BatteryData()

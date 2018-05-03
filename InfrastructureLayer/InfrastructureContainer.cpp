@@ -11,6 +11,7 @@ InfrastructureContainer::InfrastructureContainer()
     : logging_(Logging::instance())
 {
     settings_.reset(new Settings(QCoreApplication::applicationDirPath() + "/config.ini"));
+
     if (settings_->loggingEnabled())
     {
         logging_.init(settings_->logLevel());

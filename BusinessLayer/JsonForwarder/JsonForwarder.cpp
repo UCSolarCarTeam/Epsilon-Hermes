@@ -12,7 +12,7 @@
 
 namespace
 {
-const QString MYSQL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    const QString MYSQL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 }
 
 JsonForwarder::JsonForwarder(
