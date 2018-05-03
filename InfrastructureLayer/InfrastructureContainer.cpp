@@ -5,13 +5,11 @@
 
 namespace
 {
-    QString SETTINGS_FILE_NAME = "config.ini";
 }
 
 InfrastructureContainer::InfrastructureContainer()
     : logging_(Logging::instance())
 {
-    //settings_(new Settings(SETTINGS_FILE_NAME))
     settings_.reset(new Settings(QCoreApplication::applicationDirPath() + "/config.ini"));
     if (settings_->loggingEnabled())
     {
