@@ -21,29 +21,29 @@ QJsonObject JsonMessageBuilder::buildAuxBmsMessage(const I_AuxBmsData& data)
 
     switch (data.getPrechargeState())
     {
-        case I_AuxBmsData::PrechargeState::OFF:
-            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "OFF";
-            break;
+    case I_AuxBmsData::PrechargeState::OFF:
+        auxBmsJson[JsonFormat::PRECHARGE_STATE] = "OFF";
+        break;
 
-        case I_AuxBmsData::PrechargeState::COMMON_ENGAGED:
-            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "COMMON_ENGAGED";
-            break;
+    case I_AuxBmsData::PrechargeState::COMMON_ENGAGED:
+        auxBmsJson[JsonFormat::PRECHARGE_STATE] = "COMMON_ENGAGED";
+        break;
 
-        case I_AuxBmsData::PrechargeState::CHARGE_ENGAGED:
-            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "CHARGE_ENGAGED";
-            break;
+    case I_AuxBmsData::PrechargeState::CHARGE_ENGAGED:
+        auxBmsJson[JsonFormat::PRECHARGE_STATE] = "CHARGE_ENGAGED";
+        break;
 
-        case I_AuxBmsData::PrechargeState::DISCHARGE_ENGAGED:
-            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "DISCHARGE_ENGAGED";
-            break;
+    case I_AuxBmsData::PrechargeState::DISCHARGE_ENGAGED:
+        auxBmsJson[JsonFormat::PRECHARGE_STATE] = "DISCHARGE_ENGAGED";
+        break;
 
-        case I_AuxBmsData::PrechargeState::ALL_ENGAGED:
-            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "ALL_ENGAGED";
-            break;
+    case I_AuxBmsData::PrechargeState::ALL_ENGAGED:
+        auxBmsJson[JsonFormat::PRECHARGE_STATE] = "ALL_ENGAGED";
+        break;
 
-        default:
-            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "INVALID_STATE";
-            break;
+    default:
+        auxBmsJson[JsonFormat::PRECHARGE_STATE] = "INVALID_STATE";
+        break;
     }
 
     auxBmsJson[JsonFormat::AUX_VOLTAGE] = data.getAuxVoltage();
