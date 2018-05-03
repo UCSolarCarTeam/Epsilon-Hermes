@@ -13,6 +13,7 @@ namespace MessageDefines
         BATTERY = 7,
         MPPT = 9,
         LIGHTS = 10
+                 AUX_BMS = 11
     };
 
     int getLengthForMessage(Type type);
