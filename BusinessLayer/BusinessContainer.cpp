@@ -15,6 +15,7 @@ BusinessContainer::BusinessContainer(InfrastructureContainer& infrastructureCont
     , jsonMessageBuilder_(new JsonMessageBuilder())
     , jsonForwarder_(new JsonForwarder(
                          *jsonMessageBuilder_,
+                         dataContainer.auxBmsData(),
                          dataContainer.batteryData(),
                          dataContainer.batteryFaultsData(),
                          dataContainer.driverControlsData(),

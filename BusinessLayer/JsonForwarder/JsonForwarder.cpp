@@ -17,6 +17,7 @@ const QString MYSQL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 JsonForwarder::JsonForwarder(
     I_JsonMessageBuilder& jsonMessageBuilder,
+    I_AuxBmsData& auxBmsData,
     I_BatteryData& batteryData,
     I_BatteryFaultsData& batteryFaultsData,
     I_DriverControlsData& driverControlsData,
@@ -28,6 +29,7 @@ JsonForwarder::JsonForwarder(
     I_MessageForwarder& messageForwarder,
     I_Settings& settings)
     : jsonMessageBuilder_(jsonMessageBuilder)
+    , auxBmsData_(auxBmsData)
     , batteryData_(batteryData)
     , batteryFaultsData_(batteryFaultsData)
     , driverControlsData_(driverControlsData)
@@ -73,6 +75,6 @@ void JsonForwarder::forwardData(QDateTime& currentTime)
     baseJson[JsonFormat::BATTERY] = jsonMessageBuilder_.buildBatteryMessage(batteryData_);
     baseJson[JsonFormat::MPPT] = jsonMessageBuilder_.buildMpptMessage(mpptData_);
     baseJson[JsonFormat::LIGHTS] = jsonMessageBuilder_.buildLightsMessage(lightsData_);
-
+    baseJson[JsonFormat::AUX_BMS] = jsonMessageBuilder_.buildAuxBmsMessage(auxBmsData_);
     messageForwarder_.forwardData(QJsonDocument(baseJson).toJson(QJsonDocument::Compact));
 }

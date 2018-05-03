@@ -3,23 +3,24 @@
 namespace
 {
 // Error Flags
-const unsigned char MOTOR_OVER_SPEED_FLAG = 0x01;
-const unsigned char SOFTWARE_OVER_CURRENT_FLAG = 0x02;
-const unsigned char DC_BUS_OVER_VOLTAGE_FLAG = 0x04;
-const unsigned char BAD_MOTOR_POSITION_HALL_SEQUENCE_FLAG = 0x08;
-const unsigned char WATCHDOG_CAUSED_LAST_RESET_FLAG = 0x10;
-const unsigned char CONFIG_READ_ERROR_FLAG = 0x20;
-const unsigned char RAIL_UNDER_VOLTAGE_LOCK_OUT_FLAG = 0x40;
-const unsigned char DESATURATION_FAULT_FLAG = 0x80;
+
+    const unsigned char MOTOR_OVER_SPEED_FLAG = 0x01;
+    const unsigned char SOFTWARE_OVER_CURRENT_FLAG = 0x02;
+    const unsigned char DC_BUS_OVER_VOLTAGE_FLAG = 0x04;
+    const unsigned char BAD_MOTOR_POSITION_HALL_SEQUENCE_FLAG = 0x08;
+    const unsigned char WATCHDOG_CAUSED_LAST_RESET_FLAG = 0x10;
+    const unsigned char CONFIG_READ_ERROR_FLAG = 0x20;
+    const unsigned char RAIL_UNDER_VOLTAGE_LOCK_OUT_FLAG = 0x40;
+    const unsigned char DESATURATION_FAULT_FLAG = 0x80;
 
 // Limit Flags
-const unsigned char OUTPUT_VOLTAGE_PWM_LIMIT_FLAG = 0x01;
-const unsigned char MOTOR_CURRENT_LIMIT_FLAG = 0x02;
-const unsigned char VELOCITY_LIMIT_FLAG = 0x04;
-const unsigned char BUS_CURRENT_LIMIT_FLAG = 0x08;
-const unsigned char BUS_VOLTAGE_UPPER_LIMIT_FLAG = 0x10;
-const unsigned char BUS_VOLTAGE_LOWER_LIMIT_FLAG = 0x20;
-const unsigned char IPM_OR_MOTOR_TELEMETRY_LIMIT_FLAG = 0x40;
+    const unsigned char OUTPUT_VOLTAGE_PWM_LIMIT_FLAG = 0x01;
+    const unsigned char MOTOR_CURRENT_LIMIT_FLAG = 0x02;
+    const unsigned char VELOCITY_LIMIT_FLAG = 0x04;
+    const unsigned char BUS_CURRENT_LIMIT_FLAG = 0x08;
+    const unsigned char BUS_VOLTAGE_UPPER_LIMIT_FLAG = 0x10;
+    const unsigned char BUS_VOLTAGE_LOWER_LIMIT_FLAG = 0x20;
+    const unsigned char IPM_OR_MOTOR_TELEMETRY_LIMIT_FLAG = 0x40;
 }
 
 MotorFaultsData::MotorFaultsData()

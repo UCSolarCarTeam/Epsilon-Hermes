@@ -21,6 +21,9 @@ void RadioCommDevice::setSerialParameters(QString serialPortName, int baudRate)
 {
     serialPort_.setPortName(serialPortName);
     serialPort_.setBaudRate(baudRate);
+    serialPort_.setParity(QSerialPort::NoParity);
+    serialPort_.setStopBits(QSerialPort::OneStop);
+    serialPort_.setDataBits(QSerialPort::Data8);
 }
 
 bool RadioCommDevice::connectToDataSource()

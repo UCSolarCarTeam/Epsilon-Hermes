@@ -2,6 +2,7 @@
 
 #include <QScopedPointer>
 
+class I_AuxBmsData;
 class I_BatteryData;
 class I_BatteryFaultsData;
 class I_DriverControlsData;
@@ -19,6 +20,7 @@ public:
     DataContainer(const I_Settings& settings);
     ~DataContainer();
 
+    I_AuxBmsData& auxBmsData();
     I_BatteryData& batteryData();
     I_BatteryFaultsData& batteryFaultsData();
     I_DriverControlsData& driverControlsData();
@@ -29,6 +31,7 @@ public:
     I_MpptData& mpptData();
 
 private:
+    QScopedPointer<I_AuxBmsData> auxBmsData_;
     QScopedPointer<I_BatteryData> batteryData_;
     QScopedPointer<I_BatteryFaultsData> batteryFaultsData_;
     QScopedPointer<I_DriverControlsData> driverControlsData_;

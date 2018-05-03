@@ -9,15 +9,6 @@ class I_BatteryData : public QObject
 public:
     virtual ~I_BatteryData() {}
 
-    enum PrechargeState
-    {
-        IDLE = 0,
-        PRECHARGE = 1,
-        MEASURE = 2,
-        ENABLE_PACK = 3,
-        RUN = 4
-    };
-
     /*Data "Gets"*/
     virtual bool getAlive() const = 0;
     virtual unsigned char getBmsRelayStatus() const = 0;
@@ -42,9 +33,6 @@ public:
     virtual unsigned short getHighCellVoltage() const = 0;
     virtual unsigned char getHighCellVoltageId() const = 0;
     virtual unsigned short getAverageCellVoltage() const = 0;
-    virtual PrechargeState getPrechargeState() const = 0;
-    virtual unsigned char getAuxVoltage() const = 0;
-    virtual bool getAuxBmsAlive() const = 0;
 
     /* BMS relay status getter */
     virtual bool bmsDischargeRelayEnabled() const = 0;
@@ -80,9 +68,6 @@ public:
     virtual void setHighCellVoltage(const unsigned short&) = 0;
     virtual void setHighCellVoltageId(const unsigned char&) = 0;
     virtual void setAverageCellVoltage(const unsigned short&) = 0;
-    virtual void setPrechargeState(const unsigned char&) = 0;
-    virtual void setAuxVoltage(const unsigned char&) = 0;
-    virtual void setAuxBmsAlive(const bool&) = 0;
 
 signals:
     void aliveReceived(const bool& alive);
@@ -108,7 +93,4 @@ signals:
     void highCellVoltageReceived(const unsigned short&);
     void highCellVoltageIdReceived(const unsigned char&);
     void averageCellVoltageReceived(const unsigned short&);
-    void prechargeStateReceived(const unsigned char&);
-    void auxVoltageReceived(const unsigned char&);
-    void auxBmsAliveReceived(const bool&);
 };

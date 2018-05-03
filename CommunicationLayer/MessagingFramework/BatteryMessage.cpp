@@ -6,32 +6,30 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
-const int BMU_ALIVE_OFFSET = 1;
-const int BMS_RELAY_STATUS_OFFSET = 2;
-const int POPULATED_CELLS_OFFSET = 3;
-const int INPUT_VOLTAGE_12V_OFFSET = 4;
-const int FAN_VOLTAGE_OFFSET = 8;
-const int PACK_CURRENT_OFFSET = 12;
-const int PACK_VOLTAGE_OFFSET = 16;
-const int PACK_STATE_OF_CHARGE_OFFSET = 20;
-const int PACK_AMPHOURS_OFFSET = 24;
-const int PACK_DEPTH_OF_DISCHARGE_OFFSET = 28;
-const int HIGH_TEMPERATURE_OFFSET = 32;
-const int HIGH_THERMISTOR_ID_OFFSET = 33;
-const int LOW_TEMPERATURE_OFFSET = 34;
-const int LOW_THERMISTOR_ID_OFFSET = 35;
-const int AVERAGE_TEMPERATURE_OFFSET = 36;
-const int INTERNAL_TEMPERATURE_OFFSET = 37;
-const int FAN_SPEED_OFFSET = 38;
-const int REQUESTED_FAN_SPEED_OFFSET = 39;
-const int LOW_CELL_VOLTAGE_OFFSET = 40;
-const int LOW_CELL_VOLTAGE_ID_OFFSET = 42;
-const int HIGH_CELL_VOLTAGE_OFFSET = 43;
-const int HIGH_CELL_VOLTAGE_ID_OFFSET = 45;
-const int AVERAGE_CELL_VOLTAGE_OFFSET = 46;
-const int PRECHARGE_STATE_OFFSET = 48;
-const int AUX_VOLTAGE_OFFSET = 49;
-const int AUX_BMS_ALIVE_OFFSET = 50;
+
+    const int BMU_ALIVE_OFFSET = 1;
+    const int BMS_RELAY_STATUS_OFFSET = 2;
+    const int POPULATED_CELLS_OFFSET = 3;
+    const int INPUT_VOLTAGE_12V_OFFSET = 4;
+    const int FAN_VOLTAGE_OFFSET = 8;
+    const int PACK_CURRENT_OFFSET = 12;
+    const int PACK_VOLTAGE_OFFSET = 16;
+    const int PACK_STATE_OF_CHARGE_OFFSET = 20;
+    const int PACK_AMPHOURS_OFFSET = 24;
+    const int PACK_DEPTH_OF_DISCHARGE_OFFSET = 28;
+    const int HIGH_TEMPERATURE_OFFSET = 32;
+    const int HIGH_THERMISTOR_ID_OFFSET = 33;
+    const int LOW_TEMPERATURE_OFFSET = 34;
+    const int LOW_THERMISTOR_ID_OFFSET = 35;
+    const int AVERAGE_TEMPERATURE_OFFSET = 36;
+    const int INTERNAL_TEMPERATURE_OFFSET = 37;
+    const int FAN_SPEED_OFFSET = 38;
+    const int REQUESTED_FAN_SPEED_OFFSET = 39;
+    const int LOW_CELL_VOLTAGE_OFFSET = 40;
+    const int LOW_CELL_VOLTAGE_ID_OFFSET = 42;
+    const int HIGH_CELL_VOLTAGE_OFFSET = 43;
+    const int HIGH_CELL_VOLTAGE_ID_OFFSET = 45;
+    const int AVERAGE_CELL_VOLTAGE_OFFSET = 46;
 }
 
 BatteryMessage::BatteryMessage(const QByteArray& messageData)
@@ -153,20 +151,6 @@ unsigned short BatteryMessage::averageCellVoltage() const
     return getUnsignedShort(messageData_, AVERAGE_CELL_VOLTAGE_OFFSET);
 }
 
-unsigned char BatteryMessage::prechargeState() const
-{
-    return getUnsignedChar(messageData_, PRECHARGE_STATE_OFFSET);
-}
-unsigned char BatteryMessage::auxVoltage() const
-{
-    return getUnsignedChar(messageData_, AUX_VOLTAGE_OFFSET);
-}
-
-bool BatteryMessage::auxBmsAlive() const
-{
-    return static_cast<bool>(messageData_.at(AUX_BMS_ALIVE_OFFSET));
-}
-
 QString BatteryMessage::toString() const
 {
     QString messageString;
@@ -194,8 +178,5 @@ QString BatteryMessage::toString() const
     messageString += QString::number(highCellVoltage()) + ", ";
     messageString += QString::number(highCellVoltageId()) + ", ";
     messageString += QString::number(averageCellVoltage()) + ", ";
-    messageString += QString::number(prechargeState()) + ", ";
-    messageString += QString::number(auxVoltage()) + ", ";
-    messageString += QString::number(auxBmsAlive()) + ", ";
     return messageString;
 }

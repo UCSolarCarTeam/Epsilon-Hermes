@@ -9,9 +9,49 @@
 #include "DataLayer/BatteryData/I_BatteryData.h"
 #include "DataLayer/MpptData/I_MpptData.h"
 #include "DataLayer/LightsData/I_LightsData.h"
+#include "DataLayer/AuxBmsData/I_AuxBmsData.h"
 
 JsonMessageBuilder::JsonMessageBuilder()
 {
+}
+
+QJsonObject JsonMessageBuilder::buildAuxBmsMessage(const I_AuxBmsData& data)
+{
+    QJsonObject auxBmsJson = QJsonObject();
+
+    switch (data.getPrechargeState())
+    {
+        case I_AuxBmsData::PrechargeState::OFF:
+            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "OFF";
+            break;
+
+        case I_AuxBmsData::PrechargeState::COMMON_ENGAGED:
+            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "COMMON_ENGAGED";
+            break;
+
+        case I_AuxBmsData::PrechargeState::CHARGE_ENGAGED:
+            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "CHARGE_ENGAGED";
+            break;
+
+        case I_AuxBmsData::PrechargeState::DISCHARGE_ENGAGED:
+            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "DISCHARGE_ENGAGED";
+            break;
+
+        case I_AuxBmsData::PrechargeState::ALL_ENGAGED:
+            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "ALL_ENGAGED";
+            break;
+
+        default:
+            auxBmsJson[JsonFormat::PRECHARGE_STATE] = "INVALID_STATE";
+            break;
+    }
+
+    auxBmsJson[JsonFormat::AUX_VOLTAGE] = data.getAuxVoltage();
+    auxBmsJson[JsonFormat::AUX_BMS_ALIVE] = data.getAuxBmsAlive();
+    auxBmsJson[JsonFormat::STROBE_BMS_LIGHT] = data.getStrobeBmsLight();
+    auxBmsJson[JsonFormat::ALLOW_CHARGE] = data.getAllowCharge();
+    auxBmsJson[JsonFormat::CONTACTOR_ERROR] = data.getContactorError();
+    return auxBmsJson;
 }
 
 QJsonObject JsonMessageBuilder::buildBatteryMessage(const I_BatteryData& data)
@@ -76,7 +116,6 @@ QJsonObject JsonMessageBuilder::buildBatteryMessage(const I_BatteryData& data)
 
     batteryJson[JsonFormat::AUX_VOLTAGE] = data.getAuxVoltage();
     batteryJson[JsonFormat::AUX_BMS_ALIVE] = data.getAuxBmsAlive();
-
     batteryJson[JsonFormat::BMS_RELAY_STATUS_FLAGS] = bmsRelayStatusFlagsJson;
     return batteryJson;
 }

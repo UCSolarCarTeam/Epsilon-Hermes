@@ -31,9 +31,6 @@ public:
     unsigned short highCellVoltage() const;
     unsigned char highCellVoltageId() const;
     unsigned short averageCellVoltage() const;
-    unsigned char prechargeState() const;
-    unsigned char auxVoltage() const;
-    bool auxBmsAlive() const;
 
     QString toString() const;
 

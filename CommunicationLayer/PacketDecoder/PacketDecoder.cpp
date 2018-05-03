@@ -28,38 +28,42 @@ void PacketDecoder::handleValidData(QByteArray messageData)
     {
         switch (messageType)
         {
-        case MessageDefines::KEY_MOTOR:
-            emit packetDecoded(KeyMotorMessage(messageData));
-            return;
+            case MessageDefines::KEY_MOTOR:
+                emit packetDecoded(KeyMotorMessage(messageData));
+                return;
 
-        case MessageDefines::MOTOR_0_DETAILS:
-        case MessageDefines::MOTOR_1_DETAILS:
-            emit packetDecoded(MotorDetailsMessage(messageData));
-            return;
+            case MessageDefines::MOTOR_0_DETAILS:
+            case MessageDefines::MOTOR_1_DETAILS:
+                emit packetDecoded(MotorDetailsMessage(messageData));
+                return;
 
-        case MessageDefines::DRIVER_CONTROLS:
-            emit packetDecoded(DriverControlsMessage(messageData));
-            return;
+            case MessageDefines::DRIVER_CONTROLS:
+                emit packetDecoded(DriverControlsMessage(messageData));
+                return;
 
-        case MessageDefines::MOTOR_FAULTS:
-            emit packetDecoded(MotorFaultsMessage(messageData));
-            return;
+            case MessageDefines::MOTOR_FAULTS:
+                emit packetDecoded(MotorFaultsMessage(messageData));
+                return;
 
-        case MessageDefines::BATTERY_FAULTS:
-            emit packetDecoded(BatteryFaultsMessage(messageData));
-            return;
+            case MessageDefines::BATTERY_FAULTS:
+                emit packetDecoded(BatteryFaultsMessage(messageData));
+                return;
 
-        case MessageDefines::BATTERY:
-            emit packetDecoded(BatteryMessage(messageData));
-            return;
+            case MessageDefines::BATTERY:
+                emit packetDecoded(BatteryMessage(messageData));
+                return;
 
-        case MessageDefines::MPPT:
-            emit packetDecoded(MpptMessage(messageData));
-            return;
+            case MessageDefines::MPPT:
+                emit packetDecoded(MpptMessage(messageData));
+                return;
 
-        case MessageDefines::LIGHTS:
-            emit packetDecoded(LightsMessage(messageData));
-            return;
+            case MessageDefines::LIGHTS:
+                emit packetDecoded(LightsMessage(messageData));
+                return;
+
+            case MessageDefines::AUX_BMS:
+                emit packetDecoded(AuxBmsMessage(messageData));
+                return;
         }
     }
     else

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QObject>
+#include "../MessagingFramework/AuxBmsMessage.h"
 #include "../MessagingFramework/BatteryMessage.h"
 #include "../MessagingFramework/BatteryFaultsMessage.h"
 #include "../MessagingFramework/DriverControlsMessage.h"
@@ -17,6 +18,7 @@ public:
     virtual ~I_PacketDecoder() {}
 
 signals:
+    void packetDecoded(const AuxBmsMessage);
     void packetDecoded(const BatteryMessage);
     void packetDecoded(const BatteryFaultsMessage);
     void packetDecoded(const DriverControlsMessage);

@@ -35,9 +35,6 @@ public:
     unsigned short getHighCellVoltage() const;
     unsigned char getHighCellVoltageId() const;
     unsigned short getAverageCellVoltage() const;
-    PrechargeState getPrechargeState() const;
-    unsigned char getAuxVoltage() const;
-    bool getAuxBmsAlive() const;
 
     /* BMS relay status getter */
     bool bmsDischargeRelayEnabled() const;
@@ -73,10 +70,6 @@ public:
     void setHighCellVoltage(const unsigned short&);
     void setHighCellVoltageId(const unsigned char&);
     void setAverageCellVoltage(const unsigned short&);
-    void setPrechargeState(const unsigned char&);
-    void setAuxVoltage(const unsigned char&);
-    void setAuxBmsAlive(const bool&);
-
 
 private:
     bool alive_;
@@ -102,9 +95,6 @@ private:
     unsigned short highCellVoltage_;
     unsigned char highCellVoltageId_;
     unsigned short averageCellVoltage_;
-    PrechargeState prechargeState_;
-    unsigned char auxVoltage_;
-    bool auxBmsAlive_;
 
     inline bool bmsRelayStatusFlagPresent(const unsigned char statusMask) const;
 };

@@ -24,6 +24,7 @@ public:
     I_PacketChecksumChecker& packetChecksumChecker();
     I_DataInjectionService& dataInjectionService();
     I_CommDevice& commDevice();
+    I_CommDevice& outputCommDevice();
     I_MessageForwarder& messageForwarder();
 
 private:

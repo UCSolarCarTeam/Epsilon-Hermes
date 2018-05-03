@@ -61,25 +61,25 @@ const QString AUX = "Aux";
 const QString ACCELERATION = "Acceleration";
 const QString REGEN_BRAKING = "RegenBraking";
 
-/* MotorFaults */
-const QString MOTOR_FAULTS = "MotorFaults";
-const QString RX_ERROR_COUNT = "RxErrorCount";
-const QString TX_ERROR_COUNT = "TxErrorCount";
-const QString MOTOR_OVER_SPEED = "MotorOverSpeed";
-const QString SOFTWARE_OVER_CURRENT = "SoftwareOverCurrent";
-const QString DC_BUS_OVER_VOLTAGE = "DcBusOverVoltage";
-const QString BAD_MOTOR_POSITION_HALL_SEQUENCE = "BadMotorPositionHallSequence";
-const QString WATCHDOG_CAUSED_LAST_RESET = "WatchdogCausedLastReset";
-const QString CONFIG_READ_ERROR = "ConfigReadError";
-const QString RAIL_15V_UNDER_VOLTAGE_LOCK_OUT = "Rail15VUnderVoltageLockOut";
-const QString DESATURATION_FAULT = "DesaturationFault";
-const QString OUTPUT_VOLTAGE_PWM = "OutputVoltagePwm";
-const QString MOTOR_CURRENT = "MotorCurrent";
-const QString VELOCITY = "Velocity";
+    /* MotorFaults */
+    const QString MOTOR_FAULTS = "MotorFaults";
+    const QString RX_ERROR_COUNT = "RxErrorCount";
+    const QString TX_ERROR_COUNT = "TxErrorCount";
+    const QString MOTOR_OVER_SPEED = "MotorOverSpeed";
+    const QString SOFTWARE_OVER_CURRENT = "SoftwareOverCurrent";
+    const QString DC_BUS_OVER_VOLTAGE = "DcBusOverVoltage";
+    const QString BAD_MOTOR_POSITION_HALL_SEQUENCE = "BadMotorPositionHallSequence";
+    const QString WATCHDOG_CAUSED_LAST_RESET = "WatchdogCausedLastReset";
+    const QString CONFIG_READ_ERROR = "ConfigReadError";
+    const QString RAIL_15V_UNDER_VOLTAGE_LOCK_OUT = "Rail15VUnderVoltageLockOut";
+    const QString DESATURATION_FAULT = "DesaturationFault";
+    const QString OUTPUT_VOLTAGE_PWM = "OutputVoltagePwm";
+    const QString MOTOR_CURRENT = "MotorCurrent";
+    const QString VELOCITY = "Velocity";
 // const QString BUS_CURRENT = "BusCurrent"; // Defined at keymotor already
-const QString BUS_VOLTAGE_UPPER = "BusVoltageUpper";
-const QString BUS_VOLTAGE_LOWER = "BusVoltageLower";
-const QString IPM_OR_MOTOR_TEMPERATURE = "IpmOrMotorTemperature";
+    const QString BUS_VOLTAGE_UPPER = "BusVoltageUpper";
+    const QString BUS_VOLTAGE_LOWER = "BusVoltageLower";
+    const QString IPM_OR_MOTOR_TEMPERATURE = "IpmOrMotorTemperature";
 
 /* BatteryFaults */
 const QString BATTERY_FAULTS = "BatteryFaults";
@@ -119,56 +119,63 @@ const QString CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE = "CclReducedDueToHighPackVol
 const QString CCL_REDUCED_DUE_TO_CHARGER_LATCH = "CclReducedDueToChargerLatch";
 const QString CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT = "CclReducedDueToAlternateCurrentLimit";
 
-/* Battery */
-const QString BATTERY = "Battery";
-const QString BMS_RELAY_STATUS_FLAGS = "BMSRelayStatusFlags";
-const QString BMS_DISCHARGE_RELAY_ENABLED = "DischargeRelayEnabled";
-const QString BMS_CHARGE_RELAY_ENABLED = "ChargeRelayEnabled";
-const QString BMS_CHARGER_SAFETY_ENABLED = "ChargerSafetyEnabled";
-const QString BMS_MALFUNCTION_INDICATOR_ACTIVE = "MalfunctionIndicatorActive";
-const QString BMS_GET_MULTI_PURPOSE_INPUT_SIGNAL_STATUS = "MultiPurposeInputSignalStatus";
-const QString BMS_GET_ALWAYS_ON_SIGNAL_STATUS = "AlwaysOnSignalStatus";
-const QString BMS_GET_IS_READY_SIGNAL_STATUS = "IsReadySignalStatus";
-const QString BMS_GET_IS_CHARGING_SIGNAL_STATUS = "IsChargingSignalStatus";
-const QString POPULATED_CELLS = "PopulatedCells";
-const QString INPUT_VOLTAGE_12V = "12vInputVoltage";
-const QString FAN_VOLTAGE = "FanVoltage";
-const QString PACK_CURRENT = "PackCurrent";
-const QString PACK_VOLTAGE = "PackVoltage";
-const QString PACK_STATE_OF_CHARGE = "PackStateofCharge";
-const QString PACK_AMPHOURS = "PackAmphours";
-const QString PACK_DEPTH_OF_DISCHARGE = "PackDepthofDischarge";
-const QString HIGH_TEMPERATURE = "HighTemperature";
-const QString HIGH_THERMISTOR_ID = "HighThermistorId";
-const QString LOW_TEMPERATURE = "LowTemperature";
-const QString LOW_THERMISTOR_ID = "LowThermistorId";
-const QString AVERAGE_TEMPERATURE = "AverageTemperature";
-const QString INTERNAL_TEMPERATURE = "InternalTemperature";
-const QString FAN_SPEED = "FanSpeed";
-const QString REQUESTED_FAN_SPEED = "RequestedFanSpeed";
-const QString LOW_CELL_VOLTAGE = "LowCellVoltage";
-const QString LOW_CELL_VOLTAGE_ID = "LowCellVoltageId";
-const QString HIGH_CELL_VOLTAGE = "HighCellVoltage";
-const QString HIGH_CELL_VOLTAGE_ID = "HighCellVoltageId";
-const QString AVERAGE_CELL_VOLTAGE = "AverageCellVoltage";
-const QString PRECHARGE_STATE = "PrechargeState";
-const QString AUX_VOLTAGE = "AuxVoltage";
-const QString AUX_BMS_ALIVE = "AuxBmsAlive";
+    /* Battery */
+    const QString BATTERY = "Battery";
+    const QString BMS_RELAY_STATUS_FLAGS = "BMSRelayStatusFlags";
+    const QString BMS_DISCHARGE_RELAY_ENABLED = "DischargeRelayEnabled";
+    const QString BMS_CHARGE_RELAY_ENABLED = "ChargeRelayEnabled";
+    const QString BMS_CHARGER_SAFETY_ENABLED = "ChargerSafetyEnabled";
+    const QString BMS_MALFUNCTION_INDICATOR_ACTIVE = "MalfunctionIndicatorActive";
+    const QString BMS_GET_MULTI_PURPOSE_INPUT_SIGNAL_STATUS = "MultiPurposeInputSignalStatus";
+    const QString BMS_GET_ALWAYS_ON_SIGNAL_STATUS = "AlwaysOnSignalStatus";
+    const QString BMS_GET_IS_READY_SIGNAL_STATUS = "IsReadySignalStatus";
+    const QString BMS_GET_IS_CHARGING_SIGNAL_STATUS = "IsChargingSignalStatus";
+    const QString POPULATED_CELLS = "PopulatedCells";
+    const QString INPUT_VOLTAGE_12V = "12vInputVoltage";
+    const QString FAN_VOLTAGE = "FanVoltage";
+    const QString PACK_CURRENT = "PackCurrent";
+    const QString PACK_VOLTAGE = "PackVoltage";
+    const QString PACK_STATE_OF_CHARGE = "PackStateofCharge";
+    const QString PACK_AMPHOURS = "PackAmphours";
+    const QString PACK_DEPTH_OF_DISCHARGE = "PackDepthofDischarge";
+    const QString HIGH_TEMPERATURE = "HighTemperature";
+    const QString HIGH_THERMISTOR_ID = "HighThermistorId";
+    const QString LOW_TEMPERATURE = "LowTemperature";
+    const QString LOW_THERMISTOR_ID = "LowThermistorId";
+    const QString AVERAGE_TEMPERATURE = "AverageTemperature";
+    const QString INTERNAL_TEMPERATURE = "InternalTemperature";
+    const QString FAN_SPEED = "FanSpeed";
+    const QString REQUESTED_FAN_SPEED = "RequestedFanSpeed";
+    const QString LOW_CELL_VOLTAGE = "LowCellVoltage";
+    const QString LOW_CELL_VOLTAGE_ID = "LowCellVoltageId";
+    const QString HIGH_CELL_VOLTAGE = "HighCellVoltage";
+    const QString HIGH_CELL_VOLTAGE_ID = "HighCellVoltageId";
+    const QString AVERAGE_CELL_VOLTAGE = "AverageCellVoltage";
 
-/* Mppt */
-const QString MPPT = "MPPT";
-const QString ARRAY_VOLTAGE = "ArrayVoltage";
-const QString ARRAY_CURRENT = "ArrayCurrent";
-const QString BATTERY_VOLTAGE = "BatteryVoltage";
-const QString TEMPERATURE = "Temperature";
+    /* Mppt */
+    const QString MPPT = "MPPT";
+    const QString ARRAY_VOLTAGE = "ArrayVoltage";
+    const QString ARRAY_CURRENT = "ArrayCurrent";
+    const QString BATTERY_VOLTAGE = "BatteryVoltage";
+    const QString TEMPERATURE = "Temperature";
 
-/* Lights */
-const QString LIGHTS = "Lights";
-const QString LIGHTS_LOW_BEAMS = "LowBeams";
-const QString LIGHTS_HIGH_BEAMS = "HighBeams";
-const QString LIGHTS_BRAKES = "Brakes";
-const QString LIGHTS_LEFT_SIGNAL = "LeftSignal";
-const QString LIGHTS_RIGHT_SIGNAL = "RightSignal";
-const QString LIGHTS_BMS_STROBE_LIGHT = "BmsStrobeLight";
-const QString LIGHTS_ALIVE = "LightsAlive";
+
+    /* Lights */
+    const QString LIGHTS = "Lights";
+    const QString LIGHTS_LOW_BEAMS = "LowBeams";
+    const QString LIGHTS_HIGH_BEAMS = "HighBeams";
+    const QString LIGHTS_BRAKES = "Brakes";
+    const QString LIGHTS_LEFT_SIGNAL = "LeftSignal";
+    const QString LIGHTS_RIGHT_SIGNAL = "RightSignal";
+    const QString LIGHTS_BMS_STROBE_LIGHT = "BmsStrobeLight";
+    const QString LIGHTS_ALIVE = "Alive";
+
+    /* AuxBms */
+    const QString AUX_BMS = "AuxBms";
+    const QString PRECHARGE_STATE = "PrechargeState";
+    const QString AUX_VOLTAGE = "AuxVoltage";
+    const QString AUX_BMS_ALIVE = "AuxBmsAlive";
+    const QString STROBE_BMS_LIGHT = "StrobeBmsLight";
+    const QString ALLOW_CHARGE = "AllowCharge";
+    const QString CONTACTOR_ERROR = "ContactorError";
 }

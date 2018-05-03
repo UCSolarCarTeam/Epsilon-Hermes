@@ -17,6 +17,11 @@ public:
     MOCK_CONST_METHOD0(baudrate, int());
     MOCK_CONST_METHOD0(ipAddress, QString());
 
+    // Output SerialPort
+    MOCK_CONST_METHOD0(outputSerialEnabled, bool());
+    MOCK_CONST_METHOD0(outputSerialPortName, QString());
+    MOCK_CONST_METHOD0(outputBaudrate, int());
+
     // RabbitMq
     MOCK_CONST_METHOD0(port, quint16());
     MOCK_CONST_METHOD0(packetTitle, QString());

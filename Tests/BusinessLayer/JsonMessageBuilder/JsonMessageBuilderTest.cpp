@@ -21,6 +21,7 @@
 #include "Tests/DataLayer/MpptData/MockMpptData.h"
 #include "Tests/DataLayer/MpptData/MockMpptUnit.h"
 #include "Tests/DataLayer/LightsData/MockLightsData.h"
+#include "Tests/DataLayer/AuxBmsData/MockAuxBmsData.h"
 
 using ::testing::Return;
 using ::testing::ReturnRef;
@@ -791,10 +792,7 @@ TEST(JsonMessageBuilderTest, battery)
         \"LowCellVoltageId\": 18, \
         \"HighCellVoltage\": 19, \
         \"HighCellVoltageId\": 20, \
-        \"AverageCellVoltage\": 21, \
-        \"PrechargeState\": \"IDLE\", \
-        \"AuxVoltage\": 22, \
-        \"AuxBmsAlive\": true \
+        \"AverageCellVoltage\": 21 \
     }";
     // *INDENT-ON*
 
@@ -832,9 +830,6 @@ TEST(JsonMessageBuilderTest, battery)
     const unsigned short HIGH_CELL_VOLTAGE_VAL = 19;
     const unsigned char HIGH_CELL_VOLTAGE_ID_VAL = 20;
     const unsigned short AVERAGE_CELL_VOLTAGE_VAL = 21;
-    const I_BatteryData::PrechargeState PRECHARGE_STATE_VAL = I_BatteryData::PrechargeState::IDLE;
-    const unsigned char AUX_VOLTAGE_VAL = 22;
-    const bool AUX_BMS_ALIVE_VAL = true;
 
     ON_CALL(mockBatteryData, getAlive())
     .WillByDefault(Return(ALIVE_VAL));
@@ -896,12 +891,6 @@ TEST(JsonMessageBuilderTest, battery)
     .WillByDefault(Return(HIGH_CELL_VOLTAGE_ID_VAL));
     ON_CALL(mockBatteryData, getAverageCellVoltage())
     .WillByDefault(Return(AVERAGE_CELL_VOLTAGE_VAL));
-    ON_CALL(mockBatteryData, getPrechargeState())
-    .WillByDefault(Return(PRECHARGE_STATE_VAL));
-    ON_CALL(mockBatteryData, getAuxVoltage())
-    .WillByDefault(Return(AUX_VOLTAGE_VAL));
-    ON_CALL(mockBatteryData, getAuxBmsAlive())
-    .WillByDefault(Return(AUX_BMS_ALIVE_VAL));
 
     QJsonObject ACTUAL_JSON =
         jsonMessageBuilder.buildBatteryMessage(mockBatteryData);
@@ -1040,7 +1029,7 @@ TEST(JsonMessageBuilderTest, lights)
         \"LeftSignal\":false, \
         \"RightSignal\":true, \
         \"BmsStrobeLight\":false, \
-        \"LightsAlive\":false \
+        \"Alive\":false \
     }";
     // *INDENT-ON*
 
@@ -1073,6 +1062,59 @@ TEST(JsonMessageBuilderTest, lights)
 
     QJsonObject ACTUAL_JSON =
         jsonMessageBuilder.buildLightsMessage(mockLightsData);
+
+    EXPECT_EQ(EXPECTED_JSON, ACTUAL_JSON);
+
+    if (HasFailure())
+    {
+        qDebug() << "Actual is " << ACTUAL_JSON;
+        qDebug() << "Expected is " << EXPECTED_JSON;
+    }
+}
+
+TEST(JsonMessageBuilderTest, auxBms)
+{
+    JsonMessageBuilder jsonMessageBuilder;
+
+    // *INDENT-OFF*
+    QString EXPECTED_JSON_MSG = "\
+        { \
+            \"PrechargeState\": \"OFF\", \
+            \"AuxVoltage\": 22, \
+            \"AuxBmsAlive\": true, \
+            \"StrobeBmsLight\": true, \
+            \"AllowCharge\": true, \
+            \"ContactorError\": true \
+        }";
+
+       //*INDENT-ON*
+
+    QJsonDocument EXPECTED_JSON_DOC = QJsonDocument::fromJson(EXPECTED_JSON_MSG.toLatin1());
+    QJsonObject EXPECTED_JSON = EXPECTED_JSON_DOC.object();
+
+    NiceMock<MockAuxBmsData> mockAuxBmsData;
+    const I_AuxBmsData::PrechargeState PRECHARGE_STATE_VAL = I_AuxBmsData::PrechargeState::OFF;
+    const unsigned char AUX_VOLTAGE_VAL = 22;
+    const bool AUX_BMS_ALIVE_VAL = true;
+    const bool STROBE_BMS_LIGHT_VAL = true;
+    const bool ALLOW_CHARGE_VAL = true;
+    const bool CONTACTOR_ERROR_VAL = true;
+
+    ON_CALL(mockAuxBmsData, getPrechargeState())
+    .WillByDefault(Return(PRECHARGE_STATE_VAL));
+    ON_CALL(mockAuxBmsData, getAuxVoltage())
+    .WillByDefault(Return(AUX_VOLTAGE_VAL));
+    ON_CALL(mockAuxBmsData, getAuxBmsAlive())
+    .WillByDefault(Return(AUX_BMS_ALIVE_VAL));
+    ON_CALL(mockAuxBmsData, getStrobeBmsLight())
+    .WillByDefault(Return(STROBE_BMS_LIGHT_VAL));
+    ON_CALL(mockAuxBmsData, getAllowCharge())
+    .WillByDefault(Return(ALLOW_CHARGE_VAL));
+    ON_CALL(mockAuxBmsData, getContactorError())
+    .WillByDefault(Return(CONTACTOR_ERROR_VAL));
+
+    QJsonObject ACTUAL_JSON =
+        jsonMessageBuilder.buildAuxBmsMessage(mockAuxBmsData);
 
     EXPECT_EQ(EXPECTED_JSON, ACTUAL_JSON);
 
