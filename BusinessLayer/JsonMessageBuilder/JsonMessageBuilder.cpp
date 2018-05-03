@@ -90,6 +90,32 @@ QJsonObject JsonMessageBuilder::buildBatteryMessage(const I_BatteryData& data)
     batteryJson[JsonFormat::HIGH_CELL_VOLTAGE] = data.getHighCellVoltage();
     batteryJson[JsonFormat::HIGH_CELL_VOLTAGE_ID] = data.getHighCellVoltageId();
     batteryJson[JsonFormat::AVERAGE_CELL_VOLTAGE] = data.getAverageCellVoltage();
+
+    switch (data.getPrechargeState())
+    {
+        case I_BatteryData::PrechargeState::IDLE:
+            batteryJson[JsonFormat::PRECHARGE_STATE] = "IDLE";
+            break;
+
+        case I_BatteryData::PrechargeState::PRECHARGE:
+            batteryJson[JsonFormat::PRECHARGE_STATE] = "PRECHARGE";
+            break;
+
+        case I_BatteryData::PrechargeState::MEASURE:
+            batteryJson[JsonFormat::PRECHARGE_STATE] = "MEASURE";
+            break;
+
+        case I_BatteryData::PrechargeState::ENABLE_PACK:
+            batteryJson[JsonFormat::PRECHARGE_STATE] = "ENABLE_PACK";
+            break;
+
+        case I_BatteryData::PrechargeState::RUN:
+            batteryJson[JsonFormat::PRECHARGE_STATE] = "RUN";
+            break;
+    }
+
+    batteryJson[JsonFormat::AUX_VOLTAGE] = data.getAuxVoltage();
+    batteryJson[JsonFormat::AUX_BMS_ALIVE] = data.getAuxBmsAlive();
     batteryJson[JsonFormat::BMS_RELAY_STATUS_FLAGS] = bmsRelayStatusFlagsJson;
     return batteryJson;
 }

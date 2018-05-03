@@ -3,6 +3,7 @@
 namespace
 {
 // Error Flags
+
     const unsigned char MOTOR_OVER_SPEED_FLAG = 0x01;
     const unsigned char SOFTWARE_OVER_CURRENT_FLAG = 0x02;
     const unsigned char DC_BUS_OVER_VOLTAGE_FLAG = 0x04;

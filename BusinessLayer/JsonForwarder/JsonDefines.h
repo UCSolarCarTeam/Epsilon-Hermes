@@ -159,6 +159,7 @@ namespace JsonFormat
     const QString BATTERY_VOLTAGE = "BatteryVoltage";
     const QString TEMPERATURE = "Temperature";
 
+
     /* Lights */
     const QString LIGHTS = "Lights";
     const QString LIGHTS_LOW_BEAMS = "LowBeams";

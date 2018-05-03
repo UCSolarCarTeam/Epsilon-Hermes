@@ -6,6 +6,7 @@ using namespace MessageDecodingHelpers;
 
 namespace
 {
+
     const int BMU_ALIVE_OFFSET = 1;
     const int BMS_RELAY_STATUS_OFFSET = 2;
     const int POPULATED_CELLS_OFFSET = 3;

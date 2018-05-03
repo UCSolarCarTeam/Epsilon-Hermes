@@ -5,10 +5,11 @@
 #include <QDate>
 
 #include "Logging.h"
+#include <QCoreApplication>
 
 namespace
 {
-    QString LOG_DIR = "log/";
+    QString LOG_DIR = "/log/";
     QString LOG_NAME = "epsilon-hermes-";
     QString LOG_DATE_FORMAT = "yyyy-MM-dd";
     QString LOG_EXT = ".log";
@@ -57,7 +58,7 @@ void Logging::init(int level)
     // It is quite unlikely to for the date to change while the car is running
     // So this assumes the date will not change while Epsilon Hermes is running
     QString todayStr = QDate::currentDate().toString(LOG_DATE_FORMAT);
-    QString logName = LOG_DIR + LOG_NAME + todayStr + LOG_EXT;
+    QString logName = QCoreApplication::applicationDirPath() + LOG_DIR + LOG_NAME + todayStr + LOG_EXT;
     logFile_.setFileName(logName);
 
     if (logFile_.open(QIODevice::WriteOnly | QIODevice::Append))
