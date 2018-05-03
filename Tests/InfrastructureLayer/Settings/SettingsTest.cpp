@@ -31,6 +31,21 @@ TEST_F(SettingsTest, baudrate)
     EXPECT_EQ(settings_->baudrate(), 9600);
 }
 
+TEST_F(SettingsTest, outputSerialEnabled)
+{
+    EXPECT_EQ(settings_->outputSerialEnabled(), false);
+}
+
+TEST_F(SettingsTest, outputSerialPortName)
+{
+    EXPECT_EQ(settings_->outputSerialPortName(), "/dev/pts/8");
+}
+
+TEST_F(SettingsTest, outputBaudrate)
+{
+    EXPECT_EQ(settings_->outputBaudrate(), 9600);
+}
+
 TEST_F(SettingsTest, ipAddress)
 {
     EXPECT_EQ(settings_->ipAddress(), "239.255.43.21");

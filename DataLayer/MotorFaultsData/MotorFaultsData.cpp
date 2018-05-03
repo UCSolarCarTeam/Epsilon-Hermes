@@ -2,7 +2,7 @@
 
 namespace
 {
-    // Error Flags
+// Error Flags
     const unsigned char MOTOR_OVER_SPEED_FLAG = 0x01;
     const unsigned char SOFTWARE_OVER_CURRENT_FLAG = 0x02;
     const unsigned char DC_BUS_OVER_VOLTAGE_FLAG = 0x04;
@@ -12,7 +12,7 @@ namespace
     const unsigned char RAIL_UNDER_VOLTAGE_LOCK_OUT_FLAG = 0x40;
     const unsigned char DESATURATION_FAULT_FLAG = 0x80;
 
-    // Limit Flags
+// Limit Flags
     const unsigned char OUTPUT_VOLTAGE_PWM_LIMIT_FLAG = 0x01;
     const unsigned char MOTOR_CURRENT_LIMIT_FLAG = 0x02;
     const unsigned char VELOCITY_LIMIT_FLAG = 0x04;

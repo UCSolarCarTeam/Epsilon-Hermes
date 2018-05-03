@@ -9,4 +9,5 @@ namespace SerialDefines
     const unsigned char BATTERY_SERIAL_ID = 7;
     const unsigned char MPPT_SERIAL_ID = 9;
     const unsigned char LIGHTS_SERIAL_ID = 10;
+    const unsigned char AUX_BMS_SERIAL_ID = 12;
 }

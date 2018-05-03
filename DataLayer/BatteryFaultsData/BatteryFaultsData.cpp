@@ -4,7 +4,7 @@
 
 namespace
 {
-    // error flag masks
+// error flag masks
     const unsigned int INTERNAL_COMMUNICATION_FAULT_MASK      = 0x00000001;
     const unsigned int INTERNAL_CONVERSION_FAULT_MASK         = 0x00000002;
     const unsigned int WEAK_CELL_FAULT_MASK                   = 0x00000004;
@@ -27,16 +27,16 @@ namespace
     const unsigned int INTERNAL_THERMISTOR_FAULT_MASK         = 0x00080000;
     const unsigned int INTERNAL_LOGIC_FAULT_MASK              = 0x00100000;
 
-    // limit flag masks
+// limit flag masks
     const unsigned short DCL_REDUCED_DUE_TO_LOW_SOC_MASK              = 0x0001;
     const unsigned short DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTENCE_MASK = 0x0002;
     const unsigned short DCL_REDUCED_DUE_TO_TEMPERATURE_MASK          = 0x0004;
     const unsigned short DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE_MASK     = 0x0008;
     const unsigned short DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE_MASK     = 0x0010;
-    // 0x0020 N/A
+// 0x0020 N/A
     const unsigned short DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE_MASK       = 0x0040;
     const unsigned short DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE_MASK = 0x0080;
-    // 0x0100 N/A
+// 0x0100 N/A
     const unsigned short CCL_REDUCED_DUE_TO_HIGH_SOC_MASK                = 0x0200;
     const unsigned short CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTENCE_MASK    = 0x0400;
     const unsigned short CCL_REDUCED_DUE_TO_TEMPERATURE_MASK             = 0x0800;

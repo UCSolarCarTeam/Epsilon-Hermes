@@ -29,9 +29,6 @@ namespace
     const int HIGH_CELL_VOLTAGE_OFFSET = 43;
     const int HIGH_CELL_VOLTAGE_ID_OFFSET = 45;
     const int AVERAGE_CELL_VOLTAGE_OFFSET = 46;
-    const int PRECHARGE_STATE_OFFSET = 48;
-    const int AUX_VOLTAGE_OFFSET = 49;
-    const int AUX_BMS_ALIVE_OFFSET = 50;
 }
 
 BatteryMessage::BatteryMessage(const QByteArray& messageData)
@@ -153,20 +150,6 @@ unsigned short BatteryMessage::averageCellVoltage() const
     return getUnsignedShort(messageData_, AVERAGE_CELL_VOLTAGE_OFFSET);
 }
 
-unsigned char BatteryMessage::prechargeState() const
-{
-    return getUnsignedChar(messageData_, PRECHARGE_STATE_OFFSET);
-}
-unsigned char BatteryMessage::auxVoltage() const
-{
-    return getUnsignedChar(messageData_, AUX_VOLTAGE_OFFSET);
-}
-
-bool BatteryMessage::auxBmsAlive() const
-{
-    return static_cast<bool>(messageData_.at(AUX_BMS_ALIVE_OFFSET));
-}
-
 QString BatteryMessage::toString() const
 {
     QString messageString;
@@ -194,8 +177,5 @@ QString BatteryMessage::toString() const
     messageString += QString::number(highCellVoltage()) + ", ";
     messageString += QString::number(highCellVoltageId()) + ", ";
     messageString += QString::number(averageCellVoltage()) + ", ";
-    messageString += QString::number(prechargeState()) + ", ";
-    messageString += QString::number(auxVoltage()) + ", ";
-    messageString += QString::number(auxBmsAlive()) + ", ";
     return messageString;
 }

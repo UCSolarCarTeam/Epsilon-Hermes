@@ -11,7 +11,12 @@ packetTitle=Gen5
 
 [SerialPort]
 portName=/dev/pts/7
-baudrate=9600
+baudrate=115200
+
+[OutputSerialPort]
+outputSerialEnabled=false
+portName=/dev/pts/8
+baudrate=115200
 
 [RabbitMq]
 exchangeName=hermesExchange

@@ -9,6 +9,7 @@ class JsonMessageBuilder : public I_JsonMessageBuilder
 public:
     virtual ~JsonMessageBuilder() {}
     JsonMessageBuilder();
+    QJsonObject buildAuxBmsMessage(const I_AuxBmsData& data);
     QJsonObject buildBatteryMessage(const I_BatteryData& data);
     QJsonObject buildBatteryFaultsMessage(const I_BatteryFaultsData& data);
     QJsonObject buildDriverControlsMessage(const I_DriverControlsData& data);

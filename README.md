@@ -1,4 +1,4 @@
-# README.md
+﻿# README.md
 
 Hermes is a background process on the Schulich Elysia's onboard computer.
 It rebroadcasts a data feed from the Central Communication System and also logs the data.
@@ -90,6 +90,12 @@ Then, run the following commands to copy the library over:
 `sudo cp *.so* /usr/local/lib/`
 
 `sudo cp ../src/SimpleAmqpClient/*.h /usr/local/include/SimpleAmqpClient`
+
+5) Configure linker
+
+After adding the library files to `/usr/local/lib`, configure the dynamic linker with SimpleAmqpClient with:
+
+`sudo ldconfig`
 
 ### Start Server
 

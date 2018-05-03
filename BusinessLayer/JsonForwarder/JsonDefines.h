@@ -76,7 +76,7 @@ namespace JsonFormat
     const QString OUTPUT_VOLTAGE_PWM = "OutputVoltagePwm";
     const QString MOTOR_CURRENT = "MotorCurrent";
     const QString VELOCITY = "Velocity";
-    // const QString BUS_CURRENT = "BusCurrent"; // Defined at keymotor already
+// const QString BUS_CURRENT = "BusCurrent"; // Defined at keymotor already
     const QString BUS_VOLTAGE_UPPER = "BusVoltageUpper";
     const QString BUS_VOLTAGE_LOWER = "BusVoltageLower";
     const QString IPM_OR_MOTOR_TEMPERATURE = "IpmOrMotorTemperature";
@@ -151,9 +151,6 @@ namespace JsonFormat
     const QString HIGH_CELL_VOLTAGE = "HighCellVoltage";
     const QString HIGH_CELL_VOLTAGE_ID = "HighCellVoltageId";
     const QString AVERAGE_CELL_VOLTAGE = "AverageCellVoltage";
-    const QString PRECHARGE_STATE = "PrechargeState";
-    const QString AUX_VOLTAGE = "AuxVoltage";
-    const QString AUX_BMS_ALIVE = "AuxBmsAlive";
 
     /* Mppt */
     const QString MPPT = "MPPT";
@@ -170,5 +167,14 @@ namespace JsonFormat
     const QString LIGHTS_LEFT_SIGNAL = "LeftSignal";
     const QString LIGHTS_RIGHT_SIGNAL = "RightSignal";
     const QString LIGHTS_BMS_STROBE_LIGHT = "BmsStrobeLight";
-    const QString LIGHTS_ALIVE = "LightsAlive";
+    const QString LIGHTS_ALIVE = "Alive";
+
+    /* AuxBms */
+    const QString AUX_BMS = "AuxBms";
+    const QString PRECHARGE_STATE = "PrechargeState";
+    const QString AUX_VOLTAGE = "AuxVoltage";
+    const QString AUX_BMS_ALIVE = "AuxBmsAlive";
+    const QString STROBE_BMS_LIGHT = "StrobeBmsLight";
+    const QString ALLOW_CHARGE = "AllowCharge";
+    const QString CONTACTOR_ERROR = "ContactorError";
 }

@@ -60,6 +60,10 @@ void PacketDecoder::handleValidData(QByteArray messageData)
             case MessageDefines::LIGHTS:
                 emit packetDecoded(LightsMessage(messageData));
                 return;
+
+            case MessageDefines::AUX_BMS:
+                emit packetDecoded(AuxBmsMessage(messageData));
+                return;
         }
     }
     else

@@ -22,6 +22,17 @@ HEADERS += \
     DataLayer/MpptData/MockMpptData.h \
     DataLayer/MpptData/MockMpptUnit.h \
     DataLayer/LightsData/MockLightsData.h \
+    DataLayer/BatteryData/MockBatteryData.h \
+    DataLayer/BatteryFaultsData/MockBatteryFaultsData.h \
+    DataLayer/DriverControlsData/MockDriverControlsData.h \
+    DataLayer/KeyMotorData/MockKeyMotorData.h \
+    DataLayer/LightsData/MockLightsData.h \
+    DataLayer/MotorDetailsData/MockMotorDetailsData.h \
+    DataLayer/MotorDetailsData/MockMotorDetailsUnit.h \
+    DataLayer/MotorFaultsData/MockMotorFaultsData.h \
+    DataLayer/MpptData/MockMpptData.h \
+    DataLayer/MpptData/MockMpptUnit.h \
+    DataLayer/AuxBmsData/MockAuxBmsData.h
 
 SOURCES += \
     testmain.cpp \
