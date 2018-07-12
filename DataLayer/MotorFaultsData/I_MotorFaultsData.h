@@ -64,14 +64,4 @@ public:
     virtual void setM0CanTxErrorCount(const unsigned char& m0CanTxErrorCount) = 0;
     virtual void setM1CanRxErrorCount(const unsigned char& m1CanRxErrorCount) = 0;
     virtual void setM1CanTxErrorCount(const unsigned char& m1CanTxErrorCount) = 0;
-
-signals:
-    void m0ErrorFlagsReceived(const unsigned char& m0ErrorFlags);
-    void m1ErrorFlagsReceived(const unsigned char& m1ErrorFlags);
-    void m0LimitFlagsReceived(const unsigned char& m0LimitFlags);
-    void m1LimitFlagsReceived(const unsigned char& m1LimitFlags);
-    void m0CanRxErrorCountReceived(const unsigned char& m0CanRxErrorCount);
-    void m0CanTxErrorCountReceived(const unsigned char& m0CanTxErrorCount);
-    void m1CanRxErrorCountReceived(const unsigned char& m1CanRxErrorCount);
-    void m1CanTxErrorCountReceived(const unsigned char& m1CanTxErrorCount);
 };
