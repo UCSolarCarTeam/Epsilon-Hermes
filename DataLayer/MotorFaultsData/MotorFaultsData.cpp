@@ -238,49 +238,41 @@ bool MotorFaultsData::m1IpmOrMotorTemperatureLimit() const
 void MotorFaultsData::setM0ErrorFlags(const unsigned char& m0ErrorFlags)
 {
     m0ErrorFlags_ = m0ErrorFlags;
-    emit m0ErrorFlagsReceived(m0ErrorFlags_);
 }
 
 void MotorFaultsData::setM1ErrorFlags(const unsigned char& m1ErrorFlags)
 {
     m1ErrorFlags_ = m1ErrorFlags;
-    emit m1ErrorFlagsReceived(m1ErrorFlags_);
 }
 
 void MotorFaultsData::setM0LimitFlags(const unsigned char& m0LimitFlags)
 {
     m0LimitFlags_ = m0LimitFlags;
-    emit m0LimitFlagsReceived(m0LimitFlags_);
 }
 
 void MotorFaultsData::setM1LimitFlags(const unsigned char& m1LimitFlags)
 {
     m1LimitFlags_ = m1LimitFlags;
-    emit m1LimitFlagsReceived(m1LimitFlags_);
 }
 
 void MotorFaultsData::setM0CanRxErrorCount(const unsigned char& m0CanRxErrorCount)
 {
     m0CanRxErrorCount_ = m0CanRxErrorCount;
-    emit m0CanRxErrorCountReceived(m0CanRxErrorCount_);
 }
 
 void MotorFaultsData::setM0CanTxErrorCount(const unsigned char& m0CanTxErrorCount)
 {
     m0CanTxErrorCount_ = m0CanTxErrorCount;
-    emit m0CanTxErrorCountReceived(m0CanTxErrorCount_);
 }
 
 void MotorFaultsData::setM1CanRxErrorCount(const unsigned char& m1CanRxErrorCount)
 {
     m1CanRxErrorCount_ = m1CanRxErrorCount;
-    emit m1CanRxErrorCountReceived(m1CanRxErrorCount_);
 }
 
 void MotorFaultsData::setM1CanTxErrorCount(const unsigned char& m1CanTxErrorCount)
 {
     m1CanTxErrorCount_ = m1CanTxErrorCount;
-    emit m1CanTxErrorCountReceived(m1CanTxErrorCount_);
 }
 
 QString MotorFaultsData::toString() const
