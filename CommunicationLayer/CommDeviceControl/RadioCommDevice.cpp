@@ -32,13 +32,11 @@ bool RadioCommDevice::connectToDataSource()
     {
         connect(&serialPort_, SIGNAL(readyRead()),
                 this, SLOT(handleSerialDataIncoming()), Qt::UniqueConnection);
-        emit connectionSucceeded();
         return true;
     }
     else
     {
         qWarning() << serialPort_.errorString();
-        emit connectionFailed(serialPort_.errorString());
         return false;
     }
 }

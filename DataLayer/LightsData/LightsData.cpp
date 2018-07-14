@@ -61,11 +61,9 @@ bool LightsData::getBmsStrobeLight() const
 void LightsData::setAlive(const bool& alive)
 {
     alive_ = alive;
-    emit aliveReceived(alive_);
 }
 
 void LightsData::setLightStatus(const unsigned char& lightStatus)
 {
     lightStatus_ = lightStatus;
-    emit lightStatusReceived(lightStatus_);
 }

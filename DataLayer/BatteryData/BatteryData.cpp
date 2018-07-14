@@ -213,137 +213,114 @@ bool BatteryData::bmsGetIsChargingSignalStatus() const
 void BatteryData::setAlive(const bool& alive)
 {
     alive_ = alive;
-    emit aliveReceived(alive_);
 }
 
 void BatteryData::setBmsRelayStatus(const unsigned char& bmsRelayStatus)
 {
     bmsRelayStatus_ = bmsRelayStatus;
-    emit bmsRelayStatusReceived(bmsRelayStatus_);
 }
 
 void BatteryData::setPopulatedCells(const unsigned char& populatedCells)
 {
     populatedCells_ = populatedCells;
-    emit populatedCellsReceived(populatedCells_);
 }
 
 void BatteryData::set12VInputVoltage(const float& inputVoltage12V)
 {
     inputVoltage12_ = (inputVoltage12V / DECI_TO_ONES);
-    emit inputVoltage12VReceived(inputVoltage12_);
 }
 
 void BatteryData::setFanVoltage(const float& fanVoltage)
 {
     fanVoltage_ = (fanVoltage / CENTI_TO_ONES);
-    emit fanVoltageReceived(fanVoltage_);
 }
 
 void BatteryData::setPackCurrent(const float& packCurrent)
 {
     packCurrent_ = (packCurrent / DECI_TO_ONES);
-    emit packCurrentReceived(packCurrent_);
 }
 
 void BatteryData::setPackVoltage(const float& packVoltage)
 {
     packVoltage_ = (packVoltage / DECI_TO_ONES);
-    emit packVoltageReceived(packVoltage_);
 }
 
 void BatteryData::setPackStateOfCharge(const float& packStateOfCharge)
 {
     packStateOfCharge_ = (packStateOfCharge / PERCENTAGE_CONVERSION);
-    emit packStateOfChargeReceived(packStateOfCharge_);
 }
 
 void BatteryData::setPackAmphours(const float& packAmphours)
 {
     packAmphours_ = (packAmphours / DECI_TO_ONES);
-    emit packAmphoursReceived(packAmphours_);
 }
 
 void BatteryData::setPackDepthOfDischarge(const float& packDepthOfDischarge)
 {
     packDepthOfDischarge_ = (packDepthOfDischarge / PERCENTAGE_CONVERSION);
-    emit packDepthOfDischargeReceived(packDepthOfDischarge_);
 }
 
 void BatteryData::setHighTemperature(const unsigned char& highTemperature)
 {
     highTemperature_ = highTemperature;
-    emit highTemperatureReceived(highTemperature_);
 }
 
 void BatteryData::setHighThermistorId(const unsigned char& highThermistorId)
 {
     highThermistorId_ = highThermistorId;
-    emit highTemperatureReceived(highThermistorId_);
 }
 
 void BatteryData::setLowTemperature(const unsigned char& lowTemperature)
 {
     lowTemperature_ = lowTemperature;
-    emit lowTemperatureReceived(lowTemperature_);
 }
 
 void BatteryData::setLowThermistorId(const unsigned char& lowThermistorId)
 {
     lowThermistorId_ = lowThermistorId;
-    emit lowThermistorIdReceived(lowThermistorId_);
 }
 
 void BatteryData::setAverageTemperature(const unsigned char& averageTemperature)
 {
     averageTemperature_ = averageTemperature;
-    emit averageTemperatureReceived(averageTemperature_);
 }
 
 void BatteryData::setInternalTemperature(const unsigned char& internalTemperature)
 {
     internalTemperature_ = internalTemperature;
-    emit internalTemperatureReceived(internalTemperature_);
 }
 
 void BatteryData::setFanSpeed(const unsigned char& fanSpeed)
 {
     fanSpeed_ = fanSpeed;
-    emit fanSpeedReceived(fanSpeed_);
 }
 
 void BatteryData::setRequestedFanSpeed(const unsigned char& requestedFanSpeed)
 {
     requestedFanSpeed_ = requestedFanSpeed;
-    emit requestedFanSpeedReceived(requestedFanSpeed_);
 }
 
 void BatteryData::setLowCellVoltage(const unsigned short& lowCellVoltage)
 {
     lowCellVoltage_ = (lowCellVoltage / DECI_TO_ONES);
-    emit lowCellVoltageIdReceived(lowCellVoltage_);
 }
 
 void BatteryData::setLowCellVoltageId(const unsigned char& lowCellVoltageId)
 {
     lowCellVoltageId_ = lowCellVoltageId;
-    emit lowCellVoltageIdReceived(lowCellVoltageId_);
 }
 
 void BatteryData::setHighCellVoltage(const unsigned short& highCellVoltage)
 {
     highCellVoltage_ = (highCellVoltage / DECI_TO_ONES);
-    emit highCellVoltageReceived(highCellVoltage_);
 }
 
 void BatteryData::setHighCellVoltageId(const unsigned char& highCellVoltageId)
 {
     highCellVoltageId_ = highCellVoltageId;
-    emit highCellVoltageIdReceived(highCellVoltageId_);
 }
 
 void BatteryData::setAverageCellVoltage(const unsigned short& averageCellVoltage)
 {
     averageCellVoltage_ = (averageCellVoltage / DECI_TO_ONES);
-    emit averageCellVoltageReceived(averageCellVoltage_);
 }

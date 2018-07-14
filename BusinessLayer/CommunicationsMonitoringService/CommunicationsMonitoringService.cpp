@@ -58,11 +58,6 @@ void CommunicationsMonitoringService::update()
 {
     secondsSinceLastPacketReceived_++;
     secondsSinceLastValidPacketReceived_++;
-    emit secondsSinceLastPacketReceivedUpdate(secondsSinceLastPacketReceived_);
-    emit packetsReceivedInLastMinuteUpdate(packetsReceivedInLastMinute_);
-    emit secondsSinceLastValidPacketReceivedUpdate(secondsSinceLastValidPacketReceived_);
-    emit validPacketsReceivedInLastMinuteUpdate(validPacketsReceivedInLastMinute_);
-    emit invalidPacketsReceivedInLastMinuteUpdate(invalidPacketsReceivedInLastMinute_);
 }
 
 void CommunicationsMonitoringService::decrementPacketsReceivedInLastMinute()

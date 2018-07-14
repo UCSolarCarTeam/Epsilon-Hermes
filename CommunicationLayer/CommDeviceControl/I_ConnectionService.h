@@ -9,8 +9,4 @@ class I_ConnectionService : public QObject
 public:
     virtual bool connectToDataSource() = 0;
     virtual void disconnectFromDataSource() = 0;
-
-signals:
-    void connectionSucceeded();
-    void connectionFailed(QString failureMessage);
 };

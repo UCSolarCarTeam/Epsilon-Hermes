@@ -150,35 +150,29 @@ unsigned short DriverControlsData::getRegenBraking() const
 void DriverControlsData::setDriverControlsBoardAlive(const unsigned char& driverControlsBoardAlive)
 {
     driverControlsBoardAlive_ = driverControlsBoardAlive;
-    emit driverControlsBoardAliveReceived(driverControlsBoardAlive_);
 }
 
 void DriverControlsData::setLightsInputs(const unsigned char& lightsInputs)
 {
     lightsInputs_ = lightsInputs;
-    emit lightsInputsReceived(lightsInputs_);
 }
 
 void DriverControlsData::setMusicInputs(const unsigned char& musicInputs)
 {
     musicInputs_ = musicInputs;
-    emit musicInputsReceived(musicInputs_);
 }
 
 void DriverControlsData::setAcceleration(const unsigned short& acceleration)
 {
     acceleration_ = acceleration;
-    emit accelerationReceived(acceleration_);
 }
 
 void DriverControlsData::setRegenBraking(const unsigned short& regenBraking)
 {
     regenBraking_ = regenBraking;
-    emit regenBrakingReceived(regenBraking_);
 }
 
 void DriverControlsData::setDriverInputs(const unsigned char& driverInputs)
 {
     driverInputs_ = driverInputs;
-    emit driverInputsReceived(driverInputs_);
 }

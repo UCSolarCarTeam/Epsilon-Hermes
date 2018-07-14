@@ -263,13 +263,11 @@ bool BatteryFaultsData::operator==(const I_BatteryFaultsData& other) const
 void BatteryFaultsData::setErrorFlags(const unsigned int& errorFlags)
 {
     errorFlags_ = errorFlags;
-    emit errorFlagsRecieved(errorFlags_);
 }
 
 void BatteryFaultsData::setLimitFlags(const unsigned short& limitFlags)
 {
     limitFlags_ = limitFlags;
-    emit limitFlagsRecieved(limitFlags_);
 }
 
 void BatteryFaultsData::appendIfPresent(QString& messageString, const unsigned int errorMask, QString errorDescription) const

@@ -68,29 +68,4 @@ public:
     virtual void setHighCellVoltage(const unsigned short&) = 0;
     virtual void setHighCellVoltageId(const unsigned char&) = 0;
     virtual void setAverageCellVoltage(const unsigned short&) = 0;
-
-signals:
-    void aliveReceived(const bool& alive);
-    void bmsRelayStatusReceived(const unsigned char&);
-    void populatedCellsReceived(const unsigned char&);
-    void inputVoltage12VReceived(const float&);
-    void fanVoltageReceived(const float&);
-    void packCurrentReceived(const float&);
-    void packVoltageReceived(const float&);
-    void packStateOfChargeReceived(const float&);
-    void packAmphoursReceived(const float&);
-    void packDepthOfDischargeReceived(const float&);
-    void highTemperatureReceived(const unsigned char&);
-    void highThermistorIdReceived(const unsigned char&);
-    void lowTemperatureReceived(const unsigned char&);
-    void lowThermistorIdReceived(const unsigned char&);
-    void averageTemperatureReceived(const unsigned char&);
-    void internalTemperatureReceived(const unsigned char&);
-    void fanSpeedReceived(const unsigned char&);
-    void requestedFanSpeedReceived(const unsigned char&);
-    void lowCellVoltageReceived(const unsigned short&);
-    void lowCellVoltageIdReceived(const unsigned char&);
-    void highCellVoltageReceived(const unsigned short&);
-    void highCellVoltageIdReceived(const unsigned char&);
-    void averageCellVoltageReceived(const unsigned short&);
 };

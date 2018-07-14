@@ -11,8 +11,5 @@ public:
     virtual ~I_CommDevice() {}
 
 signals:
-    void connectionSucceeded();
-    void connectionFailed(const QString& errorString);
-
     void dataReceived(QByteArray data);
 };

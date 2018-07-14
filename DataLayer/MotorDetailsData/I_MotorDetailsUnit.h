@@ -45,23 +45,5 @@ public:
     virtual void setDcBusAmpHours(const float& dcBusAmpHours) = 0;
     virtual void setOdometer(const float& odometer) = 0;
     virtual void setSlipSpeed(const float& slipSpeed) = 0;
-
-signals:
-    void phaseCCurrentReceived(const float& phaseCCurrent);
-    void phaseBCurrentReceived(const float& phaseBCurrent);
-    void motorVoltageRealReceived(const float& motorVoltageReal);
-    void motorVoltageImaginaryReceived(const float& motorVoltageImaginary);
-    void motorCurrentRealReceived(const float& motorCurrentReal);
-    void motorCurrentImaginaryReceived(const float& motorCurrentImaginary);
-    void backEmfReceived(const float& backEmf);
-    void voltageRailSuppply15VReceived(const float& voltageRailSuppply15V);
-    void voltageRailSupply33VReceived(const float& voltageRailSupply33V);
-    void voltageRailSupply19VReceived(const float& voltageRailSupply19V);
-    void heatSinkTemperatureReceived(const float& heatSinkTemperature);
-    void motorTemperatureReceived(const float& motorTemperature);
-    void dspBoardTemperatureReceived(const float& dspBoardTemperature);
-    void dcBusAmpHoursReceived(const float& dcBusAmpHours);
-    void odometerReceived(const float& odometer);
-    void slipSpeedReceived(const float& slipSpeed);
 };
 

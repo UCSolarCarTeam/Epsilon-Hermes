@@ -56,8 +56,4 @@ public:
     /* BatteryFaults Sets */
     virtual void setErrorFlags(const unsigned int& errorFlags) = 0;
     virtual void setLimitFlags(const unsigned short& limitFlags) = 0;
-
-signals:
-    void errorFlagsRecieved(const unsigned int errorFlags);
-    void limitFlagsRecieved(const unsigned short limitFlags);
 };

@@ -42,13 +42,11 @@ bool OutputRadioCommDevice::connectToDataSource()
     {
         connect(&outputSerialPort_, SIGNAL(readyRead()),
                 this, SLOT(handleSerialDataIncoming()), Qt::UniqueConnection);
-        emit connectionSucceeded();
         return true;
     }
     else
     {
         qWarning() << outputSerialPort_.errorString();
-        emit connectionFailed(outputSerialPort_.errorString());
         return false;
     }
 }

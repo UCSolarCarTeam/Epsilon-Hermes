@@ -21,11 +21,4 @@ public:
     virtual void setArrayCurrent(const unsigned short& arrayCurrent) = 0;
     virtual void setBatteryVoltage(const unsigned short& batteryVoltage) = 0;
     virtual void setTemperature(const unsigned short& temperature) = 0;
-
-signals:
-    void mpptStatusReceived(const unsigned char mpptStatus);
-    void arrayVoltageReceived(const unsigned short arrayVoltage);
-    void arrayCurrentReceived(const unsigned short arrayCurrent);
-    void batteryVoltageReceived(const unsigned short batteryVoltage);
-    void temperatureReceived(const unsigned short temperature);
 };

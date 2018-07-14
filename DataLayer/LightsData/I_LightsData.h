@@ -20,8 +20,4 @@ public:
     /* LightsData Sets */
     virtual void setAlive(const bool&) = 0;
     virtual void setLightStatus(const unsigned char&) = 0;
-
-signals:
-    void aliveReceived(const bool& alive);
-    void lightStatusReceived(const unsigned char lightStatus);
 };

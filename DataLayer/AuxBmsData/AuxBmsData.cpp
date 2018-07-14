@@ -61,41 +61,34 @@ bool AuxBmsData::getHighVoltageEnable() const
 void AuxBmsData::setPrechargeState(const unsigned char& prechargeState)
 {
     prechargeState_ = static_cast<PrechargeState>(prechargeState);
-    emit prechargeStateReceived(prechargeState_);
 }
 
 void AuxBmsData::setAuxVoltage(const unsigned char& auxVoltage)
 {
     auxVoltage_ = auxVoltage;
-    emit auxVoltageReceived(auxVoltage_);
 }
 
 void AuxBmsData::setAuxBmsAlive(const bool& auxBmsAlive)
 {
     auxBmsAlive_ = auxBmsAlive;
-    emit auxBmsAliveReceived(auxBmsAlive_);
 }
 
 void AuxBmsData::setStrobeBmsLight(const bool& strobeBmsLight)
 {
     strobeBmsLight_ = strobeBmsLight;
-    emit strobeBmsLightRecieved(strobeBmsLight_);
 }
 
 void AuxBmsData::setAllowCharge(const bool& allowCharge)
 {
     allowCharge_ = allowCharge;
-    emit allowChargeRecieved(allowCharge_);
 }
 
 void AuxBmsData::setContactorError(const bool& contactorError)
 {
     contactorError_ = contactorError;
-    emit contactorErrorRecieved(contactorError_);
 }
 
 void AuxBmsData::setHighVoltageEnable(const bool& highVoltageEnable)
 {
     highVoltageEnable_ = highVoltageEnable;
-    emit highVoltageEnableRecieved(highVoltageEnable_);
 }

@@ -51,31 +51,26 @@ unsigned short MpptUnit::getTemperature() const
 void MpptUnit::setMpptStatus(const unsigned char& mpptStatus)
 {
     mpptStatus_ = mpptStatus;
-    emit mpptStatusReceived(mpptStatus_);
 }
 
 void MpptUnit::setArrayVoltage(const unsigned short& arrayVoltage)
 {
     arrayVoltage_ = (arrayVoltage / CENTI_TO_ONES);
-    emit arrayVoltageReceived(arrayVoltage_);
 }
 
 void MpptUnit::setArrayCurrent(const unsigned short& arrayCurrent)
 {
     arrayCurrent_ = (arrayCurrent / MILLI_TO_ONES);
-    emit arrayCurrentReceived(arrayCurrent_);
 }
 
 void MpptUnit::setBatteryVoltage(const unsigned short& batteryVoltage)
 {
     batteryVoltage_ = (batteryVoltage / CENTI_TO_ONES);
-    emit batteryVoltageReceived(batteryVoltage_);
 }
 
 void MpptUnit::setTemperature(const unsigned short& temperature)
 {
     temperature_ = (temperature / CENTI_TO_ONES);
-    emit temperatureReceived(temperature_);
 }
 
 

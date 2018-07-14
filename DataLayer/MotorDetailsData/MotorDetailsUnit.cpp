@@ -118,95 +118,79 @@ float MotorDetailsUnit::getSlipSpeed() const
 void MotorDetailsUnit::setPhaseCCurrent(const float& phaseCCurrent)
 {
     phaseCCurrent_ = phaseCCurrent;
-    emit phaseCCurrentReceived(phaseCCurrent_);
 }
 
 void MotorDetailsUnit::setPhaseBCurrent(const float& phaseBCurrent)
 {
     phaseBCurrent_ = phaseBCurrent;
-    emit phaseBCurrentReceived(phaseBCurrent_);
 }
 
 void MotorDetailsUnit::setMotorVoltageReal(const float& motorVoltageReal)
 {
     motorVoltageReal_ = motorVoltageReal;
-    emit motorVoltageRealReceived(motorVoltageReal_);
 }
 
 void MotorDetailsUnit::setMotorVoltageImaginary(const float& motorVoltageImaginary)
 {
     motorVoltageImaginary_ = motorVoltageImaginary;
-    emit motorVoltageImaginaryReceived(motorVoltageImaginary_);
 }
 
 void MotorDetailsUnit::setMotorCurrentReal(const float& motorCurrentReal)
 {
     motorCurrentReal_ = motorCurrentReal;
-    emit motorCurrentRealReceived(motorCurrentReal_);
 }
 
 void MotorDetailsUnit::setMotorCurrentImaginary(const float& motorCurrentImaginary)
 {
     motorCurrentImaginary_ = motorCurrentImaginary;
-    emit motorCurrentImaginaryReceived(motorCurrentImaginary_);
 }
 
 void MotorDetailsUnit::setBackEmf(const float& backEmf)
 {
     backEmf_ = backEmf;
-    emit backEmfReceived(backEmf_);
 }
 
 void MotorDetailsUnit::setVoltageRailSuppply15V(const float& voltageRailSuppply15V)
 {
     voltageRailSuppply15V_ = voltageRailSuppply15V;
-    emit voltageRailSuppply15VReceived(voltageRailSuppply15V_);
 }
 
 void MotorDetailsUnit::setVoltageRailSupply33V(const float& voltageRailSupply33V)
 {
     voltageRailSupply33V_ = voltageRailSupply33V;
-    emit voltageRailSupply33VReceived(voltageRailSupply33V_);
 }
 
 void MotorDetailsUnit::setVoltageRailSupply19V(const float& voltageRailSupply19V)
 {
     voltageRailSupply19V_ = voltageRailSupply19V;
-    emit voltageRailSupply19VReceived(voltageRailSupply19V_);
 }
 
 void MotorDetailsUnit::setHeatSinkTemperature(const float& heatSinkTemperature)
 {
     heatSinkTemperature_ = heatSinkTemperature;
-    emit heatSinkTemperatureReceived(heatSinkTemperature_);
 }
 
 void MotorDetailsUnit::setMotorTemperature(const float& motorTemperature)
 {
     motorTemperature_ = motorTemperature;
-    emit motorTemperatureReceived(motorTemperature_);
 }
 
 void MotorDetailsUnit::setDspBoardTemperature(const float& dspBoardTemperature)
 {
     dspBoardTemperature_ = dspBoardTemperature;
-    emit dspBoardTemperatureReceived(dspBoardTemperature_);
 }
 
 void MotorDetailsUnit::setDcBusAmpHours(const float& dcBusAmpHours)
 {
     dcBusAmpHours_ = dcBusAmpHours;
-    emit dcBusAmpHoursReceived(dcBusAmpHours_);
 }
 
 void MotorDetailsUnit::setOdometer(const float& odometer)
 {
     odometer_ = odometer;
-    emit odometerReceived(odometer_);
 }
 
 void MotorDetailsUnit::setSlipSpeed(const float& slipSpeed)
 {
     slipSpeed_ = slipSpeed;
-    emit slipSpeedReceived(slipSpeed_);
 }

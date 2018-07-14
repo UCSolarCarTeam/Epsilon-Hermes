@@ -39,12 +39,4 @@ public:
     virtual void setAcceleration(const unsigned short& getAcceleration) = 0;
     virtual void setRegenBraking(const unsigned short& getRegenBraking) = 0;
     virtual void setDriverInputs(const unsigned char& getDriverInputs) = 0;
-
-signals:
-    void driverControlsBoardAliveReceived(unsigned char getDriverControlsBoardAlive);
-    void lightsInputsReceived(unsigned char getLightsInputs);
-    void musicInputsReceived(unsigned char getMusicInputs);
-    void accelerationReceived(unsigned short getAcceleration);
-    void regenBrakingReceived(unsigned short getRegenBraking);
-    void driverInputsReceived(unsigned char getDriverInputs);
 };

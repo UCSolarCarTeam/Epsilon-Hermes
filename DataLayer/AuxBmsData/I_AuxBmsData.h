@@ -36,13 +36,4 @@ public:
     virtual void setAllowCharge(const bool&) = 0;
     virtual void setContactorError(const bool&) = 0;
     virtual void setHighVoltageEnable(const bool&) = 0;
-
-signals:
-    void prechargeStateReceived(const unsigned char&);
-    void auxVoltageReceived(const unsigned char&);
-    void auxBmsAliveReceived(const bool&);
-    void strobeBmsLightRecieved(const bool&);
-    void allowChargeRecieved(const bool&);
-    void contactorErrorRecieved(const bool&);
-    void highVoltageEnableRecieved(const bool&);
 };

@@ -37,19 +37,4 @@ public:
     virtual void setM1BusCurrent(const float& m1BusCurrent) = 0;
     virtual void setM1BusVoltage(const float& m1BusVoltage) = 0;
     virtual void setM1VehicleVelocity(const float& m1VehicleVelocity) = 0;
-
-signals:
-
-    void m0AliveReceived(unsigned char m0Alive);
-    void m0SetCurrentReceived(float m0SetCurrent);
-    void m0SetVelocityReceived(float m0SetVelocity);
-    void m0BusCurrentReceived(float m0BusCurrent);
-    void m0BusVoltageReceived(float m0BusVoltage);
-    void m0VehicleVelocityReceived(float m0VehicleVelocity);
-    void m1AliveReceived(unsigned char m1Alive);
-    void m1SetCurrentReceived(float m1SetCurrent);
-    void m1SetVelocityReceived(float m1SetVelocity);
-    void m1BusCurrentReceived(float m1BusCurrent);
-    void m1BusVoltageReceived(float m1BusVoltage);
-    void m1VehicleVelocityReceived(float m1VehicleVelocity);
 };
