@@ -10,18 +10,22 @@ numberOfMppts=4
 packetTitle=Gen5
 
 [SerialPort]
-portName=/dev/pts/7
+portName=/dev/pts/5
 baudrate=115200
 
 [OutputSerialPort]
 outputSerialEnabled=false
-portName=/dev/pts/8
+portName=/dev/pts/10
 baudrate=115200
 
 [RabbitMq]
 exchangeName=hermesExchange
 ipAddress=127.0.0.1
 port=5672
+
+serverExchangeName=hermesExchange
+serverIpAddress=138.197.206.227
+serverPort=5672
 
 [Logging]
 logLevel=3

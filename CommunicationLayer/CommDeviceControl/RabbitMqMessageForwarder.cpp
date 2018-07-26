@@ -19,7 +19,11 @@ RabbitMqMessageForwarder::RabbitMqMessageForwarder(I_Settings& settings)
     exchangeName_ = settings.exchangeName();
     ipAddress_ = settings.ipAddress();
     port_ = settings.port();
+    serverExchangeName_ = settings.serverExchangeName();
+    serverIpAddress_  = settings.serverIpAddress();
+    serverPort_ = settings.serverPort();
     setupChannel();
+    setupServerChannel();
 }
 
 RabbitMqMessageForwarder::~RabbitMqMessageForwarder()
@@ -66,6 +70,24 @@ void RabbitMqMessageForwarder::setupChannel()
     channel_->DeclareExchange(exchangeName_.toStdString(), AmqpClient::Channel::EXCHANGE_TYPE_FANOUT);
 }
 
+void RabbitMqMessageForwarder::setupServerChannel()
+{
+    qInfo() << "RabbitMqMessageForwarder: Attempting to reconnect to server";
+
+    try
+    {
+        serverChannel_ = AmqpClient::Channel::Create(serverIpAddress_.toStdString(), serverPort_);
+    }
+    catch (std::exception&)
+    {
+    }
+
+    if (serverChannel_ != NULL)
+    {
+        serverChannel_->DeclareExchange(serverExchangeName_.toStdString(), AmqpClient::Channel::EXCHANGE_TYPE_FANOUT);
+    }
+}
+
 void RabbitMqMessageForwarder::forwardData(QByteArray data)
 {
     qDebug() << "RabbitMqMessageForwarder: Forwarding data";
@@ -83,5 +105,24 @@ void RabbitMqMessageForwarder::forwardData(QByteArray data)
     {
         qWarning() << "RabbitMqMessageForwarder: Connection to broker terminated";
         setupChannel();
+    }
+}
+
+void RabbitMqMessageForwarder::forwardServerData(QByteArray data)
+{
+    AmqpClient::BasicMessage::ptr_t mq_msg = AmqpClient::BasicMessage::Create(QTextCodec::codecForMib(106)->toUnicode(data).toStdString());
+
+    try
+    {
+        serverChannel_->BasicPublish(serverExchangeName_.toStdString(), "", mq_msg);
+    }
+    catch (AmqpClient::ChannelException& ex)
+    {
+        qCritical() << "RabbitMqMessageForwarder: Failed to forward data to server";
+    }
+    catch (AmqpClient::ConnectionException& ex)
+    {
+        qWarning() << "RabbitMqMessageForwarder: Connection to broker for server terminated";
+        setupServerChannel();
     }
 }
