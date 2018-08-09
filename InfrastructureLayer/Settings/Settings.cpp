@@ -83,6 +83,21 @@ QString Settings::exchangeName() const
     return QString(settings_.value("RabbitMq/exchangeName").toString());
 }
 
+QString Settings::serverIpAddress() const
+{
+    return QString(settings_.value("RabbitMq/serverIpAddress").toString());
+}
+
+quint16 Settings::serverPort() const
+{
+    return (quint16)settings_.value("RabbitMq/serverPort").toInt();
+}
+
+QString Settings::serverExchangeName() const
+{
+    return QString(settings_.value("RabbitMq/serverExchangeName").toString());
+}
+
 // Logging
 
 int Settings::logLevel() const

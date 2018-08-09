@@ -28,6 +28,10 @@ public:
     virtual quint16 port() const = 0;
     virtual QString exchangeName() const = 0;
 
+    virtual QString serverIpAddress() const = 0;
+    virtual quint16 serverPort() const = 0;
+    virtual QString serverExchangeName() const = 0;
+
     // Logging
     virtual int logLevel() const = 0;
     virtual bool loggingEnabled() const = 0;

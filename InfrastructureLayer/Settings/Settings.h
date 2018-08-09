@@ -34,6 +34,10 @@ public:
     quint16 port() const;
     QString exchangeName() const;
 
+    QString serverIpAddress() const;
+    quint16 serverPort() const;
+    QString serverExchangeName() const;
+
     // Logging
     int logLevel() const;
     bool loggingEnabled() const;
