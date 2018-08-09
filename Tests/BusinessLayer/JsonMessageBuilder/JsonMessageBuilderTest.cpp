@@ -777,9 +777,9 @@ TEST(JsonMessageBuilderTest, battery)
         \"FanVoltage\": 3, \
         \"PackCurrent\": 4, \
         \"PackVoltage\": 5, \
-        \"PackStateofCharge\": 6, \
+        \"PackStateOfCharge\": 6, \
         \"PackAmphours\": 7, \
-        \"PackDepthofDischarge\": 8, \
+        \"PackDepthOfDischarge\": 8, \
         \"HighTemperature\": 9, \
         \"HighThermistorId\": 10, \
         \"LowTemperature\": 11, \
