@@ -135,7 +135,7 @@ namespace JsonFormat
     const QString FAN_VOLTAGE = "FanVoltage";
     const QString PACK_CURRENT = "PackCurrent";
     const QString PACK_VOLTAGE = "PackVoltage";
-    const QString PACK_STATE_OF_CHARGE = "PackStateofCharge";
+    const QString PACK_STATE_OF_CHARGE = "PackStateOfCharge";
     const QString PACK_AMPHOURS = "PackAmphours";
     const QString PACK_DEPTH_OF_DISCHARGE = "PackDepthofDischarge";
     const QString HIGH_TEMPERATURE = "HighTemperature";

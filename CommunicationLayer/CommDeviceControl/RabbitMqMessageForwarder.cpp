@@ -110,6 +110,7 @@ void RabbitMqMessageForwarder::forwardData(QByteArray data)
 
 void RabbitMqMessageForwarder::forwardServerData(QByteArray data)
 {
+    qDebug() << "RabbitMqMessageForwarder: Forwarding data to server";
     AmqpClient::BasicMessage::ptr_t mq_msg = AmqpClient::BasicMessage::Create(QTextCodec::codecForMib(106)->toUnicode(data).toStdString());
 
     try
