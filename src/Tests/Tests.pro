@@ -53,7 +53,7 @@ count(TRAVIS_DEFINED, 0) {
     QMAKE_CXXFLAGS += -Werror
 }
 
-DESTDIR = ../../build/tests
+DESTDIR = ../../build/tests/
 
 copyfiles.commands = cp testconfig.ini $${DESTDIR}
 
