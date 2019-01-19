@@ -62,10 +62,12 @@ void Logging::init(int level)
     QString logDirectory = QCoreApplication::applicationDirPath() + LOG_DIR;
     QString logName = logDirectory + LOG_NAME + todayStr + LOG_EXT;
     logFile_.setFileName(logName);
-    if(!QDir().exists(logDirectory))
+
+    if (!QDir().exists(logDirectory))
     {
         QDir().mkdir(logDirectory);
     }
+
     if (logFile_.open(QIODevice::WriteOnly | QIODevice::Append))
     {
         logStream_.setDevice(&logFile_);
