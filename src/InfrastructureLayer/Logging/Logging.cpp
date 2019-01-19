@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QDate>
+#include <QDir>
 
 #include "Logging.h"
 #include <QCoreApplication>
@@ -58,9 +59,13 @@ void Logging::init(int level)
     // It is quite unlikely to for the date to change while the car is running
     // So this assumes the date will not change while Epsilon Hermes is running
     QString todayStr = QDate::currentDate().toString(LOG_DATE_FORMAT);
-    QString logName = QCoreApplication::applicationDirPath() + LOG_DIR + LOG_NAME + todayStr + LOG_EXT;
+    QString logDirectory = QCoreApplication::applicationDirPath() + LOG_DIR;
+    QString logName = logDirectory + LOG_NAME + todayStr + LOG_EXT;
     logFile_.setFileName(logName);
-
+    if(!QDir().exists(logDirectory))
+    {
+        QDir().mkdir(logDirectory);
+    }
     if (logFile_.open(QIODevice::WriteOnly | QIODevice::Append))
     {
         logStream_.setDevice(&logFile_);
@@ -68,7 +73,7 @@ void Logging::init(int level)
     }
     else
     {
-        std::cerr << "Logging initalization failed" << std::endl;;
+        std::cerr << "Logging initalization failed" << std::endl;
         abort();
     }
 
