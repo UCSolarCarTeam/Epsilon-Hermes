@@ -113,10 +113,10 @@ To create a `libgmock.a` file in a Linux system follow these instructions in an 
     `cd googletest/`
 
 3. Compile googletest:
-    `+++g++ std=c++11 -isystem googletest/include/ -Igoogletest -isystem googlemock/include/ -Igooglemock -pthread -c googletest/src/gtest-all.cc+++`
+    `+++g++ -std=c++11 -isystem googletest/include/ -Igoogletest -isystem googlemock/include/ -Igooglemock -pthread -c googletest/src/gtest-all.cc+++`
 
 4. Compile googlemock:
-    `+++g++ std=c++11 -isystem googletest/include/ -Igoogletest -isystem googlemock/include/ -Igooglemock -pthread -c googlemock/src/gmock-all.cc+++`
+    `+++g++ -std=c++11 -isystem googletest/include/ -Igoogletest -isystem googlemock/include/ -Igooglemock -pthread -c googlemock/src/gmock-all.cc+++`
 
 5. Collect both the resulting .o files into an archive file:
     `ar -rv libgmock.a gtest-all.o gmock-all.o`
