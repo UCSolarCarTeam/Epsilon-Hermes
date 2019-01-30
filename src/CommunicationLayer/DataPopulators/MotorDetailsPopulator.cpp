@@ -4,7 +4,7 @@ MotorDetailsPopulator::MotorDetailsPopulator(I_PacketDecoder& packetDecoder, I_M
     : packetDecoder_(packetDecoder)
     , motorDetailsData_(motorDetailsData)
 {
-    connect(&packetDecoder_, SIGNAL(packetDecoded(const MotorDetailsMessage)), this, SLOT(populateData(const MotorDetailsData)));
+    connect(&packetDecoder_, SIGNAL(packetDecoded(const MotorDetailsMessage)), this, SLOT(populateData(const MotorDetailsMessage)));
 }
 
 void MotorDetailsPopulator::populateData(const MotorDetailsMessage message)
