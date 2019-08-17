@@ -8,7 +8,7 @@ build*
 *.user*
 *.orig
 logs/
-Tests/target_wrapper.sh
+src/Tests/target_wrapper.sh
 .qmake.stash
 *.gch
 .fuse_hidden*

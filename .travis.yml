@@ -1,20 +1,22 @@
+dist: bionic
 sudo: required
 
 before_install:
-    - sudo apt-add-repository -y ppa:beineri/opt-qt551-trusty
+    - sudo apt-add-repository -y ppa:beineri/opt-qt-5.12.0-bionic
     - sudo apt-get update
     - sudo apt-get -y install
         g++-4.8
         libc6-i386
-        qt55tools
-        qt55svg
-        qt55webkit
-        qt55serialport
+        qt512tools
+        qt512svg
+        qt512webengine
+        qt512serialport
         libboost-chrono-dev
         libboost-system-dev
-    - PATH="/opt/qt55/bin:$PATH"
+        libgl1-mesa-dev
+    - PATH="/opt/qt512/bin:$PATH"
     - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-    - qt55-env.sh
+    - qt512-env.sh
     - mkdir -p build/.lib/
 
 
