@@ -2,8 +2,8 @@
 
 namespace
 {
-    const int CENTI_TO_ONES = 100;
-    const int MILLI_TO_ONES = 1000;
+    const int CENTI_TO_ONES = 100.0;
+    const int MILLI_TO_ONES = 1000.0;
 }
 
 MpptUnit::MpptUnit()
@@ -26,22 +26,22 @@ unsigned char MpptUnit::getMpptStatus() const
     return mpptStatus_;
 }
 
-unsigned short MpptUnit::getArrayVoltage() const
+float MpptUnit::getArrayVoltage() const
 {
     return arrayVoltage_;
 }
 
-unsigned short MpptUnit::getArrayCurrent() const
+float MpptUnit::getArrayCurrent() const
 {
     return arrayCurrent_;
 }
 
-unsigned short MpptUnit::getBatteryVoltage() const
+float MpptUnit::getBatteryVoltage() const
 {
     return batteryVoltage_;
 }
 
-unsigned short MpptUnit::getTemperature() const
+float MpptUnit::getTemperature() const
 {
     return temperature_;
 }

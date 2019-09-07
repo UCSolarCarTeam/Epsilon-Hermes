@@ -10,10 +10,10 @@ public:
 
     /* MpptUnit Gets */
     unsigned char getMpptStatus() const;
-    unsigned short getArrayVoltage() const;
-    unsigned short getArrayCurrent() const;
-    unsigned short getBatteryVoltage() const;
-    unsigned short getTemperature() const;
+    float getArrayVoltage() const;
+    float getArrayCurrent() const;
+    float getBatteryVoltage() const;
+    float getTemperature() const;
 
     /* MpptUnit Sets */
     void setMpptStatus(const unsigned char& mpptStatus);
@@ -25,8 +25,8 @@ public:
 
 private:
     unsigned char mpptStatus_;
-    unsigned short arrayVoltage_;
-    unsigned short arrayCurrent_;
-    unsigned short batteryVoltage_;
-    unsigned short temperature_;
+    float arrayVoltage_;
+    float arrayCurrent_;
+    float batteryVoltage_;
+    float temperature_;
 };

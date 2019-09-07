@@ -8,10 +8,10 @@ public:
 
     /*MpptUnit "Gets"*/
     MOCK_CONST_METHOD0(getMpptStatus, unsigned char());
-    MOCK_CONST_METHOD0(getArrayVoltage, unsigned short());
-    MOCK_CONST_METHOD0(getArrayCurrent, unsigned short());
-    MOCK_CONST_METHOD0(getBatteryVoltage, unsigned short());
-    MOCK_CONST_METHOD0(getTemperature, unsigned short());
+    MOCK_CONST_METHOD0(getArrayVoltage, float());
+    MOCK_CONST_METHOD0(getArrayCurrent, float());
+    MOCK_CONST_METHOD0(getBatteryVoltage, float());
+    MOCK_CONST_METHOD0(getTemperature, float());
 
 
     /*MpptUnit "Gets"*/

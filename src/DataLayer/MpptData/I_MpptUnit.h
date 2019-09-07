@@ -10,10 +10,10 @@ public:
 
     /* MpptUnit Gets */
     virtual unsigned char getMpptStatus() const = 0;
-    virtual unsigned short getArrayVoltage() const = 0;
-    virtual unsigned short getArrayCurrent() const = 0;
-    virtual unsigned short getBatteryVoltage() const = 0;
-    virtual unsigned short getTemperature() const = 0;
+    virtual float getArrayVoltage() const = 0;
+    virtual float getArrayCurrent() const = 0;
+    virtual float getBatteryVoltage() const = 0;
+    virtual float getTemperature() const = 0;
 
     /* MpptUnit Sets */;
     virtual void setMpptStatus(const unsigned char& mpptStatus) = 0;
