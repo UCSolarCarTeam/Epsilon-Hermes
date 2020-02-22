@@ -1,4 +1,5 @@
 #include "MpptUnit.h"
+#include <QDebug>
 
 namespace
 {
@@ -55,17 +56,17 @@ void MpptUnit::setMpptStatus(const unsigned char& mpptStatus)
 
 void MpptUnit::setArrayVoltage(const unsigned short& arrayVoltage)
 {
-    arrayVoltage_ = (arrayVoltage / CENTI_TO_ONES);
+    arrayVoltage_ = ((float)arrayVoltage / CENTI_TO_ONES);
 }
 
 void MpptUnit::setArrayCurrent(const unsigned short& arrayCurrent)
 {
-    arrayCurrent_ = (arrayCurrent / MILLI_TO_ONES);
+    arrayCurrent_ = ((float)arrayCurrent / MILLI_TO_ONES);
 }
 
 void MpptUnit::setBatteryVoltage(const unsigned short& batteryVoltage)
 {
-    batteryVoltage_ = (batteryVoltage / CENTI_TO_ONES);
+    batteryVoltage_ = ((float)batteryVoltage / CENTI_TO_ONES);
 }
 
 void MpptUnit::setTemperature(const unsigned short& temperature)
