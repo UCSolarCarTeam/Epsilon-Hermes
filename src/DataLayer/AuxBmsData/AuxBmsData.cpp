@@ -1,8 +1,14 @@
 #include "AuxBmsData.h"
 
-namespace name
+namespace
 {
-
+    const unsigned char CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_MASK              = 0x01;
+    const unsigned char CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK   = 0x02;
+    const unsigned char CHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK                   = 0x04;
+    const unsigned char DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_MASK            = 0x08;
+    const unsigned char DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_MASK = 0x10;
+    const unsigned char DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK                = 0x20;
+    const unsigned char PROTECTION_TRIP_MASK                                   = 0x40;
 }
 
 AuxBmsData::AuxBmsData()
@@ -57,6 +63,41 @@ bool AuxBmsData::getHighVoltageEnable() const
     return highVoltageEnable_;
 }
 
+bool AuxBmsData::getChargeTripDueToHighCellVoltage() const
+{
+    return auxTripBit(CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_MASK);
+}
+
+bool AuxBmsData::getChargeTripDueToHighTemperatureAndCurrent() const
+{
+    return auxTripBit(CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK);
+}
+
+bool AuxBmsData::getChargeTripDueToPackCurrent() const
+{
+    return auxTripBit(CHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK);
+}
+
+bool AuxBmsData::getDischargeTripDueToLowCellVoltage() const
+{
+    return auxTripBit(DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_MASK);
+}
+
+bool AuxBmsData::getDischargeTripDueToHighTemeratureAndCurrent() const
+{
+    return auxTripBit(DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_MASK);
+}
+
+bool AuxBmsData::getDischargeTripDueToPackCurrent() const
+{
+    return auxTripBit(DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK);
+}
+
+bool AuxBmsData::getProtectionTrip() const
+{
+    return auxTripBit(PROTECTION_TRIP_MASK);
+}
+
 /*AuxBmsData "Sets"*/
 void AuxBmsData::setPrechargeState(const unsigned char& prechargeState)
 {
@@ -91,4 +132,14 @@ void AuxBmsData::setContactorError(const bool& contactorError)
 void AuxBmsData::setHighVoltageEnable(const bool& highVoltageEnable)
 {
     highVoltageEnable_ = highVoltageEnable;
+}
+
+void AuxBmsData::setAuxTrip(const unsigned char auxTrip)
+{
+    auxTrip_ = auxTrip;
+}
+
+bool AuxBmsData::auxTripBit(const unsigned char mask) const
+{
+    return static_cast<bool>(auxTrip_ & mask);
 }

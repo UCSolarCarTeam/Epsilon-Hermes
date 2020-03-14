@@ -28,6 +28,14 @@ public:
     virtual bool getContactorError() const = 0;
     virtual bool getHighVoltageEnable() const = 0;
 
+    virtual bool getChargeTripDueToHighCellVoltage() const = 0;
+    virtual bool getChargeTripDueToHighTemperatureAndCurrent() const = 0;
+    virtual bool getChargeTripDueToPackCurrent() const = 0;
+    virtual bool getDischargeTripDueToLowCellVoltage() const = 0;
+    virtual bool getDischargeTripDueToHighTemeratureAndCurrent() const = 0;
+    virtual bool getDischargeTripDueToPackCurrent() const = 0;
+    virtual bool getProtectionTrip() const = 0;
+
     /*AuxBmsData "Sets"*/
     virtual void setPrechargeState(const unsigned char&) = 0;
     virtual void setAuxVoltage(const unsigned char&) = 0;
@@ -36,4 +44,6 @@ public:
     virtual void setAllowCharge(const bool&) = 0;
     virtual void setContactorError(const bool&) = 0;
     virtual void setHighVoltageEnable(const bool&) = 0;
+
+    virtual void setAuxTrip(const unsigned char auxTrip) = 0;
 };
