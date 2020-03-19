@@ -1089,7 +1089,14 @@ TEST(JsonMessageBuilderTest, auxBms)
             \"StrobeBmsLight\": true, \
             \"AllowCharge\": true, \
             \"ContactorError\": true, \
-            \"HighVoltageEnable\": true \
+            \"HighVoltageEnable\": true, \
+            \"ChargeTripDueToHighCellVoltage\": true, \
+            \"ChargeTripDueToHighTemperatureAndCurrent\": false, \
+            \"ChargeTripDueToPackCurrent\": true, \
+            \"DischargeTripDueToLowCellVoltage\": false, \
+            \"DischargeTripDueToHighTemeratureAndCurrent\": true, \
+            \"DischargeTripDueToPackCurrent\": false, \
+            \"ProtectionTrip\": false \
         }";
 
        //*INDENT-ON*
@@ -1106,6 +1113,14 @@ TEST(JsonMessageBuilderTest, auxBms)
     const bool CONTACTOR_ERROR_VAL = true;
     const bool HIGH_VOLTAGE_ENABLE_VAL = true;
 
+    const bool CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_VAL = true;
+    const bool CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_VAL = false;
+    const bool CHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL = true;
+    const bool DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_VAL = false;
+    const bool DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_VAL = true;
+    const bool DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL = false;
+    const bool PROTECTION_TRIP_VAL = false;
+
     ON_CALL(mockAuxBmsData, getPrechargeState())
     .WillByDefault(Return(PRECHARGE_STATE_VAL));
     ON_CALL(mockAuxBmsData, getAuxVoltage())
@@ -1120,6 +1135,21 @@ TEST(JsonMessageBuilderTest, auxBms)
     .WillByDefault(Return(CONTACTOR_ERROR_VAL));
     ON_CALL(mockAuxBmsData, getHighVoltageEnable())
     .WillByDefault(Return(HIGH_VOLTAGE_ENABLE_VAL));
+
+    ON_CALL(mockAuxBmsData, getChargeTripDueToHighCellVoltage())
+    .WillByDefault(Return(CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_VAL));
+    ON_CALL(mockAuxBmsData, getChargeTripDueToHighTemperatureAndCurrent())
+    .WillByDefault(Return(CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_VAL));
+    ON_CALL(mockAuxBmsData, getChargeTripDueToPackCurrent())
+    .WillByDefault(Return(CHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL));
+    ON_CALL(mockAuxBmsData, getDischargeTripDueToLowCellVoltage())
+    .WillByDefault(Return(DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_VAL));
+    ON_CALL(mockAuxBmsData, getDischargeTripDueToHighTemeratureAndCurrent())
+    .WillByDefault(Return(DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_VAL));
+    ON_CALL(mockAuxBmsData, getDischargeTripDueToPackCurrent())
+    .WillByDefault(Return(DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL));
+    ON_CALL(mockAuxBmsData, getProtectionTrip())
+    .WillByDefault(Return(PROTECTION_TRIP_VAL));
 
     QJsonObject ACTUAL_JSON =
         jsonMessageBuilder.buildAuxBmsMessage(mockAuxBmsData);
