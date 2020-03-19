@@ -179,6 +179,13 @@ namespace JsonFormat
     const QString ALLOW_CHARGE = "AllowCharge";
     const QString CONTACTOR_ERROR = "ContactorError";
     const QString HIGH_VOLTAGE_ENABLE = "HighVoltageEnable";
+    const QString CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE = "ChargeTripDueToHighCellVoltage";
+    const QString CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT ="ChargeTripDueToHighTemperatureAndCurrent";
+    const QString CHARGE_TRIP_DUE_TO_PACK_CURRENT = "ChargeTripDueToPackCurrent";
+    const QString DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE = "DischargeTripDueToLowCellVoltage";
+    const QString DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT = "DischargeTripDueToHighTemeratureAndCurrent";
+    const QString DISCHARGE_TRIP_DUE_TO_PACK_CURRENT = "DischargeTripDueToPackCurrent";
+    const QString PROTECTION_TRIP = "ProtectionTrip";
 
     /* Ccs */
     const QString CCS = "Ccs";

@@ -13,6 +13,7 @@ namespace
     const int ALLOW_CHARGE_OFFSET = 5;
     const int CONTACTOR_ERROR_OFFSET = 6;
     const int HIGH_VOLTAGE_ENABLE_OFFSET = 7;
+    const int AUX_TRIP_OFFSET = 16;
 }
 
 AuxBmsMessage::AuxBmsMessage(const QByteArray& messageData)
@@ -53,6 +54,12 @@ bool AuxBmsMessage::highVoltageEnable() const
 {
     return static_cast<bool>(messageData_.at(HIGH_VOLTAGE_ENABLE_OFFSET));
 }
+
+unsigned char AuxBmsMessage::auxTrip() const
+{
+    return getUnsignedChar(messageData_, AUX_TRIP_OFFSET);
+}
+
 QString AuxBmsMessage::toString() const
 {
     QString messageString;

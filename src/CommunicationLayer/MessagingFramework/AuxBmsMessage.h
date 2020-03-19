@@ -15,6 +15,7 @@ public:
     bool allowCharge() const;
     bool contactorError() const;
     bool highVoltageEnable() const;
+    unsigned char auxTrip() const;
 
     QString toString() const;
 
