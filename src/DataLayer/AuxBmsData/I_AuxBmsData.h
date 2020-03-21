@@ -28,6 +28,15 @@ public:
     virtual bool getHighVoltageEnableState() const = 0;
     virtual bool getAllowDischarge() const = 0;
 
+    virtual bool getOrionCANReceivedRecently() const = 0;
+    virtual bool getChargeContactorError() const = 0;
+    virtual bool getDischargeContactorError() const = 0;
+    virtual bool getCommonContactorError() const = 0;
+    virtual bool getDischargeShouldTrip() const = 0;
+    virtual bool getChargeShouldTrip() const = 0;
+    virtual bool getChargeOpenButShouldBeClosed() const = 0;
+    virtual bool getDischargeOpenButShouldBeClosed() const = 0;
+
     virtual bool getChargeTripDueToHighCellVoltage() const = 0;
     virtual bool getChargeTripDueToHighTemperatureAndCurrent() const = 0;
     virtual bool getChargeTripDueToPackCurrent() const = 0;
@@ -45,5 +54,6 @@ public:
     virtual void setHighVoltageEnableState(const bool&) = 0;
     virtual void setAllowDischarge(const bool&) = 0;
 
+    virtual void setAuxContactor(const unsigned char auxContactor) = 0;
     virtual void setAuxTrip(const unsigned char auxTrip) = 0;
 };

@@ -1090,6 +1090,14 @@ TEST(JsonMessageBuilderTest, auxBms)
             \"AllowCharge\": true, \
             \"HighVoltageEnableState\": true, \
             \"AllowDischarge\": true, \
+            \"OrionCANReceivedRecently\": true, \
+            \"ChargeContactorError\": false, \
+            \"DischargeContactorError\": true, \
+            \"CommonContactorError\": false, \
+            \"DischargeShouldTrip\": true, \
+            \"ChargeShouldTrip\": false, \
+            \"ChargeOpenButShouldBeClosed\": true, \
+            \"DischargeOpenButShouldBeClosed\": false, \
             \"ChargeTripDueToHighCellVoltage\": true, \
             \"ChargeTripDueToHighTemperatureAndCurrent\": false, \
             \"ChargeTripDueToPackCurrent\": true, \
@@ -1113,6 +1121,15 @@ TEST(JsonMessageBuilderTest, auxBms)
     const bool HIGH_VOLTAGE_ENABLE_STATE_VAL = true;
     const bool ALLOW_DISCHARGE_VAL = true;
 
+    const bool ORION_CAN_RECEIVED_RECENTLY_VAL = true;
+    const bool CHARGE_CONTACTOR_ERROR_VAL = false;
+    const bool DISCHARGE_CONTACTOR_ERROR_VAL = true;
+    const bool COMMON_CONTACTOR_ERROR_VAL = false;
+    const bool DISCHARGE_SHOULD_TRIP_VAL = true;
+    const bool CHARGE_SHOULD_TRIP_VAL = false;
+    const bool CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_VAL = true;
+    const bool DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_VAL = false;
+
     const bool CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_VAL = true;
     const bool CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_VAL = false;
     const bool CHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL = true;
@@ -1135,6 +1152,23 @@ TEST(JsonMessageBuilderTest, auxBms)
     .WillByDefault(Return(HIGH_VOLTAGE_ENABLE_STATE_VAL));
     ON_CALL(mockAuxBmsData, getAllowDischarge())
     .WillByDefault(Return(ALLOW_DISCHARGE_VAL));
+
+    ON_CALL(mockAuxBmsData, getOrionCANReceivedRecently())
+    .WillByDefault(Return(ORION_CAN_RECEIVED_RECENTLY_VAL));
+    ON_CALL(mockAuxBmsData, getChargeContactorError())
+    .WillByDefault(Return(CHARGE_CONTACTOR_ERROR_VAL));
+    ON_CALL(mockAuxBmsData, getDischargeContactorError())
+    .WillByDefault(Return(DISCHARGE_CONTACTOR_ERROR_VAL));
+    ON_CALL(mockAuxBmsData, getCommonContactorError())
+    .WillByDefault(Return(COMMON_CONTACTOR_ERROR_VAL));
+    ON_CALL(mockAuxBmsData, getDischargeShouldTrip())
+    .WillByDefault(Return(DISCHARGE_SHOULD_TRIP_VAL));
+    ON_CALL(mockAuxBmsData, getChargeShouldTrip())
+    .WillByDefault(Return(CHARGE_SHOULD_TRIP_VAL));
+    ON_CALL(mockAuxBmsData, getChargeOpenButShouldBeClosed())
+    .WillByDefault(Return(CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_VAL));
+    ON_CALL(mockAuxBmsData, getDischargeOpenButShouldBeClosed())
+    .WillByDefault(Return(DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_VAL));
 
     ON_CALL(mockAuxBmsData, getChargeTripDueToHighCellVoltage())
     .WillByDefault(Return(CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_VAL));

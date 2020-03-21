@@ -2,6 +2,15 @@
 
 namespace
 {
+    const unsigned char ORION_CAN_RECEIVED_RECENTLY_MASK                       = 0x01;
+    const unsigned char CHARGE_CONTACTOR_ERROR_MASK                            = 0x02;
+    const unsigned char DISCHARGE_CONTACTOR_ERROR_MASK                         = 0x04;
+    const unsigned char COMMON_CONTACTOR_ERROR_MASK                            = 0x08;
+    const unsigned char DISCHARGE_SHOULD_TRIP_MASK                             = 0x10;
+    const unsigned char CHARGE_SHOULD_TRIP_MASK                                = 0x20;
+    const unsigned char CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK                  = 0x40;
+    const unsigned char DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK               = 0x80;
+
     const unsigned char CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_MASK              = 0x01;
     const unsigned char CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK   = 0x02;
     const unsigned char CHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK                   = 0x04;
@@ -19,6 +28,8 @@ AuxBmsData::AuxBmsData()
     , allowCharge_(false)
     , highVoltageEnableState_(false)
     , allowDischarge_(false)
+    , auxContactor_(0x0)
+    , auxTrip_(0x0)
 {
 
 }
@@ -63,39 +74,79 @@ bool AuxBmsData::getAllowDischarge() const
     return allowDischarge_;
 }
 
+bool AuxBmsData::getOrionCANReceivedRecently() const
+{
+    return auxMaskedBit(ORION_CAN_RECEIVED_RECENTLY_MASK);
+}
+
+bool AuxBmsData::getChargeContactorError() const
+{
+    return auxMaskedBit(CHARGE_CONTACTOR_ERROR_MASK);
+}
+
+bool AuxBmsData::getDischargeContactorError() const
+{
+    return auxMaskedBit(DISCHARGE_CONTACTOR_ERROR_MASK);
+}
+
+bool AuxBmsData::getCommonContactorError() const
+{
+    return auxMaskedBit(COMMON_CONTACTOR_ERROR_MASK);
+}
+
+bool AuxBmsData::getDischargeShouldTrip() const
+{
+    return auxMaskedBit(DISCHARGE_SHOULD_TRIP_MASK);
+}
+
+bool AuxBmsData::getChargeShouldTrip() const
+{
+    return auxMaskedBit(CHARGE_SHOULD_TRIP_MASK);
+}
+
+bool AuxBmsData::getChargeOpenButShouldBeClosed() const
+{
+    return auxMaskedBit(CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK);
+}
+
+bool AuxBmsData::getDischargeOpenButShouldBeClosed() const
+{
+    return auxMaskedBit(DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK);
+}
+
 bool AuxBmsData::getChargeTripDueToHighCellVoltage() const
 {
-    return auxTripBit(CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_MASK);
+    return auxMaskedBit(CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_MASK);
 }
 
 bool AuxBmsData::getChargeTripDueToHighTemperatureAndCurrent() const
 {
-    return auxTripBit(CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK);
+    return auxMaskedBit(CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK);
 }
 
 bool AuxBmsData::getChargeTripDueToPackCurrent() const
 {
-    return auxTripBit(CHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK);
+    return auxMaskedBit(CHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK);
 }
 
 bool AuxBmsData::getDischargeTripDueToLowCellVoltage() const
 {
-    return auxTripBit(DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_MASK);
+    return auxMaskedBit(DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_MASK);
 }
 
 bool AuxBmsData::getDischargeTripDueToHighTemeratureAndCurrent() const
 {
-    return auxTripBit(DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_MASK);
+    return auxMaskedBit(DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_MASK);
 }
 
 bool AuxBmsData::getDischargeTripDueToPackCurrent() const
 {
-    return auxTripBit(DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK);
+    return auxMaskedBit(DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK);
 }
 
 bool AuxBmsData::getProtectionTrip() const
 {
-    return auxTripBit(PROTECTION_TRIP_MASK);
+    return auxMaskedBit(PROTECTION_TRIP_MASK);
 }
 
 /*AuxBmsData "Sets"*/
@@ -134,12 +185,17 @@ void AuxBmsData::setAllowDischarge(const bool& allowDischarge)
     allowDischarge_ = allowDischarge;
 }
 
+void AuxBmsData::setAuxContactor(const unsigned char auxContactor)
+{
+    auxContactor_ = auxContactor;
+}
+
 void AuxBmsData::setAuxTrip(const unsigned char auxTrip)
 {
     auxTrip_ = auxTrip;
 }
 
-bool AuxBmsData::auxTripBit(const unsigned char mask) const
+bool AuxBmsData::auxMaskedBit(const unsigned char mask) const
 {
     return static_cast<bool>(auxTrip_ & mask);
 }

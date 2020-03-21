@@ -18,6 +18,15 @@ public:
     bool getHighVoltageEnableState() const;
     bool getAllowDischarge() const;
 
+    bool getOrionCANReceivedRecently() const;
+    bool getChargeContactorError() const;
+    bool getDischargeContactorError() const;
+    bool getCommonContactorError() const;
+    bool getDischargeShouldTrip() const;
+    bool getChargeShouldTrip() const;
+    bool getChargeOpenButShouldBeClosed() const;
+    bool getDischargeOpenButShouldBeClosed() const;
+
     bool getChargeTripDueToHighCellVoltage() const;
     bool getChargeTripDueToHighTemperatureAndCurrent() const;
     bool getChargeTripDueToPackCurrent() const;
@@ -35,10 +44,11 @@ public:
     void setHighVoltageEnableState(const bool&);
     void setAllowDischarge(const bool&);
 
+    void setAuxContactor(const unsigned char auxContactor);
     void setAuxTrip(const unsigned char auxTrip);
 
 private:
-    bool auxTripBit(const unsigned char mask) const;
+    bool auxMaskedBit(const unsigned char mask) const;
 
     PrechargeState prechargeState_;
     unsigned char auxVoltage_;
@@ -47,5 +57,6 @@ private:
     bool allowCharge_;
     bool highVoltageEnableState_;
     bool allowDischarge_;
+    unsigned char auxContactor_;
     unsigned char auxTrip_;
 };
