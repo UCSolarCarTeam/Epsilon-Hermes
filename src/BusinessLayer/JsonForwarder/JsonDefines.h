@@ -179,6 +179,14 @@ namespace JsonFormat
     const QString ALLOW_CHARGE = "AllowCharge";
     const QString HIGH_VOLTAGE_ENABLE_STATE = "HighVoltageEnableState";
     const QString ALLOW_DISCHARGE = "AllowDischarge";
+    const QString ORION_CAN_RECEIVED_RECENTLY = "OrionCANReceivedRecently";
+    const QString CHARGE_CONTACTOR_ERROR = "ChargeContactorError";
+    const QString DISCHARGE_CONTACTOR_ERROR = "DischargeContactorError";
+    const QString COMMON_CONTACTOR_ERROR = "CommonContactorError";
+    const QString DISCHARGE_SHOULD_TRIP = "DischargeShouldTrip";
+    const QString CHARGE_SHOULD_TRIP = "ChargeShouldTrip";
+    const QString CHARGE_OPEN_BUT_SHOULD_BE_CLOSED = "ChargeOpenButShouldBeClosed";
+    const QString DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED = "DischargeOpenButShouldBeClosed";
     const QString CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE = "ChargeTripDueToHighCellVoltage";
     const QString CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT = "ChargeTripDueToHighTemperatureAndCurrent";
     const QString CHARGE_TRIP_DUE_TO_PACK_CURRENT = "ChargeTripDueToPackCurrent";

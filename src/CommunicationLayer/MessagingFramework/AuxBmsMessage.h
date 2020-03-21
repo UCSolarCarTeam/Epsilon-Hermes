@@ -15,6 +15,7 @@ public:
     bool allowCharge() const;
     bool highVoltageEnableState() const;
     bool allowDischarge() const;
+    unsigned char auxContactor() const;
     unsigned char auxTrip() const;
 
     QString toString() const;
