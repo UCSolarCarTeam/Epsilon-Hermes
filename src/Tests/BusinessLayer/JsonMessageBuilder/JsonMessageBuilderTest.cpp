@@ -1088,8 +1088,8 @@ TEST(JsonMessageBuilderTest, auxBms)
             \"AuxBmsAlive\": true, \
             \"StrobeBmsLight\": true, \
             \"AllowCharge\": true, \
-            \"ContactorError\": true, \
-            \"HighVoltageEnable\": true, \
+            \"HighVoltageEnableState\": true, \
+            \"AllowDischarge\": true, \
             \"ChargeTripDueToHighCellVoltage\": true, \
             \"ChargeTripDueToHighTemperatureAndCurrent\": false, \
             \"ChargeTripDueToPackCurrent\": true, \
@@ -1110,8 +1110,8 @@ TEST(JsonMessageBuilderTest, auxBms)
     const bool AUX_BMS_ALIVE_VAL = true;
     const bool STROBE_BMS_LIGHT_VAL = true;
     const bool ALLOW_CHARGE_VAL = true;
-    const bool CONTACTOR_ERROR_VAL = true;
-    const bool HIGH_VOLTAGE_ENABLE_VAL = true;
+    const bool HIGH_VOLTAGE_ENABLE_STATE_VAL = true;
+    const bool ALLOW_DISCHARGE_VAL = true;
 
     const bool CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_VAL = true;
     const bool CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_VAL = false;
@@ -1131,10 +1131,10 @@ TEST(JsonMessageBuilderTest, auxBms)
     .WillByDefault(Return(STROBE_BMS_LIGHT_VAL));
     ON_CALL(mockAuxBmsData, getAllowCharge())
     .WillByDefault(Return(ALLOW_CHARGE_VAL));
-    ON_CALL(mockAuxBmsData, getContactorError())
-    .WillByDefault(Return(CONTACTOR_ERROR_VAL));
-    ON_CALL(mockAuxBmsData, getHighVoltageEnable())
-    .WillByDefault(Return(HIGH_VOLTAGE_ENABLE_VAL));
+    ON_CALL(mockAuxBmsData, getHighVoltageEnableState())
+    .WillByDefault(Return(HIGH_VOLTAGE_ENABLE_STATE_VAL));
+    ON_CALL(mockAuxBmsData, getAllowDischarge())
+    .WillByDefault(Return(ALLOW_DISCHARGE_VAL));
 
     ON_CALL(mockAuxBmsData, getChargeTripDueToHighCellVoltage())
     .WillByDefault(Return(CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_VAL));

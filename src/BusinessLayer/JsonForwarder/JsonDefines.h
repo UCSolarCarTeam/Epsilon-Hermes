@@ -177,8 +177,8 @@ namespace JsonFormat
     const QString AUX_BMS_ALIVE = "AuxBmsAlive";
     const QString STROBE_BMS_LIGHT = "StrobeBmsLight";
     const QString ALLOW_CHARGE = "AllowCharge";
-    const QString CONTACTOR_ERROR = "ContactorError";
-    const QString HIGH_VOLTAGE_ENABLE = "HighVoltageEnable";
+    const QString HIGH_VOLTAGE_ENABLE_STATE = "HighVoltageEnableState";
+    const QString ALLOW_DISCHARGE = "AllowDischarge";
     const QString CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE = "ChargeTripDueToHighCellVoltage";
     const QString CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT = "ChargeTripDueToHighTemperatureAndCurrent";
     const QString CHARGE_TRIP_DUE_TO_PACK_CURRENT = "ChargeTripDueToPackCurrent";

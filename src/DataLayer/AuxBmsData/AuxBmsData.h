@@ -15,8 +15,8 @@ public:
     bool getAuxBmsAlive() const;
     bool getStrobeBmsLight() const;
     bool getAllowCharge() const;
-    bool getContactorError() const;
-    bool getHighVoltageEnable() const;
+    bool getHighVoltageEnableState() const;
+    bool getAllowDischarge() const;
 
     bool getChargeTripDueToHighCellVoltage() const;
     bool getChargeTripDueToHighTemperatureAndCurrent() const;
@@ -32,8 +32,8 @@ public:
     void setAuxBmsAlive(const bool&);
     void setStrobeBmsLight(const bool&);
     void setAllowCharge(const bool&);
-    void setContactorError(const bool&);
-    void setHighVoltageEnable(const bool&);
+    void setHighVoltageEnableState(const bool&);
+    void setAllowDischarge(const bool&);
 
     void setAuxTrip(const unsigned char auxTrip);
 
@@ -45,7 +45,7 @@ private:
     bool auxBmsAlive_;
     bool strobeBmsLight_;
     bool allowCharge_;
-    bool contactorError_;
-    bool highVoltageEnable_;
+    bool highVoltageEnableState_;
+    bool allowDischarge_;
     unsigned char auxTrip_;
 };

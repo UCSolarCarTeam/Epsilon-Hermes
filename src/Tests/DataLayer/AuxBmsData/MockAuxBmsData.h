@@ -12,8 +12,8 @@ public:
     MOCK_CONST_METHOD0(getAuxBmsAlive, bool());
     MOCK_CONST_METHOD0(getStrobeBmsLight, bool());
     MOCK_CONST_METHOD0(getAllowCharge, bool());
-    MOCK_CONST_METHOD0(getContactorError, bool());
-    MOCK_CONST_METHOD0(getHighVoltageEnable, bool());
+    MOCK_CONST_METHOD0(getHighVoltageEnableState, bool());
+    MOCK_CONST_METHOD0(getAllowDischarge, bool());
 
     MOCK_CONST_METHOD0(getChargeTripDueToHighCellVoltage, bool());
     MOCK_CONST_METHOD0(getChargeTripDueToHighTemperatureAndCurrent, bool());
@@ -29,8 +29,8 @@ public:
     MOCK_METHOD1(setAuxBmsAlive, void(const bool&));
     MOCK_METHOD1(setStrobeBmsLight, void(const bool&));
     MOCK_METHOD1(setAllowCharge, void(const bool&));
-    MOCK_METHOD1(setContactorError, void(const bool&));
-    MOCK_METHOD1(setHighVoltageEnable, void(const bool&));
+    MOCK_METHOD1(setHighVoltageEnableState, void(const bool&));
+    MOCK_METHOD1(setAllowDischarge, void(const bool&));
 
     MOCK_METHOD1(setAuxTrip, void(const unsigned char));
 };

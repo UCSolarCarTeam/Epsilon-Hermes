@@ -17,8 +17,8 @@ AuxBmsData::AuxBmsData()
     , auxBmsAlive_(false)
     , strobeBmsLight_(false)
     , allowCharge_(false)
-    , contactorError_(false)
-    , highVoltageEnable_(false)
+    , highVoltageEnableState_(false)
+    , allowDischarge_(false)
 {
 
 }
@@ -53,14 +53,14 @@ bool AuxBmsData::getAllowCharge() const
     return allowCharge_;
 }
 
-bool AuxBmsData::getContactorError() const
+bool AuxBmsData::getHighVoltageEnableState() const
 {
-    return contactorError_;
+    return highVoltageEnableState_;
 }
 
-bool AuxBmsData::getHighVoltageEnable() const
+bool AuxBmsData::getAllowDischarge() const
 {
-    return highVoltageEnable_;
+    return allowDischarge_;
 }
 
 bool AuxBmsData::getChargeTripDueToHighCellVoltage() const
@@ -124,14 +124,14 @@ void AuxBmsData::setAllowCharge(const bool& allowCharge)
     allowCharge_ = allowCharge;
 }
 
-void AuxBmsData::setContactorError(const bool& contactorError)
+void AuxBmsData::setHighVoltageEnableState(const bool& highVoltageEnableState)
 {
-    contactorError_ = contactorError;
+    highVoltageEnableState_ = highVoltageEnableState;
 }
 
-void AuxBmsData::setHighVoltageEnable(const bool& highVoltageEnable)
+void AuxBmsData::setAllowDischarge(const bool& allowDischarge)
 {
-    highVoltageEnable_ = highVoltageEnable;
+    allowDischarge_ = allowDischarge;
 }
 
 void AuxBmsData::setAuxTrip(const unsigned char auxTrip)

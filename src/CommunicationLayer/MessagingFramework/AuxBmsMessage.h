@@ -13,8 +13,8 @@ public:
     bool auxBmsAlive() const;
     bool strobeBmsLight() const;
     bool allowCharge() const;
-    bool contactorError() const;
-    bool highVoltageEnable() const;
+    bool highVoltageEnableState() const;
+    bool allowDischarge() const;
     unsigned char auxTrip() const;
 
     QString toString() const;

@@ -14,7 +14,7 @@ void AuxBmsPopulator::populateData(const AuxBmsMessage message)
     auxBmsData_.setAuxBmsAlive(message.auxBmsAlive());
     auxBmsData_.setStrobeBmsLight(message.strobeBmsLight());
     auxBmsData_.setAllowCharge(message.allowCharge());
-    auxBmsData_.setContactorError(message.contactorError());
-    auxBmsData_.setHighVoltageEnable(message.highVoltageEnable());
+    auxBmsData_.setHighVoltageEnableState(message.highVoltageEnableState());
+    auxBmsData_.setAllowDischarge(message.allowDischarge());
     auxBmsData_.setAuxTrip(message.auxTrip());
 }

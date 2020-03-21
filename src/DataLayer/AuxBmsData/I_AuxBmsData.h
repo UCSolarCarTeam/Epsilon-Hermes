@@ -25,8 +25,8 @@ public:
     virtual bool getAuxBmsAlive() const = 0;
     virtual bool getStrobeBmsLight() const = 0;
     virtual bool getAllowCharge() const = 0;
-    virtual bool getContactorError() const = 0;
-    virtual bool getHighVoltageEnable() const = 0;
+    virtual bool getHighVoltageEnableState() const = 0;
+    virtual bool getAllowDischarge() const = 0;
 
     virtual bool getChargeTripDueToHighCellVoltage() const = 0;
     virtual bool getChargeTripDueToHighTemperatureAndCurrent() const = 0;
@@ -42,8 +42,8 @@ public:
     virtual void setAuxBmsAlive(const bool&) = 0;
     virtual void setStrobeBmsLight(const bool&) = 0;
     virtual void setAllowCharge(const bool&) = 0;
-    virtual void setContactorError(const bool&) = 0;
-    virtual void setHighVoltageEnable(const bool&) = 0;
+    virtual void setHighVoltageEnableState(const bool&) = 0;
+    virtual void setAllowDischarge(const bool&) = 0;
 
     virtual void setAuxTrip(const unsigned char auxTrip) = 0;
 };
