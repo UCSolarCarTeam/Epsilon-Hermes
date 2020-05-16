@@ -160,3 +160,11 @@ Run `qmake` and then `make check` in the `Epsilon-Hermes/src/` directory to run 
 Both gmock and the gtest folders located in `googletest/googlemock/include/` and `googletest/googletest/include/` need to be placed in the `/usr/local/include` system directory.
 
 If you feel there are any issues with the instructions in this README please contact one of the members of the team or open an issue on github against Hermes.
+
+== Architecture
+
+=== DataFlow
+image:ArchitectureDiagrams/DataFlow.png[alt="DataFlow.png"]
+
+=== Class Diagram
+image:ArchitectureDiagrams/ClassDiagram.png[alt="ClassDiagram.png"]
