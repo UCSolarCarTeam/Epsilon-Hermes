@@ -23,7 +23,7 @@ baudrate=115200
 
 === Output Serial Port
 
-To have Hermes forward it's input serial port to another one (eg. forward CSS serial data to an XBee), use the `OutputSerialPort` section.
+To have Hermes forward its input serial port to another one (eg. forward CSS serial data to an XBee), use the `OutputSerialPort` section.
 
 ```
 [OutputSerialPort]
