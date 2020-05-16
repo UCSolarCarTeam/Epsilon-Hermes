@@ -48,7 +48,7 @@ public:
     void setAuxTrip(const unsigned char auxTrip);
 
 private:
-    bool auxMaskedBit(const unsigned char mask) const;
+    bool auxMaskedBit(const unsigned char mask, unsigned char bits) const;
 
     PrechargeState prechargeState_;
     unsigned char auxVoltage_;
