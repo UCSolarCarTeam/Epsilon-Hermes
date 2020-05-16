@@ -3,7 +3,7 @@
 namespace
 {
 // Message lengths do not include metadata
-    const int AUX_BMS_DATA_LENGTH = 23;
+    const int AUX_BMS_DATA_LENGTH = 17;
     const int BATTERY_DATA_LENGTH = 48;
     const int BATTERY_FAULTS_DATA_LENGTH = 6;
     const int DRIVER_CONTROLS_DATA_LENGTH = 9;
