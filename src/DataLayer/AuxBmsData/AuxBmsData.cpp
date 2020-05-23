@@ -15,7 +15,7 @@ namespace
     const unsigned char CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK   = 0x02;
     const unsigned char CHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK                   = 0x04;
     const unsigned char DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_MASK            = 0x08;
-    const unsigned char DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_MASK = 0x10;
+    const unsigned char DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK = 0x10;
     const unsigned char DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_MASK                = 0x20;
     const unsigned char PROTECTION_TRIP_MASK                                   = 0x40;
 }
@@ -134,9 +134,9 @@ bool AuxBmsData::getDischargeTripDueToLowCellVoltage() const
     return auxMaskedBit(DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_MASK, auxTrip_);
 }
 
-bool AuxBmsData::getDischargeTripDueToHighTemeratureAndCurrent() const
+bool AuxBmsData::getDischargeTripDueToHighTemperatureAndCurrent() const
 {
-    return auxMaskedBit(DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_MASK, auxTrip_);
+    return auxMaskedBit(DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK, auxTrip_);
 }
 
 bool AuxBmsData::getDischargeTripDueToPackCurrent() const

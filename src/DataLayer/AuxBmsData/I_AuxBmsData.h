@@ -41,7 +41,7 @@ public:
     virtual bool getChargeTripDueToHighTemperatureAndCurrent() const = 0;
     virtual bool getChargeTripDueToPackCurrent() const = 0;
     virtual bool getDischargeTripDueToLowCellVoltage() const = 0;
-    virtual bool getDischargeTripDueToHighTemeratureAndCurrent() const = 0;
+    virtual bool getDischargeTripDueToHighTemperatureAndCurrent() const = 0;
     virtual bool getDischargeTripDueToPackCurrent() const = 0;
     virtual bool getProtectionTrip() const = 0;
 

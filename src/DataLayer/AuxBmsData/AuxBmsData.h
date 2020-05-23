@@ -31,7 +31,7 @@ public:
     bool getChargeTripDueToHighTemperatureAndCurrent() const;
     bool getChargeTripDueToPackCurrent() const;
     bool getDischargeTripDueToLowCellVoltage() const;
-    bool getDischargeTripDueToHighTemeratureAndCurrent() const;
+    bool getDischargeTripDueToHighTemperatureAndCurrent() const;
     bool getDischargeTripDueToPackCurrent() const;
     bool getProtectionTrip() const;
 

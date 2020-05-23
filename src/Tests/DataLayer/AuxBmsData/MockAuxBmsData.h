@@ -28,7 +28,7 @@ public:
     MOCK_CONST_METHOD0(getChargeTripDueToHighTemperatureAndCurrent, bool());
     MOCK_CONST_METHOD0(getChargeTripDueToPackCurrent, bool());
     MOCK_CONST_METHOD0(getDischargeTripDueToLowCellVoltage, bool());
-    MOCK_CONST_METHOD0(getDischargeTripDueToHighTemeratureAndCurrent, bool());
+    MOCK_CONST_METHOD0(getDischargeTripDueToHighTemperatureAndCurrent, bool());
     MOCK_CONST_METHOD0(getDischargeTripDueToPackCurrent, bool());
     MOCK_CONST_METHOD0(getProtectionTrip, bool());
 

@@ -69,7 +69,7 @@ QJsonObject JsonMessageBuilder::buildAuxBmsMessage(const I_AuxBmsData& data)
     auxBmsJson[JsonFormat::CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT] = data.getChargeTripDueToHighTemperatureAndCurrent();
     auxBmsJson[JsonFormat::CHARGE_TRIP_DUE_TO_PACK_CURRENT] = data.getChargeTripDueToPackCurrent();
     auxBmsJson[JsonFormat::DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE] = data.getDischargeTripDueToLowCellVoltage();
-    auxBmsJson[JsonFormat::DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT] = data.getDischargeTripDueToHighTemeratureAndCurrent();
+    auxBmsJson[JsonFormat::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT] = data.getDischargeTripDueToHighTemperatureAndCurrent();
     auxBmsJson[JsonFormat::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT] = data.getDischargeTripDueToPackCurrent();
     auxBmsJson[JsonFormat::PROTECTION_TRIP] = data.getProtectionTrip();
     return auxBmsJson;

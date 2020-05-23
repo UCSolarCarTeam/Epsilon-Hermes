@@ -1102,7 +1102,7 @@ TEST(JsonMessageBuilderTest, auxBms)
             \"ChargeTripDueToHighTemperatureAndCurrent\": false, \
             \"ChargeTripDueToPackCurrent\": true, \
             \"DischargeTripDueToLowCellVoltage\": false, \
-            \"DischargeTripDueToHighTemeratureAndCurrent\": true, \
+            \"DischargeTripDueToHighTemperatureAndCurrent\": true, \
             \"DischargeTripDueToPackCurrent\": false, \
             \"ProtectionTrip\": false \
         }";
@@ -1134,7 +1134,7 @@ TEST(JsonMessageBuilderTest, auxBms)
     const bool CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_VAL = false;
     const bool CHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL = true;
     const bool DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_VAL = false;
-    const bool DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_VAL = true;
+    const bool DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_VAL = true;
     const bool DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL = false;
     const bool PROTECTION_TRIP_VAL = false;
 
@@ -1178,8 +1178,8 @@ TEST(JsonMessageBuilderTest, auxBms)
     .WillByDefault(Return(CHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL));
     ON_CALL(mockAuxBmsData, getDischargeTripDueToLowCellVoltage())
     .WillByDefault(Return(DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE_VAL));
-    ON_CALL(mockAuxBmsData, getDischargeTripDueToHighTemeratureAndCurrent())
-    .WillByDefault(Return(DISCHARGE_TRIP_DUE_TO_HIGH_TEMERATURE_AND_CURRENT_VAL));
+    ON_CALL(mockAuxBmsData, getDischargeTripDueToHighTemperatureAndCurrent())
+    .WillByDefault(Return(DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_VAL));
     ON_CALL(mockAuxBmsData, getDischargeTripDueToPackCurrent())
     .WillByDefault(Return(DISCHARGE_TRIP_DUE_TO_PACK_CURRENT_VAL));
     ON_CALL(mockAuxBmsData, getProtectionTrip())
