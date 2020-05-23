@@ -14,7 +14,7 @@ namespace
     const int HIGH_VOLTAGE_ENABLE_STATE_OFFSET = 6;
     const int ALLOW_DISCHARGE_OFFSET = 7;
     const int AUX_CONTACTOR_OFFSET = 8;
-    const int AUX_TRIP_OFFSET = 16;
+    const int AUX_TRIP_OFFSET = 9;
 }
 
 AuxBmsMessage::AuxBmsMessage(const QByteArray& messageData)
