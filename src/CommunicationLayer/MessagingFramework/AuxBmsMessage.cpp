@@ -13,8 +13,9 @@ namespace
     const int ALLOW_CHARGE_OFFSET = 5;
     const int HIGH_VOLTAGE_ENABLE_STATE_OFFSET = 6;
     const int ALLOW_DISCHARGE_OFFSET = 7;
-    const int AUX_CONTACTOR_OFFSET = 8;
-    const int AUX_TRIP_OFFSET = 9;
+    const int ORION_CAN_RECEIVED_RECENTLY = 8;
+    const int AUX_CONTACTOR_OFFSET = 9;
+    const int AUX_TRIP_OFFSET = 10;
 }
 
 AuxBmsMessage::AuxBmsMessage(const QByteArray& messageData)
@@ -54,6 +55,11 @@ bool AuxBmsMessage::highVoltageEnableState() const
 bool AuxBmsMessage::allowDischarge() const
 {
     return static_cast<bool>(messageData_.at(ALLOW_DISCHARGE_OFFSET));
+}
+
+bool AuxBmsMessage::orionCanReceivedRecently() const
+{
+    return static_cast<bool>(messageData_.at(ORION_CAN_RECEIVED_RECENTLY));
 }
 
 unsigned char AuxBmsMessage::auxContactor() const

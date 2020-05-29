@@ -27,8 +27,8 @@ public:
     virtual bool getAllowCharge() const = 0;
     virtual bool getHighVoltageEnableState() const = 0;
     virtual bool getAllowDischarge() const = 0;
+    virtual bool getOrionCanReceivedRecently() const = 0;
 
-    virtual bool getOrionCANReceivedRecently() const = 0;
     virtual bool getChargeContactorError() const = 0;
     virtual bool getDischargeContactorError() const = 0;
     virtual bool getCommonContactorError() const = 0;
@@ -53,6 +53,7 @@ public:
     virtual void setAllowCharge(const bool&) = 0;
     virtual void setHighVoltageEnableState(const bool&) = 0;
     virtual void setAllowDischarge(const bool&) = 0;
+    virtual void setOrionCanReceivedRecently(const bool&) = 0;
 
     virtual void setAuxContactor(const unsigned char auxContactor) = 0;
     virtual void setAuxTrip(const unsigned char auxTrip) = 0;

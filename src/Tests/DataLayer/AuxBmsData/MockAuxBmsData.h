@@ -14,8 +14,8 @@ public:
     MOCK_CONST_METHOD0(getAllowCharge, bool());
     MOCK_CONST_METHOD0(getHighVoltageEnableState, bool());
     MOCK_CONST_METHOD0(getAllowDischarge, bool());
+    MOCK_CONST_METHOD0(getOrionCanReceivedRecently, bool());
 
-    MOCK_CONST_METHOD0(getOrionCANReceivedRecently, bool());
     MOCK_CONST_METHOD0(getChargeContactorError, bool());
     MOCK_CONST_METHOD0(getDischargeContactorError, bool());
     MOCK_CONST_METHOD0(getCommonContactorError, bool());
@@ -40,6 +40,7 @@ public:
     MOCK_METHOD1(setAllowCharge, void(const bool&));
     MOCK_METHOD1(setHighVoltageEnableState, void(const bool&));
     MOCK_METHOD1(setAllowDischarge, void(const bool&));
+    MOCK_METHOD1(setOrionCanReceivedRecently, void(const bool&));
 
     MOCK_METHOD1(setAuxContactor, void(const unsigned char));
     MOCK_METHOD1(setAuxTrip, void(const unsigned char));

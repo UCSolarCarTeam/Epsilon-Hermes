@@ -1152,9 +1152,9 @@ TEST(JsonMessageBuilderTest, auxBms)
     .WillByDefault(Return(HIGH_VOLTAGE_ENABLE_STATE_VAL));
     ON_CALL(mockAuxBmsData, getAllowDischarge())
     .WillByDefault(Return(ALLOW_DISCHARGE_VAL));
-
-    ON_CALL(mockAuxBmsData, getOrionCANReceivedRecently())
+    ON_CALL(mockAuxBmsData, getOrionCanReceivedRecently())
     .WillByDefault(Return(ORION_CAN_RECEIVED_RECENTLY_VAL));
+
     ON_CALL(mockAuxBmsData, getChargeContactorError())
     .WillByDefault(Return(CHARGE_CONTACTOR_ERROR_VAL));
     ON_CALL(mockAuxBmsData, getDischargeContactorError())

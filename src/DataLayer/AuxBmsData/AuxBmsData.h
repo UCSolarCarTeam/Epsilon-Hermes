@@ -17,8 +17,8 @@ public:
     bool getAllowCharge() const;
     bool getHighVoltageEnableState() const;
     bool getAllowDischarge() const;
+    bool getOrionCanReceivedRecently() const;
 
-    bool getOrionCANReceivedRecently() const;
     bool getChargeContactorError() const;
     bool getDischargeContactorError() const;
     bool getCommonContactorError() const;
@@ -43,6 +43,7 @@ public:
     void setAllowCharge(const bool&);
     void setHighVoltageEnableState(const bool&);
     void setAllowDischarge(const bool&);
+    void setOrionCanReceivedRecently(const bool&);
 
     void setAuxContactor(const unsigned char auxContactor);
     void setAuxTrip(const unsigned char auxTrip);
@@ -57,6 +58,7 @@ private:
     bool allowCharge_;
     bool highVoltageEnableState_;
     bool allowDischarge_;
+    bool orionCanReceivedRecently_;
     unsigned char auxContactor_;
     unsigned char auxTrip_;
 };

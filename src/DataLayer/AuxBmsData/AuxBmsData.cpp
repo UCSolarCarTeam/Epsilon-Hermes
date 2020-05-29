@@ -2,14 +2,13 @@
 
 namespace
 {
-    const unsigned char ORION_CAN_RECEIVED_RECENTLY_MASK                       = 0x01;
-    const unsigned char CHARGE_CONTACTOR_ERROR_MASK                            = 0x02;
-    const unsigned char DISCHARGE_CONTACTOR_ERROR_MASK                         = 0x04;
-    const unsigned char COMMON_CONTACTOR_ERROR_MASK                            = 0x08;
-    const unsigned char DISCHARGE_SHOULD_TRIP_MASK                             = 0x10;
-    const unsigned char CHARGE_SHOULD_TRIP_MASK                                = 0x20;
-    const unsigned char CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK                  = 0x40;
-    const unsigned char DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK               = 0x80;
+    const unsigned char CHARGE_CONTACTOR_ERROR_MASK                            = 0x01;
+    const unsigned char DISCHARGE_CONTACTOR_ERROR_MASK                         = 0x02;
+    const unsigned char COMMON_CONTACTOR_ERROR_MASK                            = 0x04;
+    const unsigned char DISCHARGE_SHOULD_TRIP_MASK                             = 0x08;
+    const unsigned char CHARGE_SHOULD_TRIP_MASK                                = 0x10;
+    const unsigned char CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK                  = 0x20;
+    const unsigned char DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK               = 0x40;
 
     const unsigned char CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE_MASK              = 0x01;
     const unsigned char CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT_MASK   = 0x02;
@@ -26,6 +25,7 @@ AuxBmsData::AuxBmsData()
     , auxBmsAlive_(false)
     , strobeBmsLight_(false)
     , allowCharge_(false)
+    , orionCanReceivedRecently_(false)
     , highVoltageEnableState_(false)
     , allowDischarge_(false)
     , auxContactor_(0x0)
@@ -74,9 +74,9 @@ bool AuxBmsData::getAllowDischarge() const
     return allowDischarge_;
 }
 
-bool AuxBmsData::getOrionCANReceivedRecently() const
+bool AuxBmsData::getOrionCanReceivedRecently() const
 {
-    return auxMaskedBit(ORION_CAN_RECEIVED_RECENTLY_MASK, auxContactor_);
+    return orionCanReceivedRecently_;
 }
 
 bool AuxBmsData::getChargeContactorError() const
@@ -183,6 +183,11 @@ void AuxBmsData::setHighVoltageEnableState(const bool& highVoltageEnableState)
 void AuxBmsData::setAllowDischarge(const bool& allowDischarge)
 {
     allowDischarge_ = allowDischarge;
+}
+
+void AuxBmsData::setOrionCanReceivedRecently(const bool& orionCanReceivedRecently)
+{
+    orionCanReceivedRecently_ = orionCanReceivedRecently;
 }
 
 void AuxBmsData::setAuxContactor(const unsigned char auxContactor)

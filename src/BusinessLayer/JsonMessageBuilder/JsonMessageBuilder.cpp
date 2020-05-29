@@ -57,7 +57,7 @@ QJsonObject JsonMessageBuilder::buildAuxBmsMessage(const I_AuxBmsData& data)
     auxBmsJson[JsonFormat::ALLOW_CHARGE] = data.getAllowCharge();
     auxBmsJson[JsonFormat::HIGH_VOLTAGE_ENABLE_STATE] = data.getHighVoltageEnableState();
     auxBmsJson[JsonFormat::ALLOW_DISCHARGE] = data.getAllowDischarge();
-    auxBmsJson[JsonFormat::ORION_CAN_RECEIVED_RECENTLY] = data.getOrionCANReceivedRecently();
+    auxBmsJson[JsonFormat::ORION_CAN_RECEIVED_RECENTLY] = data.getOrionCanReceivedRecently();
     auxBmsJson[JsonFormat::CHARGE_CONTACTOR_ERROR] = data.getChargeContactorError();
     auxBmsJson[JsonFormat::DISCHARGE_CONTACTOR_ERROR] = data.getDischargeContactorError();
     auxBmsJson[JsonFormat::COMMON_CONTACTOR_ERROR] = data.getCommonContactorError();

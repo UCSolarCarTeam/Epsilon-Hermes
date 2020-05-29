@@ -15,6 +15,7 @@ public:
     bool allowCharge() const;
     bool highVoltageEnableState() const;
     bool allowDischarge() const;
+    bool orionCanReceivedRecently() const;
     unsigned char auxContactor() const;
     unsigned char auxTrip() const;
 
