@@ -5,6 +5,38 @@ It rebroadcasts a data feed from the Central Communication System and also logs 
 
 The name is inspired by the Olympian god Hermes who is portrayed as a messenger and scribe of the gods.
 
+== Connecting to Serial Ports
+
+=== Serial Port
+In the config.ini file, there is a  `SerialPort` section:
+```
+[SerialPort]
+portName=/dev/pts/7
+baudrate=115200
+```
+* `portName` - path to the serial port (either CCS, XBee, or a virtual serial port)
+** On debian based distros, physical devices can be found in `/dev/`, e.g `/dev/ttyUSB0`. Plug/Unplug the device as needed to find it
+* `baudrate` - the rate the information is sent
+** Ensure that both ends of communication (CCS/Test Tool/XBee) have the same baudrate.
+*** CCS & Test Tool is set in source code
+*** XBees are configured using XCTU
+
+=== Output Serial Port
+
+To have Hermes forward its input serial port to another one (eg. forward CSS serial data to an XBee), use the `OutputSerialPort` section.
+
+```
+[OutputSerialPort]
+outputSerialEnabled=true
+portName=/dev/ttyUSB0
+baudrate=115200
+```
+
+* `outputSerialEnabled` - Set true to enable forwarding
+* `portName` - Set to the path of the output port
+* `baudrate` - Baudrate of the information, will likely match the baudrate of the input port
+
+
 == Building in Qt
 
 When running this project in QTCreator, Shadow Build needs to be disabled in `Build` -> `General Settings`, or else a `[copyfiles] Error 1` error may appear.
