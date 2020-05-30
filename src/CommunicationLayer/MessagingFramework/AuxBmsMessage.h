@@ -16,7 +16,7 @@ public:
     bool highVoltageEnableState() const;
     bool allowDischarge() const;
     bool orionCanReceivedRecently() const;
-    unsigned char auxContactor() const;
+    unsigned char auxContactorDebug() const;
     unsigned char auxTrip() const;
 
     QString toString() const;

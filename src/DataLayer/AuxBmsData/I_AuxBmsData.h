@@ -55,6 +55,6 @@ public:
     virtual void setAllowDischarge(const bool&) = 0;
     virtual void setOrionCanReceivedRecently(const bool&) = 0;
 
-    virtual void setAuxContactor(const unsigned char auxContactor) = 0;
+    virtual void setAuxContactorDebug(const unsigned char auxContactorDebug) = 0;
     virtual void setAuxTrip(const unsigned char auxTrip) = 0;
 };

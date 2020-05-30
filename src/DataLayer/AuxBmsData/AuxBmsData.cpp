@@ -25,10 +25,10 @@ AuxBmsData::AuxBmsData()
     , auxBmsAlive_(false)
     , strobeBmsLight_(false)
     , allowCharge_(false)
-    , orionCanReceivedRecently_(false)
     , highVoltageEnableState_(false)
     , allowDischarge_(false)
-    , auxContactor_(0x0)
+    , orionCanReceivedRecently_(false)
+    , auxContactorDebug_(0x0)
     , auxTrip_(0x0)
 {
 
@@ -81,37 +81,37 @@ bool AuxBmsData::getOrionCanReceivedRecently() const
 
 bool AuxBmsData::getChargeContactorError() const
 {
-    return auxMaskedBit(CHARGE_CONTACTOR_ERROR_MASK, auxContactor_);
+    return auxMaskedBit(CHARGE_CONTACTOR_ERROR_MASK, auxContactorDebug_);
 }
 
 bool AuxBmsData::getDischargeContactorError() const
 {
-    return auxMaskedBit(DISCHARGE_CONTACTOR_ERROR_MASK, auxContactor_);
+    return auxMaskedBit(DISCHARGE_CONTACTOR_ERROR_MASK, auxContactorDebug_);
 }
 
 bool AuxBmsData::getCommonContactorError() const
 {
-    return auxMaskedBit(COMMON_CONTACTOR_ERROR_MASK, auxContactor_);
+    return auxMaskedBit(COMMON_CONTACTOR_ERROR_MASK, auxContactorDebug_);
 }
 
 bool AuxBmsData::getDischargeShouldTrip() const
 {
-    return auxMaskedBit(DISCHARGE_SHOULD_TRIP_MASK, auxContactor_);
+    return auxMaskedBit(DISCHARGE_SHOULD_TRIP_MASK, auxContactorDebug_);
 }
 
 bool AuxBmsData::getChargeShouldTrip() const
 {
-    return auxMaskedBit(CHARGE_SHOULD_TRIP_MASK, auxContactor_);
+    return auxMaskedBit(CHARGE_SHOULD_TRIP_MASK, auxContactorDebug_);
 }
 
 bool AuxBmsData::getChargeOpenButShouldBeClosed() const
 {
-    return auxMaskedBit(CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK, auxContactor_);
+    return auxMaskedBit(CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK, auxContactorDebug_);
 }
 
 bool AuxBmsData::getDischargeOpenButShouldBeClosed() const
 {
-    return auxMaskedBit(DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK, auxContactor_);
+    return auxMaskedBit(DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK, auxContactorDebug_);
 }
 
 bool AuxBmsData::getChargeTripDueToHighCellVoltage() const
@@ -190,9 +190,9 @@ void AuxBmsData::setOrionCanReceivedRecently(const bool& orionCanReceivedRecentl
     orionCanReceivedRecently_ = orionCanReceivedRecently;
 }
 
-void AuxBmsData::setAuxContactor(const unsigned char auxContactor)
+void AuxBmsData::setAuxContactorDebug(const unsigned char auxContactorDebug)
 {
-    auxContactor_ = auxContactor;
+    auxContactorDebug_ = auxContactorDebug;
 }
 
 void AuxBmsData::setAuxTrip(const unsigned char auxTrip)
