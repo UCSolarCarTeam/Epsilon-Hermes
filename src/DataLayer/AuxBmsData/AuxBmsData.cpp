@@ -28,7 +28,7 @@ AuxBmsData::AuxBmsData()
     , highVoltageEnableState_(false)
     , allowDischarge_(false)
     , orionCanReceivedRecently_(false)
-    , auxContactorDebug_(0x0)
+    , auxContactorDebugInfo_(0x0)
     , auxTrip_(0x0)
 {
 
@@ -81,37 +81,37 @@ bool AuxBmsData::getOrionCanReceivedRecently() const
 
 bool AuxBmsData::getChargeContactorError() const
 {
-    return auxMaskedBit(CHARGE_CONTACTOR_ERROR_MASK, auxContactorDebug_);
+    return auxMaskedBit(CHARGE_CONTACTOR_ERROR_MASK, auxContactorDebugInfo_);
 }
 
 bool AuxBmsData::getDischargeContactorError() const
 {
-    return auxMaskedBit(DISCHARGE_CONTACTOR_ERROR_MASK, auxContactorDebug_);
+    return auxMaskedBit(DISCHARGE_CONTACTOR_ERROR_MASK, auxContactorDebugInfo_);
 }
 
 bool AuxBmsData::getCommonContactorError() const
 {
-    return auxMaskedBit(COMMON_CONTACTOR_ERROR_MASK, auxContactorDebug_);
+    return auxMaskedBit(COMMON_CONTACTOR_ERROR_MASK, auxContactorDebugInfo_);
 }
 
 bool AuxBmsData::getDischargeShouldTrip() const
 {
-    return auxMaskedBit(DISCHARGE_SHOULD_TRIP_MASK, auxContactorDebug_);
+    return auxMaskedBit(DISCHARGE_SHOULD_TRIP_MASK, auxContactorDebugInfo_);
 }
 
 bool AuxBmsData::getChargeShouldTrip() const
 {
-    return auxMaskedBit(CHARGE_SHOULD_TRIP_MASK, auxContactorDebug_);
+    return auxMaskedBit(CHARGE_SHOULD_TRIP_MASK, auxContactorDebugInfo_);
 }
 
 bool AuxBmsData::getChargeOpenButShouldBeClosed() const
 {
-    return auxMaskedBit(CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK, auxContactorDebug_);
+    return auxMaskedBit(CHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK, auxContactorDebugInfo_);
 }
 
 bool AuxBmsData::getDischargeOpenButShouldBeClosed() const
 {
-    return auxMaskedBit(DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK, auxContactorDebug_);
+    return auxMaskedBit(DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED_MASK, auxContactorDebugInfo_);
 }
 
 bool AuxBmsData::getChargeTripDueToHighCellVoltage() const
@@ -190,9 +190,9 @@ void AuxBmsData::setOrionCanReceivedRecently(const bool& orionCanReceivedRecentl
     orionCanReceivedRecently_ = orionCanReceivedRecently;
 }
 
-void AuxBmsData::setAuxContactorDebug(const unsigned char auxContactorDebug)
+void AuxBmsData::setAuxContactorDebugInfo(const unsigned char auxContactorDebugInfo)
 {
-    auxContactorDebug_ = auxContactorDebug;
+    auxContactorDebugInfo_ = auxContactorDebugInfo;
 }
 
 void AuxBmsData::setAuxTrip(const unsigned char auxTrip)

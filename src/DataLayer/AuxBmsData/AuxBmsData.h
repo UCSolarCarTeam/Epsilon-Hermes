@@ -45,7 +45,7 @@ public:
     void setAllowDischarge(const bool&);
     void setOrionCanReceivedRecently(const bool&);
 
-    void setAuxContactorDebug(const unsigned char auxContactorDebug);
+    void setAuxContactorDebugInfo(const unsigned char auxContactorDebugInfo);
     void setAuxTrip(const unsigned char auxTrip);
 
 private:
@@ -59,6 +59,6 @@ private:
     bool highVoltageEnableState_;
     bool allowDischarge_;
     bool orionCanReceivedRecently_;
-    unsigned char auxContactorDebug_;
+    unsigned char auxContactorDebugInfo_;
     unsigned char auxTrip_;
 };

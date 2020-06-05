@@ -17,6 +17,6 @@ void AuxBmsPopulator::populateData(const AuxBmsMessage message)
     auxBmsData_.setHighVoltageEnableState(message.highVoltageEnableState());
     auxBmsData_.setAllowDischarge(message.allowDischarge());
     auxBmsData_.setOrionCanReceivedRecently(message.orionCanReceivedRecently());
-    auxBmsData_.setAuxContactorDebug(message.auxContactorDebug());
+    auxBmsData_.setAuxContactorDebugInfo(message.auxContactorDebugInfo());
     auxBmsData_.setAuxTrip(message.auxTrip());
 }

@@ -14,7 +14,7 @@ namespace
     const int HIGH_VOLTAGE_ENABLE_STATE_OFFSET = 6;
     const int ALLOW_DISCHARGE_OFFSET = 7;
     const int ORION_CAN_RECEIVED_RECENTLY = 8;
-    const int AUX_CONTACTOR_DEBUG_OFFSET = 9;
+    const int AUX_CONTACTOR_DEBUG_INFO_OFFSET = 9;
     const int AUX_TRIP_OFFSET = 10;
 }
 
@@ -62,9 +62,9 @@ bool AuxBmsMessage::orionCanReceivedRecently() const
     return static_cast<bool>(messageData_.at(ORION_CAN_RECEIVED_RECENTLY));
 }
 
-unsigned char AuxBmsMessage::auxContactorDebug() const
+unsigned char AuxBmsMessage::auxContactorDebugInfo() const
 {
-    return getUnsignedChar(messageData_, AUX_CONTACTOR_DEBUG_OFFSET);
+    return getUnsignedChar(messageData_, AUX_CONTACTOR_DEBUG_INFO_OFFSET);
 }
 
 unsigned char AuxBmsMessage::auxTrip() const
@@ -83,7 +83,7 @@ QString AuxBmsMessage::toString() const
     messageString += QString::number(allowCharge()) + ", ";
     messageString += QString::number(highVoltageEnableState()) + ", ";
     messageString += QString::number(allowDischarge()) + ", ";
-    messageString += QString::number(auxContactorDebug()) + ", ";
+    messageString += QString::number(auxContactorDebugInfo()) + ", ";
     messageString += QString::number(auxTrip()) + ", ";
     return messageString;
 }

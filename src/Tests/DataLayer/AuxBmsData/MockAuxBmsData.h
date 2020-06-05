@@ -42,6 +42,6 @@ public:
     MOCK_METHOD1(setAllowDischarge, void(const bool&));
     MOCK_METHOD1(setOrionCanReceivedRecently, void(const bool&));
 
-    MOCK_METHOD1(setAuxContactorDebug, void(const unsigned char));
+    MOCK_METHOD1(setAuxContactorDebugInfo, void(const unsigned char));
     MOCK_METHOD1(setAuxTrip, void(const unsigned char));
 };
