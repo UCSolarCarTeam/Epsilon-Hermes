@@ -6,8 +6,7 @@ LIBS += \
     -L../BusinessLayer/.lib -lBusinessLayer \
     -L../CommunicationLayer/.lib -lCommunicationLayer \
     -L../DataLayer/.lib -lDataLayer \
-    -L../InfrastructureLayer/.lib -lInfrastructureLayer \
-    -L../thirdparty/googletest/.lib -lgmock
+    -L../InfrastructureLayer/.lib -lInfrastructureLayer
 
 ! include( ../common.pri ) {
     error( "Couldn't find the common.pri file!" )
