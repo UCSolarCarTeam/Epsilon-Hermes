@@ -36,90 +36,64 @@ baudrate=115200
 * `portName` - Set to the path of the output port
 * `baudrate` - Baudrate of the information, will likely match the baudrate of the input port
 
+== Project Setup
 
-== Building in Qt
+In this repo, there are dependencies needed before you will be able to build or run anything.
 
-When running this project in QTCreator, Shadow Build needs to be disabled in `Build` -> `General Settings`, or else a `[copyfiles] Error 1` error may appear.
+If you don't already have conan and RabbitMQ installed from another project, run the setup script:
 
-== RabbitMQ Broker
+`./EpsilonHermesSetup.sh`
 
-=== Getting setup
+This will install the https://www.rabbitmq.com/[RabbitMQ] server and the https://conan.io/[Conan] package manager. See the links for more information.
 
-1) Installing rabbitMQ
+== Building
 
-In order to send messages, you must have a rabbitMQ server to send the messages to.
-This can be installed https://www.rabbitmq.com/[here] or via the package manager using:
+=== QT Creator
 
-`echo 'deb http://www.rabbitmq.com/debian/ testing main' | sudo tee /etc/apt/sources.list.d/rabbitmq.list && sudo apt-get update && sudo apt-get install rabbitmq-server`
+When first setting up your project with QT creator, you must first add a custom step to allow Conan to install dependencies.
 
-2) Installing dependencies for SimpleAmqpClient
+1. Navigate to `Projects -> Build`
+2. In `Build Steps`, select `Add Build Step -> Custom Process Step`
+3. Add the conan command to the step
+   - Command: `$HOME/.local/bin/conan`
+   - Arguments: `install ../conanfile.txt --build=missing -s compiler.libcxx="libstdc++11"`
+   - Working Directory: `%{buildDir}`
+4. Move the step to occur as the first step in the process
 
-First, boost and cmake is required to generate the libraries below, you may install these using your appropriate package manager (such as apt-get on debian).
-The following are the commands that could be used on a debian based distro to install these dependencies if you do not already have them.
+=== Command Line
 
-`sudo apt-get install cmake libboost-dev openssl libssl-dev libblkid-dev e2fslibs-dev libboost-all-dev libaudit-dev`
+1. Create a new directory for your build & navigate into it:
 
-SimpleAmqpClient requires rabbitmq-c, which can be downloaded and compiled from the repository https://github.com/alanxz/rabbitmq-c[alanxz/rabbitmq-c].
-Start by cloning the repository from github, this is recommended to be done in the `/tmp/` directory:
+    `mkdir build && cd build`
 
-`git clone https://github.com/alanxz/rabbitmq-c`
+2. If you were running this on the same terminal you ran the setup script on, reload your environment:
+   `source ~/.profile`
 
-Create a build directory and enter it with the following command:
+3. Install conan dependencies:
 
-`mkdir rabbitmq-c/build && cd rabbitmq-c/build`
+    `conan install ../conanfile.txt --build=missing -s compiler.libcxx="libstdc++11"`
 
-You can now use cmake to generate the library required by SimpleAmqpClient:
+4. Call qmake, passing in the directory with the path to the root `EpsilonDashboard.pro` to generate the makefile:
 
-`cmake ..`
+    `qmake ../src/EpsilonDashboard.pro`
 
-`cmake --build .`
+- Later, if you need to re-run qmake on the project due to a new UI file or a change to a .pro, call:
 
-There should now be a `.a` file in your current directory, as well as multiple `\*.so*` files. Use the following commands to make them visible to SimpleAmqpClient:
+    `make qmake_all`
 
-`sudo cp librabbitmq/*.a /usr/local/lib/`
+5. Build:
 
-`sudo cp librabbitmq/\*.so* /usr/local/lib/`
+    `make -j4`
 
-3) Generating SimpleAmqpClient library
+== Misc Notes
 
-SimpleAmqpClient can be downloaded and compiled from https://github.com/alanxz/SimpleAmqpClient[alanxz/SimpleAmqpClient].
-Run the following command, recommended in the `/tmp/` directory:
+=== Useful RabbitMQ Server Commands
 
-`git clone https://github.com/alanxz/SimpleAmqpClient`
-
-And once again generate a build directory and navigate to it:
-
-`mkdir SimpleAmqpClient/build && cd SimpleAmqpClient/build`
-
-Run the following commands to generate the libraries needed by Hermes:
-
-`cmake -DRabbitmqc_INCLUDE_DIR=../../rabbitmq-c/librabbitmq -DRabbitmqc_LIBRARY=../../rabbitmq-c/build/librabbitmq ..`
-
-`make`
-
-4) Including the generated SimpleAmqpClient library
-
-The generated library needs to be included in the list of local libraries. To do this, first generate a directory for it:
-
-`sudo mkdir /usr/local/include/SimpleAmqpClient`
-
-Then, run the following commands to copy the library over:
-
-`sudo cp \*.so* /usr/local/lib/`
-
-`sudo cp ../src/SimpleAmqpClient/*.h /usr/local/include/SimpleAmqpClient`
-
-5) Configure linker
-
-After adding the library files to `/usr/local/lib`, configure the dynamic linker with SimpleAmqpClient with:
-
-`sudo ldconfig`
-
-=== Start Server
+==== Start Server
 
 `sudo rabbitmq-server` can be used to start the server on Linux.
 
-=== Refresh Server
+==== Refresh Server
 
 On linux to refresh the contents of the server perform the following commands:
 
@@ -129,37 +103,11 @@ On linux to refresh the contents of the server perform the following commands:
 
 `rabbitmqctl start_app`
 
-== Testing
+=== Testing
 
-Testing Hermes is done with googletest and googlemock, the gmock and gtest header files need to be in your include path `/usr/local/include` or `/usr/include`.
+Testing Hermes is done with googletest and googlemock.
 
-You must compile the library that has the definitions yourself.
-Meaning you need a `libgmock.a` archive file in the test directory in order to compile the tests.
-
-To create a `libgmock.a` file in a Linux system follow these instructions in an arbitrary directory.
-
-1. Get the googletest and googlemock source code:
-    `git clone https://github.com/google/googletest.git`
-
-2. Go into the cloned directory:
-    `cd googletest/`
-
-3. Compile googletest:
-    `+++g++ -std=c++11 -isystem googletest/include/ -Igoogletest -isystem googlemock/include/ -Igooglemock -pthread -c googletest/src/gtest-all.cc+++`
-
-4. Compile googlemock:
-    `+++g++ -std=c++11 -isystem googletest/include/ -Igoogletest -isystem googlemock/include/ -Igooglemock -pthread -c googlemock/src/gmock-all.cc+++`
-
-5. Collect both the resulting .o files into an archive file:
-    `ar -rv libgmock.a gtest-all.o gmock-all.o`
-
-Congratulations! You now have a `libgmock.a` archive file.
-Create a `Epsilon-Hermes/build/.lib` directory using `mkdir -p Epsilon-Hermes/build/.lib` in the root directory and then place the `libgmock.a` archive file in the `Epsilon-Hermes/build/.lib/` directory and you should be good to go.
-Run `qmake` and then `make check` in the `Epsilon-Hermes/src/` directory to run the tests.
-
-Both gmock and the gtest folders located in `googletest/googlemock/include/` and `googletest/googletest/include/` need to be placed in the `/usr/local/include` system directory.
-
-If you feel there are any issues with the instructions in this README please contact one of the members of the team or open an issue on github against Hermes.
+Run `make check` in your build directory to run the tests.
 
 == Architecture
 

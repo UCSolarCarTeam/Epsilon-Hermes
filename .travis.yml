@@ -14,11 +14,11 @@ before_install:
         libboost-chrono-dev
         libboost-system-dev
         libgl1-mesa-dev
+        python3-pip
+        python3-setuptools
     - PATH="/opt/qt512/bin:$PATH"
     - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     - qt512-env.sh
-    - mkdir -p build/.lib/
-
 
 install:
     # install astyle
@@ -26,49 +26,12 @@ install:
     - tar -zxvf astyle
     - (cd astyle/build/gcc && make release && sudo make install)
     - rm astyle -rf
-    # install googletest and googlemock
-    - git clone https://github.com/google/googletest.git
-    - sudo cp -r googletest/googletest/include/gtest /usr/local/include
-    - sudo cp -r googletest/googlemock/include/gmock /usr/local/include
-    - (cd googletest &&
-       g++ -std=c++11
-           -isystem googletest/include/
-           -Igoogletest
-           -isystem googlemock/include/
-           -Igooglemock
-           -pthread
-           -c
-           googlemock/src/gmock-all.cc &&
-       g++ -std=c++11
-           -isystem googletest/include/
-           -Igoogletest
-           -isystem googlemock/include/
-           -Igooglemock
-           -pthread
-           -c
-           googletest/src/gtest-all.cc &&
-       ar -rv libgmock.a gtest-all.o gmock-all.o)
-    - cp googletest/libgmock.a build/.lib/
-    # install rabbitmq-c
-    - git clone https://github.com/alanxz/rabbitmq-c
-    - sudo cp rabbitmq-c/librabbitmq/*.h /usr/local/include/
-    - mkdir rabbitmq-c/build
-    - (cd rabbitmq-c/build && cmake .. && cmake --build .)
-    - sudo cp rabbitmq-c/build/librabbitmq/librabbitmq.a /usr/local/lib/
-    - sudo cp rabbitmq-c/build/librabbitmq/*.so* /usr/local/lib/
-    # install SimpleAmqpClient
-    - git clone https://github.com/alanxz/SimpleAmqpClient
-    - mkdir SimpleAmqpClient/build
-    - (cd SimpleAmqpClient/build &&
-       cmake -DRabbitmqc_INCLUDE_DIR=../../rabbitmq-c/librabbitmq
-             -DRabbitmqc_LIBRARY=../../rabbitmq-c/build/librabbitmq
-             .. &&
-       make)
-    - sudo mkdir /usr/local/include/SimpleAmqpClient
-    - sudo cp SimpleAmqpClient/build/*.so* /usr/local/lib/
-    - sudo cp SimpleAmqpClient/src/SimpleAmqpClient/*.h /usr/local/include/SimpleAmqpClient/
+    # install conan
+    - pip3 install conan
+    - conan remote add conan-dbely https://api.bintray.com/conan/dbely/conan
 
 script:
+    - cd $TRAVIS_BUILD_DIR
     - "! (astyle *.h *.cpp -r
                            --dry-run
                            --options=astylerc
@@ -76,8 +39,9 @@ script:
                            --exclude=SimpleAmqpClient
                            --exclude=rabbitmq-c |
           grep Formatted)"
-    - cd src
-    - qmake
+    - mkdir build && cd build
+    - conan install .. --build=missing
+    - qmake ../src/
     - make
     - make check
 
