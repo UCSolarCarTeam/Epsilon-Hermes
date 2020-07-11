@@ -2,7 +2,12 @@ TEMPLATE = app
 QT += testlib
 CONFIG += testcase
 
-LIBS += -L../../build/.lib -lBusinessLayer -lCommunicationLayer -lDataLayer -lInfrastructureLayer -lgmock
+LIBS += \
+    -L../BusinessLayer/.lib -lBusinessLayer \
+    -L../CommunicationLayer/.lib -lCommunicationLayer \
+    -L../DataLayer/.lib -lDataLayer \
+    -L../InfrastructureLayer/.lib -lInfrastructureLayer \
+    -L../thirdparty/googletest/.lib -lgmock
 
 ! include( ../common.pri ) {
     error( "Couldn't find the common.pri file!" )
@@ -54,9 +59,9 @@ count(TRAVIS_DEFINED, 0) {
     QMAKE_CXXFLAGS +=
 }
 
-DESTDIR = ../../build/tests/
+DESTDIR = ../bin/tests/
 
-copyfiles.commands = cp testconfig.ini $${DESTDIR}
+copyfiles.commands += cp ../../src/Tests/testconfig.ini $${DESTDIR}
 
 QMAKE_EXTRA_TARGETS += copyfiles
 POST_TARGETDEPS += copyfiles

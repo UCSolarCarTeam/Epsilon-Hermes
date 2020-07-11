@@ -1,16 +1,23 @@
 TEMPLATE = app
 
-LIBS += -L../../build/.lib -lBusinessLayer -lCommunicationLayer -lDataLayer -lInfrastructureLayer
+LIBS += \
+    -L../BusinessLayer/.lib -lBusinessLayer \
+    -L../CommunicationLayer/.lib -lCommunicationLayer \
+    -L../DataLayer/.lib -lDataLayer \
+    -L../InfrastructureLayer/.lib -lInfrastructureLayer
 
 ! include( ../common.pri ) {
     error( "Couldn't find the common.pri file!" )
 }
 
 PRE_TARGETDEPS += \
-   ../../build/.lib/*
+    ../BusinessLayer/.lib/* \
+    ../CommunicationLayer/.lib/* \
+    ../DataLayer/.lib/* \
+    ../InfrastructureLayer/.lib/*
 
 TARGET = SchulichEpsilonHermes
-DESTDIR = ../../build
+DESTDIR = ../bin
 
 HEADERS += \
    SchulichEpsilonHermes.h

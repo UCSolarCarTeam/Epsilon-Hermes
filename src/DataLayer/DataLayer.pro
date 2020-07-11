@@ -5,7 +5,7 @@ CONFIG += staticlib
     error( "Couldn't find the common.pri file!" )
 }
 
-DESTDIR = ../../build/.lib
+DESTDIR = .lib
 
 HEADERS += \
    DataContainer.h \

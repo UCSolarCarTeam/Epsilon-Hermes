@@ -4,9 +4,9 @@ CONFIG += c++11 debug console static
 
 INCLUDEPATH += ..
 
-OBJECTS_DIR = ../../build/.obj
-MOC_DIR = ../../build/.moc
-RCC_DIR = ../../build/.rcc
-UI_DIR = ../../build/.ui
+OBJECTS_DIR = .obj
+MOC_DIR = .moc
+RCC_DIR = .rcc
+UI_DIR = .ui
 
 LIBS += -lSimpleAmqpClient -lrabbitmq
