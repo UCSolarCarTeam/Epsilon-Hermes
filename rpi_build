@@ -1,0 +1,32 @@
+target_host=arm-linux-gnueabihf
+# Set to path of gcc-linaro-arm-linux-gnueabihf-raspbian-x64 folder
+standalone_toolchain=~/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/
+sysroot_path=~/raspi/sysroot/
+cc_compiler=gcc
+cxx_compiler=g++
+
+[settings]
+os=Linux
+arch=armv8
+compiler=gcc
+compiler.version=4.8
+compiler.libcxx=libstdc++11
+build_type=Release
+
+[env]
+CONAN_CMAKE_FIND_ROOT_PATH=$sysroot_path
+PATH=[$standalone_toolchain/bin]
+CHOST=$target_host
+AR=$target_host-ar
+AS=$target_host-as
+ASFLAGS=-mfpu=neon-vfpv4
+RANLIB=$target_host-ranlib
+LD=$target_host-ld
+STRIP=$target_host-strip
+CC=$target_host-$cc_compiler
+CXX=$target_host-$cxx_compiler
+CXXFLAGS=-I"$standalone_toolchain/$target_host/lib/include"
+
+# OpenSSL builds under the wrong configuration under armv8
+# Forces OpenSSL to build as a generic linux device for Pi
+CONAN_OPENSSL_CONFIGURATION=linux-generic64 
